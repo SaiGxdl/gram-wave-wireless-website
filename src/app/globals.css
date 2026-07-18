@@ -1,26 +1,163 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030712;
+  --foreground: #f8fafc;
+  --card: #090d1a;
+  --card-border: #131c35;
+  --accent: #2563eb;
+  --accent-light: #60a5fa;
+  --accent-glow: rgba(37, 99, 235, 0.1);
+  --muted: #cbd5e1; /* Brightened text for better readability */
+  --muted-dark: #64748b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-muted: var(--muted);
+  --color-muted-dark: var(--muted-dark);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Glassmorphism with standardized borders */
+.glass {
+  background: rgba(9, 13, 26, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(37, 99, 235, 0.08);
+}
+
+/* Extremely subtle grid backgrounds */
+.tech-grid {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.012) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.012) 1px, transparent 1px);
+}
+
+.dot-grid {
+  background-size: 30px 30px;
+  background-image: radial-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+}
+
+/* Standardization of layout boundaries */
+.section-spacing {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.max-content-width {
+  max-width: 80rem; /* 1280px - standardized width */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 768px) {
+  .max-content-width {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* Premium Card hover glow & raise */
+.hover-card {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--card-border);
+  background-color: var(--card);
+}
+.hover-card:hover {
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 12px 35px -10px rgba(37, 99, 235, 0.12);
+  transform: translateY(-3px);
+}
+
+/* Standards for buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 11rem;
+  height: 2.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background-color: var(--accent);
+  color: #ffffff;
+  border-radius: 6px;
+  transition: all 0.25s ease-in-out;
+  border: 1px solid transparent;
+}
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 11rem;
+  height: 2.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background-color: rgba(9, 13, 26, 0.6);
+  color: #ffffff;
+  border-radius: 6px;
+  transition: all 0.25s ease-in-out;
+  border: 1px solid var(--card-border);
+}
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-color: rgba(37, 99, 235, 0.3);
+  transform: translateY(-1px);
 }
