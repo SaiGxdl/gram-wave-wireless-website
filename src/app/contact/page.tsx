@@ -289,8 +289,19 @@ export default function ContactPage() {
                     exit={{ opacity: 0 }}
                     className="mt-4 p-4 border border-green-500/20 bg-green-500/5 rounded text-xs text-center text-green-400 space-y-2"
                   >
-                    <p className="font-semibold">Thank you. Your inquiry has been sent to our inbox.</p>
-                    <p className="text-[11px] text-muted">We aim to respond within 3–5 business days.</p>
+                    <p className="font-semibold">Thank you. Your inquiry has been submitted!</p>
+                    <p className="text-[11px] text-muted leading-relaxed">
+                      We aim to respond within 3–5 business days. You can also send a copy directly from your mail client below.
+                    </p>
+                    <div className="pt-2">
+                      <a
+                        href="mailto:founder@gramwavewireless.in?subject=GramWave%20Wireless%20Inquiry"
+                        className="inline-flex items-center space-x-2 text-[11px] font-bold text-accent-light bg-accent/10 border border-accent/20 px-3 py-1.5 rounded hover:bg-accent/20 transition-colors"
+                      >
+                        <Mail className="h-3.5 w-3.5" />
+                        <span>Send Backup Copy via Email Client</span>
+                      </a>
+                    </div>
                   </motion.div>
                 )}
 
@@ -303,7 +314,7 @@ export default function ContactPage() {
                   >
                     <p className="font-semibold">{submitErrorMessage}</p>
                     <a
-                      href={`mailto:founder@gramwavewireless.in?subject=${encodeURIComponent(formData.inquiryType || "Inquiry")}&body=${encodeURIComponent(formData.message)}`}
+                      href="mailto:founder@gramwavewireless.in?subject=GramWave%20Wireless%20Inquiry"
                       className="inline-block mt-1 text-accent-light underline font-bold"
                     >
                       Click here to email founder@gramwavewireless.in directly

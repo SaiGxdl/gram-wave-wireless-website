@@ -153,12 +153,12 @@ export default function Home() {
                 <Cpu className="h-5.5 w-5.5" />
               </div>
               <h3 className="text-sm font-bold text-white tracking-wide uppercase font-mono">Our Approach</h3>
-              <p className="text-xs text-muted leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 We are developing active impedance matching systems and receiver array configurations directly at the device side to boost aperture reception coefficients.
               </p>
             </div>
-            <Link href="/adaptive-wave" className="text-[10px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
-              <span>Adaptive wave</span>
+            <Link href="/adaptive-wave" className="text-[11px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
+              <span>Explore Adaptive Wave</span>
               <ArrowRight className="h-3 w-3" />
             </Link>
           </motion.div>
@@ -170,12 +170,12 @@ export default function Home() {
                 <Compass className="h-5.5 w-5.5" />
               </div>
               <h3 className="text-sm font-bold text-white tracking-wide uppercase font-mono">Our Technical Approach</h3>
-              <p className="text-xs text-muted leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 Using sub-wavelength arrays, phase-coherent aggregation circuits, and constructive matching logic optimized for modern smartphone form factors.
               </p>
             </div>
-            <Link href="/research-ip" className="text-[10px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
-              <span>Research directions</span>
+            <Link href="/research-ip" className="text-[11px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
+              <span>Research Directions</span>
               <ArrowRight className="h-3 w-3" />
             </Link>
           </motion.div>
@@ -187,12 +187,12 @@ export default function Home() {
                 <BookOpen className="h-5.5 w-5.5" />
               </div>
               <h3 className="text-sm font-bold text-white tracking-wide uppercase font-mono">Current Research Status</h3>
-              <p className="text-xs text-muted leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 Currently running simulation audits in electromagnetic and analytical tools to measure gains, impedance deviations, and baseline signal noise parameters.
               </p>
             </div>
-            <Link href="/roadmap" className="text-[10px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
-              <span>View roadmap</span>
+            <Link href="/roadmap" className="text-[11px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
+              <span>View Technical Roadmap</span>
               <ArrowRight className="h-3 w-3" />
             </Link>
           </motion.div>
@@ -204,12 +204,12 @@ export default function Home() {
                 <FileCheck className="h-5.5 w-5.5" />
               </div>
               <h3 className="text-sm font-bold text-white tracking-wide uppercase font-mono">Intellectual Property</h3>
-              <p className="text-xs text-muted leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 A provisional patent application has been filed in India, securing key proprietary design rules for active handset matching algorithms.
               </p>
             </div>
-            <Link href="/research-ip" className="text-[10px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
-              <span>Patent status</span>
+            <Link href="/research-ip" className="text-[11px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
+              <span>Patent Filing Status</span>
               <ArrowRight className="h-3 w-3" />
             </Link>
           </motion.div>
@@ -221,12 +221,12 @@ export default function Home() {
                 <ShieldCheck className="h-5.5 w-5.5" />
               </div>
               <h3 className="text-sm font-bold text-white tracking-wide uppercase font-mono">Long-term Vision</h3>
-              <p className="text-xs text-muted leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 Broadening designs to support future 6G connectivity, satellite integrations, and autonomous electromagnetic beam steering setups.
               </p>
             </div>
-            <Link href="/research-ip" className="text-[10px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
-              <span>Principles & ethics</span>
+            <Link href="/research-ip" className="text-[11px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
+              <span>Principles & Ethics</span>
               <ArrowRight className="h-3 w-3" />
             </Link>
           </motion.div>
@@ -307,7 +307,7 @@ export default function Home() {
           <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white uppercase font-mono text-center">
             Collaborate With Us
           </h2>
-          <p className="text-xs text-muted max-w-md mx-auto leading-relaxed text-center">
+          <p className="text-sm md:text-base text-muted max-w-md mx-auto leading-relaxed text-center">
             We actively seek research and ecosystem alignments with organizations committed to wireless integrity.
           </p>
         </div>
@@ -337,7 +337,7 @@ export default function Home() {
           <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white uppercase font-mono">
             News & Updates
           </h2>
-          <p className="text-xs text-muted">
+          <p className="text-sm text-muted">
             Tracking timeline developments and verified achievements of our startup.
           </p>
         </div>
@@ -348,16 +348,16 @@ export default function Home() {
             <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold block mb-4">
               Completed
             </span>
-            <ul className="space-y-4 text-xs text-muted">
+            <ul className="space-y-4 text-sm text-muted">
               <li className="space-y-1">
                 <span className="font-semibold text-white block">Website Launch</span>
                 <span className="text-[10px] text-muted-dark font-mono block">July 2026</span>
-                <p className="leading-relaxed text-[11px]">First official version of the project portal published.</p>
+                <p className="leading-relaxed text-xs">First official version of the project portal published.</p>
               </li>
               <li className="space-y-1">
                 <span className="font-semibold text-white block">Internship Initiated</span>
                 <span className="text-[10px] text-muted-dark font-mono block">July 2026</span>
-                <p className="leading-relaxed text-[11px]">Opened recruiting process for summer research interns.</p>
+                <p className="leading-relaxed text-xs">Opened recruiting process for summer research interns.</p>
               </li>
             </ul>
           </div>
@@ -367,16 +367,16 @@ export default function Home() {
             <span className="text-[10px] font-mono tracking-widest text-yellow-500 uppercase font-bold block mb-4">
               In Progress
             </span>
-            <ul className="space-y-4 text-xs text-muted">
+            <ul className="space-y-4 text-sm text-muted">
               <li className="space-y-1">
                 <span className="font-semibold text-white block">Architecture Design</span>
                 <span className="text-[10px] text-muted-dark font-mono block">Active</span>
-                <p className="leading-relaxed text-[11px]">Drafting phase feed networks and software interfaces.</p>
+                <p className="leading-relaxed text-xs">Drafting phase feed networks and software interfaces.</p>
               </li>
               <li className="space-y-1">
                 <span className="font-semibold text-white block">Research Validation</span>
                 <span className="text-[10px] text-muted-dark font-mono block">Active</span>
-                <p className="leading-relaxed text-[11px]">Analyzing propagation behaviors under varying topography coefficients.</p>
+                <p className="leading-relaxed text-xs">Analyzing propagation behaviors under varying topography coefficients.</p>
               </li>
             </ul>
           </div>
@@ -386,14 +386,14 @@ export default function Home() {
             <span className="text-[10px] font-mono tracking-widest text-muted-dark uppercase font-bold block mb-4">
               Planned
             </span>
-            <ul className="space-y-4 text-xs text-muted">
+            <ul className="space-y-4 text-sm text-muted">
               <li className="space-y-1">
                 <span className="font-semibold text-white block">Prototype Fabrication</span>
-                <p className="leading-relaxed text-[11px]">Initial PCB designs for anechoic chamber testing.</p>
+                <p className="leading-relaxed text-xs">Initial PCB designs for anechoic chamber testing.</p>
               </li>
               <li className="space-y-1">
                 <span className="font-semibold text-white block">Laboratory Testing</span>
-                <p className="leading-relaxed text-[11px]">Calibrating antenna gain models in chamber environments.</p>
+                <p className="leading-relaxed text-xs">Calibrating antenna gain models in chamber environments.</p>
               </li>
             </ul>
           </div>

@@ -5,7 +5,6 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, email, inquiryType, message } = body;
 
-    // Basic validation
     if (!name || !email || !message) {
       return NextResponse.json(
         { success: false, error: "Please fill out all required fields." },
@@ -13,7 +12,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Email format check
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -22,7 +20,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Construct submission log / payload
     const submission = {
       id: `inq_${Date.now()}`,
       name,
@@ -32,17 +29,56 @@ export async function POST(request: Request) {
       timestamp: new Date().toISOString(),
     };
 
-    // Log the inquiry on the server
     console.log("[GramWave Contact Form Submission]:", submission);
 
-    // Optional webhook or email transport hook (if RESEND_API_KEY or Webhook URL configured)
+    let delivered = false;
+
+    // 1. Resend Email Dispatch (if RESEND_API_KEY is configured in Vercel / .env)
+    if (process.env.RESEND_API_KEY) {
+      try {
+        const resendRes = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: process.env.RESEND_FROM_EMAIL || "GramWave Portal <onboarding@resend.dev>",
+            to: [process.env.CONTACT_EMAIL || "founder@gramwavewireless.in"],
+            subject: `[GramWave Inquiry] ${inquiryType}: ${name}`,
+            html: `
+              <h2>New Inquiry Submitted</h2>
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Type:</strong> ${inquiryType}</p>
+              <p><strong>Message:</strong></p>
+              <blockquote style="background:#f4f4f4;padding:12px;border-left:4px solid #3b82f6;">${message}</blockquote>
+              <p><small>Submitted at ${submission.timestamp}</small></p>
+            `,
+          }),
+        });
+
+        if (resendRes.ok) {
+          delivered = true;
+        } else {
+          console.error("Resend API response:", await resendRes.text());
+        }
+      } catch (err) {
+        console.error("Failed to deliver email via Resend:", err);
+      }
+    }
+
+    // 2. Webhook Forwarding (Zapier / Make / Formspree / Discord / Slack)
     if (process.env.CONTACT_WEBHOOK_URL) {
       try {
-        await fetch(process.env.CONTACT_WEBHOOK_URL, {
+        const webhookRes = await fetch(process.env.CONTACT_WEBHOOK_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(submission),
         });
+        if (webhookRes.ok) {
+          delivered = true;
+        }
       } catch (err) {
         console.error("Failed to forward contact webhook:", err);
       }
@@ -51,7 +87,10 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: true,
-        message: "Inquiry received successfully.",
+        delivered,
+        message: delivered
+          ? "Inquiry sent directly to our inbox."
+          : "Inquiry logged. Note: Add RESEND_API_KEY or CONTACT_WEBHOOK_URL to your environment variables for automated email notifications.",
         submissionId: submission.id,
       },
       { status: 200 }
@@ -59,7 +98,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Error processing contact submission:", error);
     return NextResponse.json(
-      { success: false, error: "Internal server error. Please try emailing directly." },
+      { success: false, error: "Internal server error. Please email directly." },
       { status: 500 }
     );
   }

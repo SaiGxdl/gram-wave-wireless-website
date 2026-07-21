@@ -86,19 +86,22 @@ export default function ResearchIPPage() {
       <RFWaveBackground />
 
       <div className="max-content-width relative z-10 space-y-16">
-        {/* Header & Meta */}
-        <div className="flex flex-col md:flex-row items-center md:items-center justify-between border-b border-card-border/30 pb-6 gap-4 text-center md:text-left">
-          <div className="space-y-2">
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white uppercase font-mono">
-              Research & IP
-            </h1>
-            <p className="text-xs text-muted max-w-xl">
-              Gramwave Wireless&apos;s core research principles, methodologies, and intellectual property details.
-            </p>
-          </div>
-          <div className="flex items-center space-x-2 text-[10px] font-mono text-muted bg-card/75 px-3.5 py-1.5 rounded-lg border border-card-border/40 shrink-0">
-            <Calendar className="h-4 w-4 text-accent-light" />
-            <span>Last Updated: July 2026</span>
+        {/* Header */}
+        <div className="space-y-4 text-center max-w-3xl mx-auto">
+          <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3 py-1 glass rounded-md border border-accent/25">
+            Research & IP
+          </span>
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mt-4 uppercase font-mono">
+            Research & IP
+          </h1>
+          <p className="text-sm md:text-base text-muted leading-relaxed max-w-2xl mx-auto">
+            Gramwave Wireless&apos;s core research principles, methodologies, and intellectual property details.
+          </p>
+          <div className="pt-2 flex justify-center">
+            <div className="inline-flex items-center space-x-2 text-[10px] font-mono text-muted bg-card/75 px-3.5 py-1.5 rounded-lg border border-card-border/40">
+              <Calendar className="h-3.5 w-3.5 text-accent-light" />
+              <span>Last Updated: July 2026</span>
+            </div>
           </div>
         </div>
 
