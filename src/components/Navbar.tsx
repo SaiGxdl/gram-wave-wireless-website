@@ -42,12 +42,14 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? "glass border-b border-card-border/60 py-4.5" : "bg-transparent py-7"
+        scrolled
+          ? "glass border-b border-card-border/60 py-4"
+          : "bg-[#030712]/90 backdrop-blur-md border-b border-card-border/30 py-5"
       }`}
     >
       <div className="max-content-width flex items-center justify-between w-full">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md p-1">
+        <Link href="/" className="flex items-center space-x-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md p-1 shrink-0">
           <div className="relative h-8 w-8 shrink-0 transition-transform duration-300 group-hover:scale-105">
             <Image
               src="/logo-emblem.png"
@@ -57,20 +59,20 @@ export default function Navbar() {
               priority
             />
           </div>
-          <span className="text-sm font-bold tracking-[0.2em] text-white uppercase group-hover:text-accent-light transition-colors">
+          <span className="text-sm font-bold tracking-[0.2em] text-white uppercase group-hover:text-accent-light transition-colors whitespace-nowrap">
             GRAMWAVE
           </span>
         </Link>
 
         {/* Desktop Links */}
-        <nav className="hidden lg:flex items-center space-x-6 lg:space-x-8 xl:space-x-10 pr-1">
+        <nav className="hidden lg:flex items-center gap-6 lg:gap-8 xl:gap-10 pr-1">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-xs font-semibold tracking-wider uppercase transition-all duration-200 hover:text-white relative py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md ${
+                className={`text-xs font-semibold tracking-wider uppercase transition-all duration-200 hover:text-white relative py-1 shrink-0 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md ${
                   isActive ? "text-accent-light" : "text-muted-dark hover:text-muted"
                 }`}
               >

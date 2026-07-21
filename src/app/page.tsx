@@ -64,19 +64,9 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.16 }}
-          className="text-sm md:text-base text-muted max-w-2xl leading-relaxed mb-4"
+          className="text-sm md:text-base text-muted max-w-2xl leading-relaxed mb-10"
         >
           Gramwave Wireless is a deep-tech communication research startup developing next-generation handset-side receiver matching designs to optimize connectivity in weak-signal sectors.
-        </motion.p>
-
-        {/* Plain-Language Summary for Non-RF Specialists */}
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.2 }}
-          className="text-xs md:text-sm text-accent-light/90 max-w-xl leading-relaxed mb-10 font-mono"
-        >
-          Simply put: We build smart internal receiver technology that helps mobile devices maintain strong, stable connections in signal dead-zones — without needing expensive new cell towers.
         </motion.p>
 
         <motion.div
@@ -113,12 +103,15 @@ export default function Home() {
 
       {/* Why Gramwave Wireless Section */}
       <section className="max-content-width section-spacing relative z-10 w-full space-y-16">
-        <div className="text-center space-y-3 max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white uppercase font-mono text-center">
+        <div className="text-center space-y-4 max-w-3xl mx-auto flex flex-col items-center justify-center">
+          <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3 py-1 glass rounded-md border border-accent/25">
+            Core Focus & Rationale
+          </span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white uppercase font-mono text-center">
             Why Gramwave Wireless
           </h2>
-          <p className="text-xs md:text-sm text-muted max-w-xl mx-auto leading-relaxed text-center">
-            Focusing on fundamental physical layout limitations and weak-signal boundaries with rigorous scientific methods.
+          <p className="text-sm md:text-base text-muted max-w-2xl mx-auto leading-relaxed text-center font-normal">
+            Addressing fundamental physical layout limitations and weak-signal boundaries with rigorous scientific methods and active handset matching architectures.
           </p>
         </div>
 
