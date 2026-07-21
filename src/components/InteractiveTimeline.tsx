@@ -177,10 +177,10 @@ export default function InteractiveTimeline() {
 
             {/* Description */}
             <div className="space-y-2">
-              <h4 className="text-xs font-semibold text-muted font-mono tracking-wide">
+              <h4 className="text-xs font-semibold text-accent-light font-mono tracking-wide">
                 {stepDetails.subtitle}
               </h4>
-              <p className="text-xs text-muted leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 {stepDetails.details}
               </p>
             </div>
@@ -192,7 +192,7 @@ export default function InteractiveTimeline() {
               </h4>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {stepDetails.deliverables.map((del, i) => (
-                  <li key={i} className="text-xs text-muted flex items-start space-x-2.5">
+                  <li key={i} className="text-sm text-muted flex items-start space-x-2.5">
                     <span className="text-accent-light font-mono shrink-0">→</span>
                     <span>{del}</span>
                   </li>

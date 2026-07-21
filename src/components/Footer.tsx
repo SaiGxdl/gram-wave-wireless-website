@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Linkedin } from "lucide-react";
 
 export default function Footer() {
@@ -11,8 +12,16 @@ export default function Footer() {
       <div className="max-content-width grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 w-full">
         {/* Branding & Info */}
         <div className="md:col-span-4 space-y-5">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xs font-bold tracking-[0.25em] text-white uppercase">
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="relative h-7 w-7 shrink-0 transition-transform group-hover:scale-105">
+              <Image
+                src="/logo-emblem.png"
+                alt="Gramwave Wireless Emblem"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <span className="text-xs font-bold tracking-[0.2em] text-white uppercase group-hover:text-accent-light transition-colors">
               GRAMWAVE WIRELESS
             </span>
           </Link>
@@ -120,8 +129,7 @@ export default function Footer() {
           <span>© {currentYear} Gramwave Wireless. All Rights Reserved.</span>
         </div>
         <div className="flex space-x-6">
-          <span>Last Updated: July 2026</span>
-          <span>Website Version: 1.0</span>
+          <span>Deep-Tech Research Portal</span>
         </div>
       </div>
     </footer>

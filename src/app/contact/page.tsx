@@ -64,6 +64,8 @@ export default function ContactPage() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
+  const [submitErrorMessage, setSubmitErrorMessage] = useState("");
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -74,12 +76,31 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API Submission
-    setTimeout(() => {
+    setSubmitStatus("idle");
+    setSubmitErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setIsSubmitting(false);
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", inquiryType: "Internship", message: "" });
+      } else {
+        throw new Error(data.error || "Failed to send inquiry.");
+      }
+    } catch (err: any) {
+      console.error("Submission error:", err);
       setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", inquiryType: "Internship", message: "" });
-    }, 1000);
+      setSubmitStatus("error");
+      setSubmitErrorMessage(err.message || "Network error. Please try emailing directly.");
+    }
   };
 
   return (
@@ -266,12 +287,42 @@ export default function ContactPage() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="mt-4 p-4 border border-green-500/20 bg-green-500/5 rounded text-xs text-center text-green-400"
+                    className="mt-4 p-4 border border-green-500/20 bg-green-500/5 rounded text-xs text-center text-green-400 space-y-2"
                   >
-                    Thank you. Your inquiry has been sent to our inbox. We aim to respond within 3–5 business days.
+                    <p className="font-semibold">Thank you. Your inquiry has been sent to our inbox.</p>
+                    <p className="text-[11px] text-muted">We aim to respond within 3–5 business days.</p>
+                  </motion.div>
+                )}
+
+                {submitStatus === "error" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="mt-4 p-4 border border-red-500/20 bg-red-500/5 rounded text-xs text-center text-red-400 space-y-2"
+                  >
+                    <p className="font-semibold">{submitErrorMessage}</p>
+                    <a
+                      href={`mailto:founder@gramwavewireless.in?subject=${encodeURIComponent(formData.inquiryType || "Inquiry")}&body=${encodeURIComponent(formData.message)}`}
+                      className="inline-block mt-1 text-accent-light underline font-bold"
+                    >
+                      Click here to email founder@gramwavewireless.in directly
+                    </a>
                   </motion.div>
                 )}
               </AnimatePresence>
+
+              <div className="mt-6 pt-4 border-t border-card-border/20 text-center">
+                <span className="text-[11px] text-muted">
+                  Prefer direct email?{" "}
+                  <a
+                    href="mailto:founder@gramwavewireless.in"
+                    className="text-accent-light hover:underline font-semibold"
+                  >
+                    founder@gramwavewireless.in
+                  </a>
+                </span>
+              </div>
             </div>
           </div>
         </div>

@@ -64,9 +64,19 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.16 }}
-          className="text-xs md:text-sm text-muted max-w-xl leading-relaxed mb-10"
+          className="text-sm md:text-base text-muted max-w-2xl leading-relaxed mb-4"
         >
           Gramwave Wireless is a deep-tech communication research startup developing next-generation handset-side receiver matching designs to optimize connectivity in weak-signal sectors.
+        </motion.p>
+
+        {/* Plain-Language Summary for Non-RF Specialists */}
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.2 }}
+          className="text-xs md:text-sm text-accent-light/90 max-w-xl leading-relaxed mb-10 font-mono"
+        >
+          Simply put: We build smart internal receiver technology that helps mobile devices maintain strong, stable connections in signal dead-zones — without needing expensive new cell towers.
         </motion.p>
 
         <motion.div
@@ -76,10 +86,10 @@ export default function Home() {
           className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto"
         >
           <Link href="/adaptive-wave" className="btn-primary w-full sm:w-auto">
-            Adaptive Wave
+            Explore Technology
           </Link>
           <Link href="/contact" className="btn-secondary w-full sm:w-auto">
-            Contact Team
+            Contact Research Team
           </Link>
         </motion.div>
       </section>
@@ -95,7 +105,7 @@ export default function Home() {
           <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold block mb-2 text-center">
             Current Status
           </span>
-          <p className="text-xs text-muted leading-relaxed max-w-lg mx-auto text-center">
+          <p className="text-xs md:text-sm text-muted leading-relaxed max-w-lg mx-auto text-center">
             Gramwave Wireless is currently in the <strong>research and technology validation phase</strong>. Prototype fabrication and laboratory testing are planned as future milestones.
           </p>
         </motion.div>
@@ -107,7 +117,7 @@ export default function Home() {
           <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white uppercase font-mono text-center">
             Why Gramwave Wireless
           </h2>
-          <p className="text-xs text-muted max-w-xl mx-auto leading-relaxed text-center">
+          <p className="text-xs md:text-sm text-muted max-w-xl mx-auto leading-relaxed text-center">
             Focusing on fundamental physical layout limitations and weak-signal boundaries with rigorous scientific methods.
           </p>
         </div>
@@ -126,12 +136,12 @@ export default function Home() {
                 <Signal className="h-5.5 w-5.5" />
               </div>
               <h3 className="text-sm font-bold text-white tracking-wide uppercase font-mono">The Problem</h3>
-              <p className="text-xs text-muted leading-relaxed">
+              <p className="text-xs md:text-sm text-muted leading-relaxed">
                 The connectivity gap still exists. Millions in rural communities, mountainous grids, and disaster limits face drop-outs even with tower infrastructure present.
               </p>
             </div>
-            <Link href="/adaptive-wave" className="text-[10px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
-              <span>Read analysis</span>
+            <Link href="/adaptive-wave" className="text-[11px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
+              <span>Read Signal Analysis</span>
               <ArrowRight className="h-3 w-3" />
             </Link>
           </motion.div>
@@ -240,6 +250,53 @@ export default function Home() {
               <span>Our Research Methodology & Principles</span>
               <ArrowRight className="h-3 w-3" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership & Research Team Section */}
+      <section className="max-content-width section-spacing relative z-10 w-full border-t border-card-border/20">
+        <div className="text-center space-y-3 mb-12 max-w-xl mx-auto">
+          <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3 py-1 glass rounded-md border border-accent/25">
+            Team & Leadership
+          </span>
+          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white uppercase font-mono text-center">
+            Led By Engineering Purpose
+          </h2>
+          <p className="text-xs md:text-sm text-muted max-w-md mx-auto leading-relaxed text-center">
+            Combining physical-layer RF research with mathematical rigor to solve fundamental signal propagation limits.
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto glass p-8 md:p-10 rounded-2xl border border-accent/20 relative overflow-hidden">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="h-24 w-24 md:h-28 md:w-28 rounded-2xl bg-gradient-to-tr from-accent/30 to-blue-500/20 border border-accent/40 flex items-center justify-center text-accent-light shrink-0 shadow-lg">
+              <Cpu className="h-12 w-12 text-accent-light" />
+            </div>
+            <div className="space-y-3 text-center md:text-left">
+              <div className="space-y-1">
+                <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold block">
+                  Founding Lead & RF Engineering Researcher
+                </span>
+                <h3 className="text-lg md:text-xl font-bold text-white tracking-wide">
+                  Deep-Tech Research Founder
+                </h3>
+              </div>
+              <p className="text-xs md:text-sm text-muted leading-relaxed">
+                Specializing in handset-side receiver matching, electromagnetics, and sub-wavelength array feeds. Authored Indian provisional patent filings for active matching circuits in low-gain sectors.
+              </p>
+              <div className="pt-2 flex flex-wrap justify-center md:justify-start gap-3">
+                <span className="text-[10px] font-mono bg-white/5 border border-card-border/50 px-2.5 py-1 rounded text-white">
+                  Electromagnetic Simulation
+                </span>
+                <span className="text-[10px] font-mono bg-white/5 border border-card-border/50 px-2.5 py-1 rounded text-white">
+                  Active Impedance Matching
+                </span>
+                <span className="text-[10px] font-mono bg-white/5 border border-card-border/50 px-2.5 py-1 rounded text-white">
+                  Provisional Patent Author
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

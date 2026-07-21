@@ -29,10 +29,10 @@ export default function RoadmapPage() {
             <Compass className="h-6 w-6 animate-spin" style={{ animationDuration: "12s" }} />
           </div>
           <div className="space-y-1 text-center md:text-left">
-            <h3 className="text-xs font-semibold text-white tracking-wide uppercase font-mono">
+            <h3 className="text-sm font-semibold text-white tracking-wide uppercase font-mono">
               Active Focus: Stage 2 (Research & Literature Review)
             </h3>
-            <p className="text-[11px] text-muted leading-relaxed">
+            <p className="text-sm text-muted leading-relaxed">
               We are currently focused on academic searches, modeling electromagnetic constraints, and drafting signal matching schemas. Future validation stages will be entered sequentially as technical conditions are met.
             </p>
           </div>

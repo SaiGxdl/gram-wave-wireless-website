@@ -87,7 +87,7 @@ export default function CareersPage() {
               </h2>
               <div className="glass p-6.5 rounded-xl border border-card-border/30 space-y-4">
                 {gains.map((gain, i) => (
-                  <div key={i} className="flex items-start space-x-3.5 text-xs text-muted">
+                  <div key={i} className="flex items-start space-x-3.5 text-sm text-muted">
                     <span className="text-accent-light font-mono">✓</span>
                     <p className="leading-relaxed">{gain}</p>
                   </div>
@@ -102,7 +102,7 @@ export default function CareersPage() {
               </h2>
               <div className="glass p-6.5 rounded-xl border border-card-border/30 grid grid-cols-1 md:grid-cols-2 gap-4">
                 {workItems.map((item, i) => (
-                  <div key={i} className="flex items-center space-x-2.5 text-xs text-muted">
+                  <div key={i} className="flex items-center space-x-2.5 text-sm text-muted">
                     <span className="text-accent-light font-mono">•</span>
                     <span>{item}</span>
                   </div>
@@ -138,15 +138,15 @@ export default function CareersPage() {
               <h3 className="text-xs font-bold uppercase tracking-widest text-white font-mono">
                 Application Process
               </h3>
-              <p className="text-xs text-muted leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 To apply for any intern or research position, please compile your CV and a concise statement (under 200 words) summarizing your interest and research matches. Send it directly to:
               </p>
               <a
-                href="mailto:founder@gramwavewireless.in"
+                href="mailto:founder@gramwavewireless.in?subject=GramWave%20Wireless%20Research%20Application"
                 className="btn-primary w-full"
               >
                 <Mail className="h-4.5 w-4.5 mr-2" />
-                <span>Contact Email</span>
+                <span>Submit Application via Email</span>
               </a>
             </div>
           </div>
@@ -173,7 +173,7 @@ export default function CareersPage() {
                       {open.type}
                     </span>
                   </div>
-                  <p className="text-xs text-muted leading-relaxed">{open.desc}</p>
+                  <p className="text-sm text-muted leading-relaxed">{open.desc}</p>
                 </div>
                 <span className="text-[10px] font-mono text-muted-dark uppercase tracking-wide">
                   Commitment: {open.duration}

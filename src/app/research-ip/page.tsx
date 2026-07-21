@@ -122,7 +122,7 @@ export default function ResearchIPPage() {
                 <h3 className="text-xs font-bold text-white tracking-wider uppercase font-mono">
                   {area.title}
                 </h3>
-                <p className="text-xs text-muted leading-relaxed">{area.desc}</p>
+                <p className="text-sm text-muted leading-relaxed">{area.desc}</p>
               </div>
             ))}
           </div>
@@ -135,12 +135,12 @@ export default function ResearchIPPage() {
               Research Methodology
             </h2>
             <div className="glass p-8 rounded-xl border border-card-border/30 space-y-5">
-              <p className="text-xs text-muted leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 We operate through a structured engineering sequence designed to filter unfeasible concepts early and validate working designs rigorously.
               </p>
               <div className="space-y-3.5">
                 {methodologySteps.map((step, idx) => (
-                  <div key={idx} className="flex items-center space-x-3 text-xs text-muted">
+                  <div key={idx} className="flex items-center space-x-3 text-sm text-muted">
                     <span className="font-mono text-accent-light text-[10px] bg-accent/10 border border-accent/15 px-2.5 py-0.5 rounded">
                       Step {idx + 1}
                     </span>
@@ -160,7 +160,7 @@ export default function ResearchIPPage() {
               <div className="text-accent-light mb-1">
                 <Scale className="h-7 w-7" />
               </div>
-              <p className="text-xs text-muted leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 We are committed to conducting responsible research, representing our validation progress accurately, respecting intellectual property standards, and collaborating transparently with academic and industry partners.
               </p>
             </div>
@@ -181,7 +181,7 @@ export default function ResearchIPPage() {
                 <h3 className="text-xs font-bold text-accent-light tracking-wide uppercase font-mono">
                   {pr.title}
                 </h3>
-                <p className="text-[11px] text-muted leading-relaxed">{pr.desc}</p>
+                <p className="text-xs text-muted leading-relaxed">{pr.desc}</p>
               </div>
             ))}
           </div>

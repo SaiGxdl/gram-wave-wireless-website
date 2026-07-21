@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
@@ -47,24 +48,16 @@ export default function Navbar() {
       <div className="max-content-width flex items-center justify-between w-full">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md p-1">
-          <div className="flex items-end space-x-1 h-5.5">
-            {[0.4, 0.7, 1.0, 0.7, 0.4].map((scale, i) => (
-              <motion.div
-                key={i}
-                animate={{
-                  height: scrolled ? ["4px", "14px", "4px"] : ["6px", "18px", "6px"],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  delay: i * 0.15,
-                  ease: "easeInOut",
-                }}
-                className="w-1 bg-accent rounded-full"
-              />
-            ))}
+          <div className="relative h-8 w-8 shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <Image
+              src="/logo-emblem.png"
+              alt="Gramwave Wireless Emblem"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
-          <span className="text-sm font-bold tracking-[0.25em] text-white uppercase group-hover:text-accent-light transition-colors">
+          <span className="text-sm font-bold tracking-[0.2em] text-white uppercase group-hover:text-accent-light transition-colors">
             GRAMWAVE
           </span>
         </Link>

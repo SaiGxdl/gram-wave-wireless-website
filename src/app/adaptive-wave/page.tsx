@@ -79,7 +79,7 @@ export default function AdaptiveWavePage() {
                       {step.title}
                     </h3>
                   </div>
-                  <p className="text-xs text-muted leading-relaxed">
+                  <p className="text-sm text-muted leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -91,19 +91,19 @@ export default function AdaptiveWavePage() {
         {/* Technical Depth Detail */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto pt-6">
           <div className="glass p-8 rounded-xl border border-card-border/30 space-y-5">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-white font-mono">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-white font-mono">
               Research Objective
             </h3>
-            <p className="text-xs text-muted leading-relaxed">
+            <p className="text-sm text-muted leading-relaxed">
               We seek to address the fundamental physical limits of small apertures. When antennas are reduced in scale to fit modern handset sizes, their radiation efficiency decreases. Our objective is to design matching feeds that dynamically adapt to spatial and electromagnetic environments to optimize signal reception.
             </p>
           </div>
 
           <div className="glass p-8 rounded-xl border border-card-border/30 space-y-5">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-white font-mono">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-white font-mono">
               Methods Under Study
             </h3>
-            <ul className="space-y-3.5 text-xs text-muted">
+            <ul className="space-y-3.5 text-sm text-muted">
               <li className="flex items-center space-x-2.5">
                 <span className="text-accent-light font-mono">→</span>
                 <span>Active impedance matching structures</span>
@@ -130,7 +130,7 @@ export default function AdaptiveWavePage() {
           <span className="text-[10px] font-mono tracking-widest text-yellow-500 uppercase font-bold block mb-2">
             Research Disclaimer
           </span>
-          <p className="text-xs text-muted leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm text-muted leading-relaxed max-w-2xl mx-auto">
             Adaptive Wave is an ongoing research initiative. Technical concepts presented on this website represent research hypotheses, engineering investigations, and planned validation activities. Performance claims will only be made following successful technical verification.
           </p>
         </motion.div>

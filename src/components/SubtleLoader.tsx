@@ -4,14 +4,24 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function SubtleLoader() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    // Show loader for 1.2 seconds, then fade out
-    const timer = setTimeout(() => {
+    // Only show loader on initial session entrance, not on every page transition or refresh
+    try {
+      const hasLoaded = sessionStorage.getItem("gramwave_loaded_session");
+      if (!hasLoaded) {
+        setLoading(true);
+        sessionStorage.setItem("gramwave_loaded_session", "true");
+        const timer = setTimeout(() => {
+          setLoading(false);
+        }, 300); // Quick 300ms transition max
+        return () => clearTimeout(timer);
+      }
+    } catch {
+      // Fallback if sessionStorage is restricted
       setLoading(false);
-    }, 1200);
-    return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
