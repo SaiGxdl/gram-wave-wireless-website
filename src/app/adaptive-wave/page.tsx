@@ -34,7 +34,7 @@ export default function AdaptiveWavePage() {
   ];
 
   return (
-    <div className="relative min-h-screen pt-32 pb-20">
+    <div className="relative min-h-screen pt-36 lg:pt-40 pb-20">
       <RFWaveBackground />
 
       <div className="max-content-width relative z-10 space-y-16">

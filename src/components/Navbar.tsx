@@ -63,7 +63,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <nav className="hidden md:flex items-center space-x-12 pr-1">
+        <nav className="hidden lg:flex items-center space-x-6 lg:space-x-8 xl:space-x-10 pr-1">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -90,7 +90,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent p-1.5 rounded-md"
+          className="lg:hidden text-white hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent p-1.5 rounded-md"
           aria-label="Toggle Menu"
           aria-expanded={isOpen}
         >
@@ -106,7 +106,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 glass border-b border-card-border/80 px-8 py-8 md:hidden flex flex-col space-y-6"
+            className="absolute top-full left-0 right-0 glass border-b border-card-border/80 px-8 py-8 lg:hidden flex flex-col space-y-6"
           >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;

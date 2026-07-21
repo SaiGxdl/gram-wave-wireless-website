@@ -255,7 +255,7 @@ export default function Home() {
       </section>
 
       {/* Leadership & Research Team Section */}
-      <section className="max-content-width section-spacing relative z-10 w-full border-t border-card-border/20">
+      <section className="max-content-width section-spacing relative z-10 w-full border-t border-card-border/20 flex flex-col items-center justify-center">
         <div className="text-center space-y-3 mb-12 max-w-xl mx-auto">
           <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3 py-1 glass rounded-md border border-accent/25">
             Team & Leadership
@@ -268,12 +268,12 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto glass p-8 md:p-10 rounded-2xl border border-accent/20 relative overflow-hidden">
-          <div className="flex flex-col md:flex-row items-center gap-8">
+        <div className="w-full max-w-3xl mx-auto glass p-8 md:p-10 rounded-2xl border border-accent/20 relative overflow-hidden">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
             <div className="h-24 w-24 md:h-28 md:w-28 rounded-2xl bg-gradient-to-tr from-accent/30 to-blue-500/20 border border-accent/40 flex items-center justify-center text-accent-light shrink-0 shadow-lg">
               <Cpu className="h-12 w-12 text-accent-light" />
             </div>
-            <div className="space-y-3 text-center md:text-left">
+            <div className="space-y-3 text-center md:text-left flex-1">
               <div className="space-y-1">
                 <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold block">
                   Founding Lead & RF Engineering Researcher
