@@ -82,22 +82,22 @@ export default function ResearchIPPage() {
   ];
 
   return (
-    <div className="relative min-h-screen pt-36 lg:pt-40 pb-20">
+    <div className="relative min-h-screen pt-44 sm:pt-48 lg:pt-52 pb-24">
       <RFWaveBackground />
 
-      <div className="max-content-width relative z-10 space-y-16">
+      <div className="max-content-width relative z-10 space-y-20 md:space-y-24">
         {/* Header */}
-        <div className="space-y-4 text-center max-w-3xl mx-auto">
-          <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3 py-1 glass rounded-md border border-accent/25">
+        <div className="space-y-4 text-center max-w-3xl mx-auto pt-6 sm:pt-10 mb-20 md:mb-24">
+          <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3.5 py-1.5 glass rounded-md border border-accent/25">
             Research & IP
           </span>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mt-4 uppercase font-mono">
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mt-5 uppercase font-mono">
             Research & IP
           </h1>
-          <p className="text-sm md:text-base text-muted leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-muted leading-relaxed max-w-2xl mx-auto mt-3">
             Gramwave Wireless&apos;s core research principles, methodologies, and intellectual property details.
           </p>
-          <div className="pt-2 flex justify-center">
+          <div className="pt-3 flex justify-center">
             <div className="inline-flex items-center space-x-2 text-[10px] font-mono text-muted bg-card/75 px-3.5 py-1.5 rounded-lg border border-card-border/40">
               <Calendar className="h-3.5 w-3.5 text-accent-light" />
               <span>Last Updated: July 2026</span>
@@ -106,7 +106,7 @@ export default function ResearchIPPage() {
         </div>
 
         {/* Focus Areas Grid */}
-        <div className="space-y-8">
+        <div className="space-y-8 mt-16 md:mt-24 pt-6">
           <div className="text-center space-y-2">
             <h2 className="text-base font-semibold tracking-wider text-white uppercase font-mono">
               Research Focus Areas

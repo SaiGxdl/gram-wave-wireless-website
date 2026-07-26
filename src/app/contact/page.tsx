@@ -104,25 +104,25 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative min-h-screen pt-36 lg:pt-40 pb-20">
+    <div className="relative min-h-screen pt-44 sm:pt-48 lg:pt-52 pb-24">
       <RFWaveBackground />
 
-      <div className="max-content-width relative z-10 space-y-16">
+      <div className="max-content-width relative z-10 space-y-20 md:space-y-24">
         {/* Header */}
-        <div className="space-y-4 text-center max-w-3xl mx-auto">
-          <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3 py-1 glass rounded-md border border-accent/25">
+        <div className="space-y-4 text-center max-w-3xl mx-auto pt-6 sm:pt-10 mb-20 md:mb-24">
+          <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3.5 py-1.5 glass rounded-md border border-accent/25">
             Get In Touch
           </span>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mt-4 uppercase font-mono">
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mt-5 uppercase font-mono">
             Contact & FAQ
           </h1>
-          <p className="text-xs md:text-sm text-muted leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-muted leading-relaxed max-w-2xl mx-auto mt-3">
             Have questions about our research or want to explore collaboration opportunities? Contact our founder or review the FAQ database below.
           </p>
         </div>
 
         {/* Contact info, SLA, and Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto mt-16 md:mt-24 pt-6">
           {/* Info Panels */}
           <div className="lg:col-span-5 space-y-6">
             <h2 className="text-sm font-semibold tracking-wider text-white uppercase font-mono text-center lg:text-left">

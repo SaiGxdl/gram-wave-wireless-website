@@ -4,10 +4,10 @@ import RFWaveBackground from "@/components/RFWaveBackground";
 
 export default function DisclaimerPage() {
   return (
-    <div className="relative min-h-screen pt-32 pb-20">
+    <div className="relative min-h-screen pt-44 sm:pt-48 pb-24">
       <RFWaveBackground />
 
-      <div className="max-w-3xl mx-auto px-6 relative z-10 space-y-8 text-xs text-muted leading-relaxed">
+      <div className="max-w-3xl mx-auto px-6 relative z-10 space-y-8 text-xs text-muted leading-relaxed pt-6">
         {/* Header */}
         <div className="border-b border-card-border/30 pb-4 space-y-1">
           <h1 className="text-2xl font-extrabold text-white tracking-wide">
