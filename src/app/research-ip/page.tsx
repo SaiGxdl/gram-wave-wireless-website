@@ -82,12 +82,12 @@ export default function ResearchIPPage() {
   ];
 
   return (
-    <div className="relative min-h-screen pt-44 sm:pt-48 lg:pt-52 pb-24">
+    <div className="relative min-h-screen pb-24">
       <RFWaveBackground />
 
-      <div className="max-content-width relative z-10 space-y-20 md:space-y-24">
+      <div className="max-content-width relative z-10 space-y-16 md:space-y-20">
         {/* Header */}
-        <div className="space-y-4 text-center max-w-3xl mx-auto pt-6 sm:pt-10 mb-20 md:mb-24">
+        <div className="space-y-4 text-center max-w-3xl mx-auto pt-6 sm:pt-10 mb-16 md:mb-20">
           <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3.5 py-1.5 glass rounded-md border border-accent/25">
             Research & IP
           </span>
@@ -106,7 +106,7 @@ export default function ResearchIPPage() {
         </div>
 
         {/* Focus Areas Grid */}
-        <div className="space-y-8 mt-16 md:mt-24 pt-6">
+        <div className="space-y-8 mt-12 md:mt-16 pt-4">
           <div className="text-center space-y-2">
             <h2 className="text-base font-semibold tracking-wider text-white uppercase font-mono">
               Research Focus Areas
@@ -115,29 +115,31 @@ export default function ResearchIPPage() {
               Our specific hardware and electrical engineering domains of analysis.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {focusAreas.map((area, idx) => (
               <div
                 key={idx}
-                className="hover-card p-6 rounded-xl space-y-4 flex flex-col h-full"
+                className="hover-card p-6 rounded-xl space-y-4 flex flex-col justify-between h-full"
               >
-                <div className="text-accent-light">{area.icon}</div>
-                <h3 className="text-xs font-bold text-white tracking-wider uppercase font-mono">
-                  {area.title}
-                </h3>
-                <p className="text-sm text-muted leading-relaxed">{area.desc}</p>
+                <div className="space-y-3">
+                  <div className="text-accent-light">{area.icon}</div>
+                  <h3 className="text-xs font-bold text-white tracking-wider uppercase font-mono">
+                    {area.title}
+                  </h3>
+                  <p className="text-sm text-muted leading-relaxed">{area.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Research Methodology */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-7 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div className="lg:col-span-7 flex flex-col space-y-6">
             <h2 className="text-sm font-semibold tracking-wider text-white uppercase font-mono text-center lg:text-left">
               Research Methodology
             </h2>
-            <div className="glass p-8 rounded-xl border border-card-border/30 space-y-5">
+            <div className="glass p-8 rounded-xl border border-card-border/30 space-y-5 flex-1">
               <p className="text-sm text-muted leading-relaxed">
                 We operate through a structured engineering sequence designed to filter unfeasible concepts early and validate working designs rigorously.
               </p>
@@ -155,11 +157,11 @@ export default function ResearchIPPage() {
           </div>
 
           {/* Ethics & Integrity */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 flex flex-col space-y-6">
             <h2 className="text-sm font-semibold tracking-wider text-white uppercase font-mono text-center lg:text-left">
               Ethics & Research Integrity
             </h2>
-            <div className="glass p-8 rounded-xl border border-card-border/30 space-y-5 flex flex-col justify-center h-full">
+            <div className="glass p-8 rounded-xl border border-card-border/30 space-y-5 flex flex-col justify-center flex-1">
               <div className="text-accent-light mb-1">
                 <Scale className="h-7 w-7" />
               </div>
@@ -175,29 +177,31 @@ export default function ResearchIPPage() {
           <h2 className="text-sm font-semibold tracking-wider text-white uppercase font-mono text-center">
             Our Research Principles
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 items-stretch">
             {principles.map((pr, idx) => (
               <div
                 key={idx}
-                className="glass p-5.5 rounded-xl border border-card-border/30 space-y-3 flex flex-col h-full"
+                className="glass p-5.5 rounded-xl border border-card-border/30 space-y-3 flex flex-col justify-between h-full"
               >
-                <h3 className="text-xs font-bold text-accent-light tracking-wide uppercase font-mono">
-                  {pr.title}
-                </h3>
-                <p className="text-xs text-muted leading-relaxed">{pr.desc}</p>
+                <div className="space-y-2">
+                  <h3 className="text-xs font-bold text-accent-light tracking-wide uppercase font-mono">
+                    {pr.title}
+                  </h3>
+                  <p className="text-xs text-muted leading-relaxed">{pr.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Publications & Intellectual Property */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4 items-stretch">
           {/* Patent Registry */}
-          <div className="space-y-4">
+          <div className="flex flex-col space-y-4">
             <h2 className="text-sm font-semibold tracking-wider text-white uppercase font-mono text-center lg:text-left">
               Intellectual Property Status
             </h2>
-            <div className="glass p-8 rounded-xl border border-card-border/30 space-y-5 flex flex-col justify-between h-[300px]">
+            <div className="glass p-8 rounded-xl border border-card-border/30 space-y-5 flex flex-col justify-between flex-1">
               <div className="space-y-4.5">
                 <div className="flex items-center space-x-2 text-accent-light">
                   <FileCheck className="h-5.5 w-5.5" />
@@ -214,18 +218,18 @@ export default function ResearchIPPage() {
                   A provisional patent application has been filed to protect architectural aspects of the Adaptive Wave research concept. Research and technical validation are ongoing, and the technology is under active development.
                 </p>
               </div>
-              <span className="text-[10px] text-muted-dark font-mono block">
+              <span className="text-[10px] text-muted-dark font-mono block pt-4">
                 *Further patent details are kept confidential during early R&D phases.
               </span>
             </div>
           </div>
 
           {/* Whitepapers & Documents */}
-          <div className="space-y-4">
+          <div className="flex flex-col space-y-4">
             <h2 className="text-sm font-semibold tracking-wider text-white uppercase font-mono text-center lg:text-left">
               Publications & Literature
             </h2>
-            <div className="glass p-8 rounded-xl border border-card-border/30 h-[300px] grid grid-cols-2 gap-4 text-center">
+            <div className="glass p-8 rounded-xl border border-card-border/30 flex-1 grid grid-cols-2 gap-4 text-center">
               {[
                 "Technical Whitepapers",
                 "Research Publications",

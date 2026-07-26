@@ -104,12 +104,12 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative min-h-screen pt-44 sm:pt-48 lg:pt-52 pb-24">
+    <div className="relative min-h-screen pb-24">
       <RFWaveBackground />
 
-      <div className="max-content-width relative z-10 space-y-20 md:space-y-24">
+      <div className="max-content-width relative z-10 space-y-16 md:space-y-20">
         {/* Header */}
-        <div className="space-y-4 text-center max-w-3xl mx-auto pt-6 sm:pt-10 mb-20 md:mb-24">
+        <div className="space-y-4 text-center max-w-3xl mx-auto pt-6 sm:pt-10 mb-16 md:mb-20">
           <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3.5 py-1.5 glass rounded-md border border-accent/25">
             Get In Touch
           </span>
@@ -122,7 +122,7 @@ export default function ContactPage() {
         </div>
 
         {/* Contact info, SLA, and Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto mt-16 md:mt-24 pt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto mt-12 md:mt-16 pt-4">
           {/* Info Panels */}
           <div className="lg:col-span-5 space-y-6">
             <h2 className="text-sm font-semibold tracking-wider text-white uppercase font-mono text-center lg:text-left">

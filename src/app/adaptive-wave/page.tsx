@@ -34,12 +34,12 @@ export default function AdaptiveWavePage() {
   ];
 
   return (
-    <div className="relative min-h-screen pt-44 sm:pt-48 lg:pt-52 pb-24">
+    <div className="relative min-h-screen pb-24">
       <RFWaveBackground />
 
-      <div className="max-content-width relative z-10 space-y-20 md:space-y-24">
+      <div className="max-content-width relative z-10 space-y-16 md:space-y-20">
         {/* Header */}
-        <div className="space-y-4 text-center max-w-3xl mx-auto pt-6 sm:pt-10 mb-20 md:mb-24">
+        <div className="space-y-4 text-center max-w-3xl mx-auto pt-6 sm:pt-10 mb-16 md:mb-20">
           <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3.5 py-1.5 glass rounded-md border border-accent/25">
             Flagship Research Initiative
           </span>
@@ -52,7 +52,7 @@ export default function AdaptiveWavePage() {
         </div>
 
         {/* Technical Flow Grid */}
-        <div className="space-y-10 max-w-3xl mx-auto mt-16 md:mt-24 pt-6">
+        <div className="space-y-10 max-w-3xl mx-auto mt-12 md:mt-16 pt-4">
           <h2 className="text-base font-semibold tracking-wide text-white uppercase font-mono text-center mb-10">
             Research Flow & Logic
           </h2>

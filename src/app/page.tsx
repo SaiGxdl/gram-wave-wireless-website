@@ -25,17 +25,17 @@ export default function Home() {
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.35, ease: "easeOut" } },
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col pt-36 sm:pt-44 lg:pt-48">
+    <div className="relative min-h-screen flex flex-col">
       {/* Background Graphic */}
       <RFWaveBackground />
 
       {/* Hero Section */}
-      <section className="max-content-width pt-20 sm:pt-28 md:pt-32 pb-16 flex flex-col items-center text-center relative z-10 w-full mt-4 md:mt-8 mb-12 md:mb-16">
+      <section className="max-content-width pt-12 sm:pt-16 md:pt-20 pb-12 flex flex-col items-center text-center relative z-10 w-full mb-12">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -85,7 +85,7 @@ export default function Home() {
       </section>
 
       {/* Current Status Banner (Visual Separator) */}
-      <section className="max-content-width my-10 md:my-16 border-b border-card-border/20 relative z-10 w-full flex justify-center pb-12">
+      <section className="max-content-width my-12 md:my-16 border-b border-card-border/20 relative z-10 w-full flex justify-center pb-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -122,7 +122,7 @@ export default function Home() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"
         >
           {/* Card 1: The Problem */}
           <motion.div variants={itemVariants} className="hover-card p-8 rounded-xl flex flex-col justify-between h-full">
