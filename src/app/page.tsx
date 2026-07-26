@@ -35,24 +35,22 @@ export default function Home() {
       <RFWaveBackground />
 
       {/* Hero Section */}
-      <section className="max-content-width pt-12 sm:pt-16 md:pt-20 pb-12 flex flex-col items-center text-center relative z-10 w-full mb-12">
+      <section className="max-content-width pt-6 sm:pt-10 md:pt-14 pb-12 flex flex-col items-center text-center relative z-10 w-full mb-12">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center space-x-2.5 bg-accent/8 border border-accent/20 px-3.5 py-1 rounded-full text-accent-light mb-6"
+          className="inline-flex items-center space-x-2.5 rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-5 py-2 text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-accent-light mb-6"
         >
           <Signal className="h-3.5 w-3.5 animate-pulse" />
-          <span className="text-[10px] font-mono tracking-[0.2em] uppercase font-semibold">
-            Deep-Tech Wireless Research Startup
-          </span>
+          <span>Deep-Tech Wireless Research Startup</span>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.08 }}
-          className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl leading-[1.12] mb-6 text-center"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white max-w-4xl mb-6 text-center"
         >
           Advancing Wireless Connectivity <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-light to-blue-400">
@@ -64,7 +62,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.16 }}
-          className="text-sm md:text-base text-muted max-w-2xl leading-relaxed mb-10 text-center"
+          className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl leading-8 text-muted mb-10 text-center"
         >
           Gramwave Wireless is a deep-tech communication research startup developing next-generation handset-side receiver matching designs to optimize connectivity in weak-signal sectors.
         </motion.p>

@@ -82,24 +82,29 @@ export default function ResearchIPPage() {
   ];
 
   return (
-    <div className="relative min-h-screen pb-24">
+    <div className="relative min-h-screen pt-4 sm:pt-8 pb-24">
       <RFWaveBackground />
 
-      <div className="max-content-width relative z-10 space-y-16 md:space-y-20">
+      <div className="max-content-width relative z-10 px-4 sm:px-6 lg:px-8 space-y-16 md:space-y-20">
         {/* Header */}
-        <div className="space-y-4 text-center max-w-3xl mx-auto pt-6 sm:pt-10 mb-16 md:mb-20">
-          <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3.5 py-1.5 glass rounded-md border border-accent/25">
-            Research & IP
-          </span>
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mt-5 uppercase font-mono">
+        <div className="max-w-4xl mx-auto text-center space-y-6 mb-16 md:mb-20">
+          <div className="flex justify-center">
+            <span className="inline-flex items-center rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-5 py-2 text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-accent-light">
+              Intellectual Property
+            </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white uppercase font-mono">
             Research & IP
           </h1>
-          <p className="text-sm md:text-base text-muted leading-relaxed max-w-2xl mx-auto mt-3">
-            Gramwave Wireless&apos;s core research principles, methodologies, and intellectual property details.
+
+          <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl leading-8 text-muted">
+            Gramwave Wireless&apos;s core research principles, methodologies, analytical frameworks, and proprietary intellectual property details.
           </p>
-          <div className="pt-3 flex justify-center">
-            <div className="inline-flex items-center space-x-2 text-[10px] font-mono text-muted bg-card/75 px-3.5 py-1.5 rounded-lg border border-card-border/40">
-              <Calendar className="h-3.5 w-3.5 text-accent-light" />
+
+          <div className="pt-2 flex justify-center">
+            <div className="inline-flex items-center space-x-2 text-[11px] font-mono text-muted bg-card/75 px-4 py-2 rounded-full border border-card-border/50">
+              <Calendar className="h-4 w-4 text-accent-light" />
               <span>Last Updated: July 2026</span>
             </div>
           </div>

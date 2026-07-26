@@ -34,20 +34,27 @@ export default function AdaptiveWavePage() {
   ];
 
   return (
-    <div className="relative min-h-screen pb-24">
+    <div className="relative min-h-screen pt-4 sm:pt-8 pb-24">
       <RFWaveBackground />
 
-      <div className="max-content-width relative z-10 space-y-16 md:space-y-20">
+      <div className="max-content-width relative z-10 px-4 sm:px-6 lg:px-8 space-y-16 md:space-y-20">
         {/* Header */}
-        <div className="space-y-4 text-center max-w-3xl mx-auto pt-6 sm:pt-10 mb-16 md:mb-20">
-          <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3.5 py-1.5 glass rounded-md border border-accent/25">
-            Flagship Research Initiative
-          </span>
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mt-5">
+        <div className="max-w-4xl mx-auto text-center space-y-6 mb-16 md:mb-20">
+          {/* Badge */}
+          <div className="flex justify-center">
+            <span className="inline-flex items-center rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-5 py-2 text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-accent-light">
+              Research Initiative
+            </span>
+          </div>
+
+          {/* Title */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white">
             Adaptive Wave
           </h1>
-          <p className="text-sm md:text-base text-muted leading-relaxed max-w-2xl mx-auto mt-3">
-            Adaptive Wave is Gramwave Wireless&apos;s primary research endeavor. We are exploring novel handset-side electromagnetic configurations to push the boundaries of weak-signal connectivity.
+
+          {/* Description */}
+          <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl leading-8 text-muted">
+            Adaptive Wave is Gramwave Wireless&apos;s primary research initiative. We are exploring novel handset-side electromagnetic configurations designed to improve weak-signal communication through adaptive electromagnetic behaviour and intelligent antenna architectures.
           </p>
         </div>
 
