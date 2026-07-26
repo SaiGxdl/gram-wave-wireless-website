@@ -30,12 +30,12 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col pt-24">
+    <div className="relative min-h-screen flex flex-col pt-32 sm:pt-36 lg:pt-40">
       {/* Background Graphic */}
       <RFWaveBackground />
 
       {/* Hero Section */}
-      <section className="max-content-width pt-16 pb-12 flex flex-col items-center text-center relative z-10 w-full">
+      <section className="max-content-width pt-12 md:pt-16 pb-12 flex flex-col items-center text-center relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.08 }}
-          className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl leading-[1.12] mb-6"
+          className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl leading-[1.12] mb-6 text-center"
         >
           Advancing Wireless Connectivity <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-light to-blue-400">
@@ -64,7 +64,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.16 }}
-          className="text-sm md:text-base text-muted max-w-2xl leading-relaxed mb-10"
+          className="text-sm md:text-base text-muted max-w-2xl leading-relaxed mb-10 text-center"
         >
           Gramwave Wireless is a deep-tech communication research startup developing next-generation handset-side receiver matching designs to optimize connectivity in weak-signal sectors.
         </motion.p>
@@ -102,15 +102,17 @@ export default function Home() {
       </section>
 
       {/* Why Gramwave Wireless Section */}
-      <section className="max-content-width section-spacing relative z-10 w-full space-y-16">
-        <div className="text-center space-y-4 max-w-3xl mx-auto flex flex-col items-center justify-center">
-          <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3 py-1 glass rounded-md border border-accent/25">
-            Core Focus & Rationale
-          </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white uppercase font-mono text-center">
+      <section className="max-content-width section-spacing relative z-10 w-full space-y-16 flex flex-col items-center justify-center">
+        <div className="text-center space-y-4 max-w-3xl mx-auto flex flex-col items-center justify-center w-full">
+          <div className="flex justify-center w-full">
+            <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3.5 py-1 glass rounded-md border border-accent/25 inline-block text-center">
+              Core Focus & Rationale
+            </span>
+          </div>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white uppercase font-mono text-center w-full">
             Why Gramwave Wireless
           </h2>
-          <p className="text-sm md:text-base text-muted max-w-2xl mx-auto leading-relaxed text-center font-normal">
+          <p className="text-sm md:text-base text-muted max-w-2xl mx-auto leading-relaxed text-center font-normal w-full">
             Addressing fundamental physical layout limitations and weak-signal boundaries with rigorous scientific methods and active handset matching architectures.
           </p>
         </div>

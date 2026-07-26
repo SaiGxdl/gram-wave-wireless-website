@@ -26,6 +26,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/logo-emblem.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/logo-emblem.png",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: "Gramwave Wireless | Advancing Wireless Connectivity Through Research",
     description:

@@ -47,10 +47,10 @@ export default function Navbar() {
           : "bg-[#030712]/90 backdrop-blur-md border-b border-card-border/30 py-5"
       }`}
     >
-      <div className="max-content-width flex items-center justify-between w-full">
+      <div className="w-full px-6 sm:px-8 md:px-12 xl:px-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md p-1 shrink-0">
-          <div className="relative h-8 w-8 shrink-0 transition-transform duration-300 group-hover:scale-105">
+          <div className="relative h-9 w-9 shrink-0 transition-transform duration-300 group-hover:scale-105">
             <Image
               src="/logo-emblem.png"
               alt="Gramwave Wireless Emblem"
@@ -59,13 +59,13 @@ export default function Navbar() {
               priority
             />
           </div>
-          <span className="text-sm font-bold tracking-[0.2em] text-white uppercase group-hover:text-accent-light transition-colors whitespace-nowrap">
+          <span className="text-sm sm:text-base font-extrabold tracking-[0.22em] text-white uppercase group-hover:text-accent-light transition-colors whitespace-nowrap">
             GRAMWAVE
           </span>
         </Link>
 
         {/* Desktop Links */}
-        <nav className="hidden lg:flex items-center gap-6 lg:gap-8 xl:gap-10 pr-1">
+        <nav className="hidden lg:flex items-center justify-end ml-auto gap-6 lg:gap-8 xl:gap-10">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
