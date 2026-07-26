@@ -30,12 +30,12 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col pt-32 sm:pt-36 lg:pt-40">
+    <div className="relative min-h-screen flex flex-col pt-44 sm:pt-52 lg:pt-56">
       {/* Background Graphic */}
       <RFWaveBackground />
 
       {/* Hero Section */}
-      <section className="max-content-width pt-12 md:pt-16 pb-12 flex flex-col items-center text-center relative z-10 w-full">
+      <section className="max-content-width pt-16 md:pt-20 pb-8 flex flex-col items-center text-center relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -85,7 +85,7 @@ export default function Home() {
       </section>
 
       {/* Current Status Banner (Visual Separator) */}
-      <section className="max-content-width py-8 border-b border-card-border/20 relative z-10 w-full flex justify-center">
+      <section className="max-content-width py-6 md:py-8 border-b border-card-border/20 relative z-10 w-full flex justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -103,9 +103,9 @@ export default function Home() {
 
       {/* Why Gramwave Wireless Section */}
       <section className="max-content-width section-spacing relative z-10 w-full space-y-16 flex flex-col items-center justify-center">
-        <div className="text-center space-y-4 max-w-3xl mx-auto flex flex-col items-center justify-center w-full">
-          <div className="flex justify-center w-full">
-            <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3.5 py-1 glass rounded-md border border-accent/25 inline-block text-center">
+        <div className="text-center space-y-4 max-w-4xl mx-auto flex flex-col items-center justify-center w-full px-2">
+          <div className="flex items-center justify-center w-full">
+            <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-4 py-1.5 glass rounded-md border border-accent/25 text-center">
               Core Focus & Rationale
             </span>
           </div>
