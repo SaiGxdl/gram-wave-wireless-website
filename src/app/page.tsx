@@ -108,18 +108,26 @@ export default function Home() {
       </section>
 
       {/* Why Gramwave Wireless Section */}
-      <section className="max-content-width section-spacing mt-12 md:mt-20 relative z-10 w-full space-y-16 md:space-y-20 flex flex-col items-center justify-center">
-        <div className="text-center space-y-4 max-w-4xl mx-auto flex flex-col items-center justify-center w-full px-2">
-          <div className="flex items-center justify-center w-full">
-            <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-4 py-1.5 glass rounded-md border border-accent/25 text-center">
-              Core Focus & Rationale
-            </span>
-          </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white uppercase font-mono text-center w-full">
+      <section
+        className="max-content-width min-h-screen flex flex-col justify-center items-center relative z-10 w-full py-28 md:py-36"
+      >
+        <div className="max-w-5xl mx-auto text-center mb-20">
+          <span
+            className="inline-flex items-center rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-7 py-3 text-sm font-mono font-bold uppercase tracking-[0.3em] text-accent-light"
+          >
+            Core Focus & Rationale
+          </span>
+
+          <h2
+            className="mt-8 text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white uppercase font-mono leading-tight"
+          >
             Why Gramwave Wireless
           </h2>
-          <p className="text-sm md:text-base text-muted max-w-2xl mx-auto leading-relaxed text-center font-normal w-full">
-            Addressing fundamental physical layout limitations and weak-signal boundaries with rigorous scientific methods and active handset matching architectures.
+
+          <p
+            className="mt-8 max-w-4xl mx-auto text-lg md:text-xl leading-9 text-muted"
+          >
+            Gramwave Wireless is focused on advancing handset-side wireless communication through rigorous electromagnetic research rather than conventional infrastructure expansion. Our work investigates adaptive receiver architectures, impedance matching techniques, and compact antenna systems designed to improve signal reception in challenging environments such as rural regions, mountainous terrain, disaster-response zones, and other weak-coverage areas. By combining scientific validation with engineering innovation, we aim to establish practical technologies that can contribute to more reliable, efficient, and accessible wireless connectivity for future communication systems.
           </p>
         </div>
 
@@ -128,16 +136,16 @@ export default function Home() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-12 w-full"
         >
           {/* Card 1: The Problem */}
-          <motion.div variants={itemVariants} className="hover-card p-8 rounded-xl flex flex-col justify-between h-full">
+          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-1">
             <div className="space-y-5">
-              <div className="h-11 w-11 rounded-lg bg-red-500/8 border border-red-500/15 flex items-center justify-center text-red-400">
-                <Signal className="h-5.5 w-5.5" />
+              <div className="h-14 w-14 rounded-lg bg-red-500/8 border border-red-500/15 flex items-center justify-center text-red-400">
+                <Signal className="h-6 w-6" />
               </div>
-              <h3 className="text-sm font-bold text-white tracking-wide uppercase font-mono">The Problem</h3>
-              <p className="text-xs md:text-sm text-muted leading-relaxed">
+              <h3 className="text-lg font-bold text-white tracking-wide uppercase font-mono">The Problem</h3>
+              <p className="text-base leading-8 text-muted">
                 The connectivity gap still exists. Millions in rural communities, mountainous grids, and disaster limits face drop-outs even with tower infrastructure present.
               </p>
             </div>
@@ -148,13 +156,13 @@ export default function Home() {
           </motion.div>
 
           {/* Card 2: Our Approach */}
-          <motion.div variants={itemVariants} className="hover-card p-8 rounded-xl flex flex-col justify-between h-full">
+          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-1">
             <div className="space-y-5">
-              <div className="h-11 w-11 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light">
-                <Cpu className="h-5.5 w-5.5" />
+              <div className="h-14 w-14 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light">
+                <Cpu className="h-6 w-6" />
               </div>
-              <h3 className="text-sm font-bold text-white tracking-wide uppercase font-mono">Our Approach</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="text-lg font-bold text-white tracking-wide uppercase font-mono">Our Approach</h3>
+              <p className="text-base leading-8 text-muted">
                 We are developing active impedance matching systems and receiver array configurations directly at the device side to boost aperture reception coefficients.
               </p>
             </div>
@@ -165,13 +173,13 @@ export default function Home() {
           </motion.div>
 
           {/* Card 3: Our Technical Approach */}
-          <motion.div variants={itemVariants} className="hover-card p-8 rounded-xl flex flex-col justify-between h-full">
+          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-1">
             <div className="space-y-5">
-              <div className="h-11 w-11 rounded-lg bg-blue-500/8 border border-blue-500/15 flex items-center justify-center text-blue-400">
-                <Compass className="h-5.5 w-5.5" />
+              <div className="h-14 w-14 rounded-lg bg-blue-500/8 border border-blue-500/15 flex items-center justify-center text-blue-400">
+                <Compass className="h-6 w-6" />
               </div>
-              <h3 className="text-sm font-bold text-white tracking-wide uppercase font-mono">Our Technical Approach</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="text-lg font-bold text-white tracking-wide uppercase font-mono">Our Technical Approach</h3>
+              <p className="text-base leading-8 text-muted">
                 Using sub-wavelength arrays, phase-coherent aggregation circuits, and constructive matching logic optimized for modern smartphone form factors.
               </p>
             </div>
@@ -182,13 +190,13 @@ export default function Home() {
           </motion.div>
 
           {/* Card 4: Current Research Status */}
-          <motion.div variants={itemVariants} className="hover-card p-8 rounded-xl flex flex-col justify-between h-full">
+          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-1">
             <div className="space-y-5">
-              <div className="h-11 w-11 rounded-lg bg-purple-500/8 border border-purple-500/15 flex items-center justify-center text-purple-400">
-                <BookOpen className="h-5.5 w-5.5" />
+              <div className="h-14 w-14 rounded-lg bg-purple-500/8 border border-purple-500/15 flex items-center justify-center text-purple-400">
+                <BookOpen className="h-6 w-6" />
               </div>
-              <h3 className="text-sm font-bold text-white tracking-wide uppercase font-mono">Current Research Status</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="text-lg font-bold text-white tracking-wide uppercase font-mono">Current Research Status</h3>
+              <p className="text-base leading-8 text-muted">
                 Currently running simulation audits in electromagnetic and analytical tools to measure gains, impedance deviations, and baseline signal noise parameters.
               </p>
             </div>
@@ -199,13 +207,13 @@ export default function Home() {
           </motion.div>
 
           {/* Card 5: Intellectual Property */}
-          <motion.div variants={itemVariants} className="hover-card p-8 rounded-xl flex flex-col justify-between h-full">
+          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-1">
             <div className="space-y-5">
-              <div className="h-11 w-11 rounded-lg bg-green-500/8 border border-green-500/15 flex items-center justify-center text-green-400">
-                <FileCheck className="h-5.5 w-5.5" />
+              <div className="h-14 w-14 rounded-lg bg-green-500/8 border border-green-500/15 flex items-center justify-center text-green-400">
+                <FileCheck className="h-6 w-6" />
               </div>
-              <h3 className="text-sm font-bold text-white tracking-wide uppercase font-mono">Intellectual Property</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="text-lg font-bold text-white tracking-wide uppercase font-mono">Intellectual Property</h3>
+              <p className="text-base leading-8 text-muted">
                 A provisional patent application has been filed in India, securing key proprietary design rules for active handset matching algorithms.
               </p>
             </div>
@@ -216,13 +224,13 @@ export default function Home() {
           </motion.div>
 
           {/* Card 6: Long-term Vision */}
-          <motion.div variants={itemVariants} className="hover-card p-8 rounded-xl flex flex-col justify-between h-full">
+          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-1">
             <div className="space-y-5">
-              <div className="h-11 w-11 rounded-lg bg-yellow-500/8 border border-yellow-500/15 flex items-center justify-center text-yellow-400">
-                <ShieldCheck className="h-5.5 w-5.5" />
+              <div className="h-14 w-14 rounded-lg bg-yellow-500/8 border border-yellow-500/15 flex items-center justify-center text-yellow-400">
+                <ShieldCheck className="h-6 w-6" />
               </div>
-              <h3 className="text-sm font-bold text-white tracking-wide uppercase font-mono">Long-term Vision</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="text-lg font-bold text-white tracking-wide uppercase font-mono">Long-term Vision</h3>
+              <p className="text-base leading-8 text-muted">
                 Broadening designs to support future 6G connectivity, satellite integrations, and autonomous electromagnetic beam steering setups.
               </p>
             </div>
