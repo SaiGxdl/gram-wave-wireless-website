@@ -243,66 +243,86 @@ export default function Home() {
       </section>
 
       {/* Research-Driven Innovation */}
-      <section className="max-content-width section-spacing relative z-10 w-full border-t border-card-border/20 flex justify-center">
-        <div className="max-w-2xl mx-auto text-center space-y-6 flex flex-col items-center justify-center">
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white uppercase font-mono text-center">
+      <section className="max-content-width py-20 md:py-24 relative z-10 w-full border-t border-card-border/20 flex justify-center">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase font-mono leading-tight mb-8">
             Research-Driven Innovation
           </h2>
-          <p className="text-xs md:text-sm text-muted leading-relaxed text-center max-w-xl mx-auto">
-            At Gramwave Wireless, we believe meaningful technological advances begin with rigorous research and honest technical validation. Our work focuses on identifying practical solutions to real-world wireless communication challenges through structured engineering research, simulation, and iterative development.
+
+          <p className="text-lg md:text-xl leading-9 text-muted max-w-3xl mx-auto">
+            At Gramwave Wireless, we believe meaningful technological advances begin
+            with rigorous research, scientific validation, and engineering precision.
+            Our work focuses on solving real-world wireless communication challenges
+            through structured electromagnetic research, simulation-driven design,
+            iterative optimization, and practical prototype development.
           </p>
-          <div className="pt-4 text-center">
+
+          <div className="mt-10">
             <Link
               href="/research-ip"
-              className="inline-flex items-center space-x-2 text-xs text-accent-light hover:text-white font-semibold uppercase tracking-wider transition-colors focus:outline-none"
+              className="inline-flex items-center space-x-2 text-sm font-semibold uppercase tracking-[0.18em] text-accent-light hover:text-white transition-colors"
             >
               <span>Our Research Methodology & Principles</span>
-              <ArrowRight className="h-3 w-3" />
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Leadership & Research Team Section */}
-      <section className="max-content-width section-spacing relative z-10 w-full border-t border-card-border/20 flex flex-col items-center justify-center">
-        <div className="text-center space-y-3 mb-12 max-w-xl mx-auto">
-          <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold px-3 py-1 glass rounded-md border border-accent/25">
+      {/* Leadership & Research Team */}
+      <section className="max-content-width py-20 md:py-24 relative z-10 w-full border-t border-card-border/20 flex flex-col items-center">
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <span className="inline-flex items-center rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-6 py-2 text-xs font-mono font-bold uppercase tracking-[0.25em] text-accent-light">
             Team & Leadership
           </span>
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white uppercase font-mono text-center">
-            Led By Engineering Purpose
+
+          <h2 className="mt-8 text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase font-mono leading-tight">
+            Led by Engineering Purpose
           </h2>
-          <p className="text-xs md:text-sm text-muted max-w-md mx-auto leading-relaxed text-center">
-            Combining physical-layer RF research with mathematical rigor to solve fundamental signal propagation limits.
+
+          <p className="mt-6 text-lg md:text-xl leading-9 text-muted max-w-3xl mx-auto">
+            Combining RF engineering, electromagnetics, and mathematical modelling to
+            develop practical handset-side wireless technologies that address
+            fundamental limitations in signal reception and propagation.
           </p>
         </div>
 
-        <div className="w-full max-w-3xl mx-auto glass p-8 md:p-10 rounded-2xl border border-accent/20 relative overflow-hidden">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-            <div className="h-24 w-24 md:h-28 md:w-28 rounded-2xl bg-gradient-to-tr from-accent/30 to-blue-500/20 border border-accent/40 flex items-center justify-center text-accent-light shrink-0 shadow-lg">
-              <Cpu className="h-12 w-12 text-accent-light" />
+        <div className="w-full max-w-4xl glass rounded-2xl border border-accent/20 p-10 md:p-12">
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            <div className="h-32 w-32 rounded-3xl bg-gradient-to-tr from-accent/30 to-blue-500/20 border border-accent/40 flex items-center justify-center shrink-0">
+              <Cpu className="h-14 w-14 text-accent-light" />
             </div>
-            <div className="space-y-3 text-center md:text-left flex-1">
-              <div className="space-y-1">
-                <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold block">
+
+            <div className="flex-1 space-y-5 text-center md:text-left">
+              <div>
+                <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent-light">
                   Founding Lead & RF Engineering Researcher
                 </span>
-                <h3 className="text-lg md:text-xl font-bold text-white tracking-wide">
+
+                <h3 className="mt-2 text-3xl font-bold text-white">
                   Deep-Tech Research Founder
                 </h3>
               </div>
-              <p className="text-xs md:text-sm text-muted leading-relaxed">
-                Specializing in handset-side receiver matching, electromagnetics, and sub-wavelength array feeds. Authored Indian provisional patent filings for active matching circuits in low-gain sectors.
+
+              <p className="text-base md:text-lg leading-8 text-muted">
+                Specializing in handset-side receiver matching, electromagnetic
+                systems, compact antenna architectures, and adaptive impedance
+                matching. Current research includes patented receiver-side
+                optimization methods for improving wireless connectivity in
+                weak-signal environments.
               </p>
-              <div className="pt-2 flex flex-wrap justify-center md:justify-start gap-3">
-                <span className="text-[10px] font-mono bg-white/5 border border-card-border/50 px-2.5 py-1 rounded text-white">
+
+              <div className="flex flex-wrap justify-center md:justify-start gap-3 pt-2">
+                <span className="px-4 py-2 rounded-full border border-card-border bg-white/5 text-sm text-white font-mono">
                   Electromagnetic Simulation
                 </span>
-                <span className="text-[10px] font-mono bg-white/5 border border-card-border/50 px-2.5 py-1 rounded text-white">
+
+                <span className="px-4 py-2 rounded-full border border-card-border bg-white/5 text-sm text-white font-mono">
                   Active Impedance Matching
                 </span>
-                <span className="text-[10px] font-mono bg-white/5 border border-card-border/50 px-2.5 py-1 rounded text-white">
-                  Provisional Patent Author
+
+                <span className="px-4 py-2 rounded-full border border-card-border bg-white/5 text-sm text-white font-mono">
+                  Patent Research
                 </span>
               </div>
             </div>
