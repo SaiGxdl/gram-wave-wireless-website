@@ -35,12 +35,12 @@ export default function Home() {
       <RFWaveBackground />
 
       {/* Hero Section */}
-      <section className="max-content-width pt-6 sm:pt-10 md:pt-14 pb-12 flex flex-col items-center text-center relative z-10 w-full mb-12">
+      <section className="max-content-width pt-10 sm:pt-14 md:pt-20 lg:pt-24 min-h-[78vh] flex flex-col items-center justify-center text-center relative z-10 w-full pb-24">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center space-x-2.5 rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-5 py-2 text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-accent-light mb-6"
+          className="inline-flex items-center space-x-2.5 rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-5 py-2 text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-accent-light mb-8"
         >
           <Signal className="h-3.5 w-3.5 animate-pulse" />
           <span>Deep-Tech Wireless Research Startup</span>
@@ -50,9 +50,10 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.08 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white max-w-4xl mb-6 text-center"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight leading-[1.05] text-white max-w-5xl mb-8"
         >
-          Advancing Wireless Connectivity <br />
+          Advancing Wireless Connectivity
+          <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-light to-blue-400">
             Through Research
           </span>
@@ -62,39 +63,46 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.16 }}
-          className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl leading-8 text-muted mb-10 text-center"
+          className="max-w-3xl text-lg md:text-xl leading-9 text-muted mb-10"
         >
-          Gramwave Wireless is a deep-tech communication research startup developing next-generation handset-side receiver matching designs to optimize connectivity in weak-signal sectors.
+          Gramwave Wireless is a deep-tech communication research startup developing
+          next-generation handset-side receiver matching designs to optimize
+          connectivity in weak-signal sectors.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.24 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto"
+          className="flex flex-col sm:flex-row gap-5"
         >
-          <Link href="/adaptive-wave" className="btn-primary w-full sm:w-auto">
+          <Link href="/adaptive-wave" className="btn-primary">
             Explore Technology
           </Link>
-          <Link href="/contact" className="btn-secondary w-full sm:w-auto">
+
+          <Link href="/contact" className="btn-secondary">
             Contact Research Team
           </Link>
         </motion.div>
       </section>
 
-      {/* Current Status Banner (Visual Separator) */}
-      <section className="max-content-width my-12 md:my-16 border-b border-card-border/20 relative z-10 w-full flex justify-center pb-12">
+      {/* Current Status */}
+      <section className="max-content-width relative z-10 flex justify-center -mt-8 md:-mt-12 mb-24">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="glass border border-accent/15 rounded-xl p-6 text-center max-w-2xl mx-auto w-full flex flex-col items-center justify-center"
+          className="glass border border-accent/15 rounded-2xl px-8 py-7 max-w-3xl w-full text-center shadow-xl"
         >
-          <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold block mb-2 text-center">
+          <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-accent-light font-bold">
             Current Status
           </span>
-          <p className="text-xs md:text-sm text-muted leading-relaxed max-w-lg mx-auto text-center">
-            Gramwave Wireless is currently in the <strong>research and technology validation phase</strong>. Prototype fabrication and laboratory testing are planned as future milestones.
+
+          <p className="mt-3 text-sm md:text-base leading-8 text-muted">
+            Gramwave Wireless is currently in the
+            <strong> research and technology validation phase</strong>.
+            Prototype fabrication and laboratory testing are planned as
+            future milestones.
           </p>
         </motion.div>
       </section>
