@@ -331,17 +331,21 @@ export default function Home() {
       </section>
 
       {/* Collaborate With Us */}
-      <section className="max-content-width section-spacing relative z-10 w-full border-t border-card-border/20 flex flex-col items-center justify-center">
-        <div className="text-center space-y-3 mb-14 max-w-xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white uppercase font-mono text-center">
+      <section className="max-content-width py-24 md:py-28 relative z-10 w-full border-t border-card-border/20 flex flex-col items-center">
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase font-mono mb-6">
             Collaborate With Us
           </h2>
-          <p className="text-sm md:text-base text-muted max-w-md mx-auto leading-relaxed text-center">
-            We actively seek research and ecosystem alignments with organizations committed to wireless integrity.
+
+          <p className="text-lg md:text-xl leading-9 text-muted max-w-3xl mx-auto">
+            We welcome collaborations with universities, RF engineers,
+            research laboratories, industry experts, incubators, and
+            organizations that share our vision of advancing wireless
+            communication through scientific research and engineering.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center w-full max-w-5xl">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 w-full max-w-7xl">
           {[
             "Universities",
             "RF Engineers",
@@ -352,77 +356,82 @@ export default function Home() {
           ].map((collab, idx) => (
             <div
               key={idx}
-              className="glass p-5 rounded-lg border border-card-border/40 flex flex-col justify-center items-center h-24 hover:border-accent/30 transition-all duration-300 w-full"
+              className="glass rounded-2xl border border-card-border/40 p-8 h-36 flex items-center justify-center hover:border-accent/40 hover:-translate-y-1 transition-all duration-300"
             >
-              <span className="text-xs font-bold text-white uppercase tracking-wider font-mono leading-tight text-center">{collab}</span>
+              <span className="text-sm md:text-base font-bold uppercase tracking-wider font-mono text-white text-center leading-relaxed">
+                {collab}
+              </span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* News & Updates Section */}
-      <section className="max-content-width section-spacing relative z-10 w-full border-t border-card-border/20 mb-10">
-        <div className="text-center space-y-3 mb-14">
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white uppercase font-mono">
+      {/* News & Updates */}
+      <section className="max-content-width py-24 md:py-28 relative z-10 w-full border-t border-card-border/20">
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white uppercase font-mono">
             News & Updates
           </h2>
-          <p className="text-sm text-muted">
-            Tracking timeline developments and verified achievements of our startup.
+
+          <p className="mt-6 text-lg md:text-xl leading-9 text-muted max-w-3xl mx-auto">
+            Tracking verified milestones, ongoing research progress,
+            prototype development, and upcoming technical achievements
+            across the Gramwave Wireless research initiative.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Completed */}
-          <div className="glass p-6.5 rounded-xl border-t-2 border-t-accent hover:border-accent/15 transition-all">
+          <div className="glass p-8 rounded-2xl border-t-2 border-t-accent hover:border-accent/15 transition-all">
             <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold block mb-4">
               Completed
             </span>
-            <ul className="space-y-4 text-sm text-muted">
+            <ul className="space-y-4 text-base text-muted">
               <li className="space-y-1">
-                <span className="font-semibold text-white block">Website Launch</span>
+                <span className="text-lg font-bold text-white block">Website Launch</span>
                 <span className="text-[10px] text-muted-dark font-mono block">July 2026</span>
-                <p className="leading-relaxed text-xs">First official version of the project portal published.</p>
+                <p className="leading-relaxed text-sm leading-7">First official version of the project portal published.</p>
               </li>
               <li className="space-y-1">
-                <span className="font-semibold text-white block">Internship Initiated</span>
+                <span className="text-lg font-bold text-white block">Internship Initiated</span>
                 <span className="text-[10px] text-muted-dark font-mono block">July 2026</span>
-                <p className="leading-relaxed text-xs">Opened recruiting process for summer research interns.</p>
+                <p className="leading-relaxed text-sm leading-7">Opened recruiting process for summer research interns.</p>
               </li>
             </ul>
           </div>
 
           {/* In Progress */}
-          <div className="glass p-6.5 rounded-xl border-t-2 border-t-yellow-500 hover:border-yellow-500/15 transition-all">
+          <div className="glass p-8 rounded-2xl border-t-2 border-t-yellow-500 hover:border-yellow-500/15 transition-all">
             <span className="text-[10px] font-mono tracking-widest text-yellow-500 uppercase font-bold block mb-4">
               In Progress
             </span>
-            <ul className="space-y-4 text-sm text-muted">
+            <ul className="space-y-4 text-base text-muted">
               <li className="space-y-1">
-                <span className="font-semibold text-white block">Architecture Design</span>
+                <span className="text-lg font-bold text-white block">Architecture Design</span>
                 <span className="text-[10px] text-muted-dark font-mono block">Active</span>
-                <p className="leading-relaxed text-xs">Drafting phase feed networks and software interfaces.</p>
+                <p className="leading-relaxed text-sm leading-7">Drafting phase feed networks and software interfaces.</p>
               </li>
               <li className="space-y-1">
-                <span className="font-semibold text-white block">Research Validation</span>
+                <span className="text-lg font-bold text-white block">Research Validation</span>
                 <span className="text-[10px] text-muted-dark font-mono block">Active</span>
-                <p className="leading-relaxed text-xs">Analyzing propagation behaviors under varying topography coefficients.</p>
+                <p className="leading-relaxed text-sm leading-7">Analyzing propagation behaviors under varying topography coefficients.</p>
               </li>
             </ul>
           </div>
 
           {/* Planned */}
-          <div className="glass p-6.5 rounded-xl border-t-2 border-t-muted-dark hover:border-muted-dark/15 transition-all">
+          <div className="glass p-8 rounded-2xl border-t-2 border-t-muted-dark hover:border-muted-dark/15 transition-all">
             <span className="text-[10px] font-mono tracking-widest text-muted-dark uppercase font-bold block mb-4">
               Planned
             </span>
-            <ul className="space-y-4 text-sm text-muted">
+            <ul className="space-y-4 text-base text-muted">
               <li className="space-y-1">
-                <span className="font-semibold text-white block">Prototype Fabrication</span>
-                <p className="leading-relaxed text-xs">Initial PCB designs for anechoic chamber testing.</p>
+                <span className="text-lg font-bold text-white block">Prototype Fabrication</span>
+                <p className="leading-relaxed text-sm leading-7">Initial PCB designs for anechoic chamber testing.</p>
               </li>
               <li className="space-y-1">
-                <span className="font-semibold text-white block">Laboratory Testing</span>
-                <p className="leading-relaxed text-xs">Calibrating antenna gain models in chamber environments.</p>
+                <span className="text-lg font-bold text-white block">Laboratory Testing</span>
+                <p className="leading-relaxed text-sm leading-7">Calibrating antenna gain models in chamber environments.</p>
               </li>
             </ul>
           </div>
