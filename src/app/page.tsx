@@ -87,12 +87,12 @@ export default function Home() {
       </section>
 
       {/* Current Status */}
-      <section className="max-content-width relative z-10 flex justify-center -mt-12 md:-mt-14 mb-12 md:mb-16">
+      <section className="max-content-width relative z-10 flex justify-center -mt-12 md:-mt-16 mb-8 md:mb-10">
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="glass backdrop-blur-xl border border-accent/15 rounded-2xl px-10 md:px-12 py-7 md:py-8 max-w-5xl w-full text-center shadow-xl"
+          className="glass backdrop-blur-xl border border-accent/15 rounded-2xl px-8 md:px-12 py-6 md:py-8 max-w-5xl w-full text-center shadow-xl"
         >
           <span className="block text-[11px] font-mono tracking-[0.32em] uppercase text-accent-light font-bold mb-3">
             Current Status
