@@ -35,7 +35,7 @@ export default function Home() {
       <RFWaveBackground />
 
       {/* Hero Section */}
-      <section className="max-content-width pt-10 sm:pt-14 md:pt-20 lg:pt-24 min-h-[70vh] flex flex-col items-center justify-center text-center relative z-10 w-full pb-8">
+      <section className="max-content-width pt-10 sm:pt-14 md:pt-20 lg:pt-24 min-h-[65vh] flex flex-col items-center justify-center text-center relative z-10 w-full pb-12 md:pb-16">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* Current Status */}
-      <section className="max-content-width relative z-10 flex justify-center mt-12 md:mt-16 mb-20 md:mb-24">
+      <section className="max-content-width relative z-10 flex justify-center py-16 md:py-24">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -111,7 +111,7 @@ export default function Home() {
 
       {/* Why Gramwave Wireless Section */}
       <section
-        className="max-content-width min-h-screen flex flex-col justify-center items-center relative z-10 w-full py-28 md:py-36"
+        className="max-content-width flex flex-col justify-center items-center relative z-10 w-full pt-12 pb-28 md:pt-16 md:pb-36"
       >
         <div className="max-w-5xl mx-auto text-center mb-20">
           <span
