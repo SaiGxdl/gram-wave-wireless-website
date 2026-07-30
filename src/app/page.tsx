@@ -35,7 +35,7 @@ export default function Home() {
       <RFWaveBackground />
 
       {/* Hero Section */}
-      <section className="max-content-width pt-10 sm:pt-14 md:pt-20 lg:pt-24 min-h-[78vh] flex flex-col items-center justify-center text-center relative z-10 w-full pb-20 md:pb-24">
+      <section className="max-content-width pt-10 sm:pt-14 md:pt-20 lg:pt-24 min-h-[70vh] flex flex-col items-center justify-center text-center relative z-10 w-full pb-8">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.24 }}
-          className="flex flex-col sm:flex-row gap-5 mb-14 md:mb-16"
+          className="flex flex-col sm:flex-row gap-5"
         >
           <Link href="/adaptive-wave" className="btn-primary">
             Explore Technology
@@ -84,8 +84,10 @@ export default function Home() {
             Contact Research Team
           </Link>
         </motion.div>
+      </section>
 
-        {/* Current Status Card */}
+      {/* Current Status */}
+      <section className="max-content-width relative z-10 flex justify-center mt-12 md:mt-16 mb-20 md:mb-24">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
