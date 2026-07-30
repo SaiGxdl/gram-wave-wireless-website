@@ -35,7 +35,7 @@ export default function Home() {
       <RFWaveBackground />
 
       {/* Hero Section */}
-      <section className="max-content-width pt-10 sm:pt-14 md:pt-20 lg:pt-24 min-h-[78vh] flex flex-col items-center justify-center text-center relative z-10 w-full pb-24">
+      <section className="max-content-width pt-10 sm:pt-14 md:pt-20 lg:pt-24 min-h-[78vh] flex flex-col items-center justify-center text-center relative z-10 w-full pb-20 md:pb-24">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.24 }}
-          className="flex flex-col sm:flex-row gap-5"
+          className="flex flex-col sm:flex-row gap-5 mb-14 md:mb-16"
         >
           <Link href="/adaptive-wave" className="btn-primary">
             Explore Technology
@@ -84,25 +84,25 @@ export default function Home() {
             Contact Research Team
           </Link>
         </motion.div>
-      </section>
 
-      {/* Current Status */}
-      <section className="max-content-width relative z-10 flex justify-center -mt-8 md:-mt-12 mb-24">
+        {/* Current Status Card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="glass border border-accent/15 rounded-2xl px-8 py-7 max-w-3xl w-full text-center shadow-xl"
+          className="glass border border-accent/15 rounded-2xl px-10 py-8 max-w-4xl w-full text-center shadow-xl"
         >
-          <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-accent-light font-bold">
+          <span className="text-[11px] font-mono tracking-[0.3em] uppercase text-accent-light font-bold">
             Current Status
           </span>
 
-          <p className="mt-3 text-sm md:text-base leading-8 text-muted">
-            Gramwave Wireless is currently in the
-            <strong> research and technology validation phase</strong>.
-            Prototype fabrication and laboratory testing are planned as
-            future milestones.
+          <p className="mt-4 text-base md:text-lg leading-8 text-muted max-w-3xl mx-auto">
+            Gramwave Wireless is currently in the{" "}
+            <strong className="text-white font-semibold">
+              research and technology validation phase
+            </strong>
+            . Prototype fabrication and laboratory testing are planned as future
+            milestones.
           </p>
         </motion.div>
       </section>
