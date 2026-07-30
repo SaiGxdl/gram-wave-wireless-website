@@ -87,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* Current Status */}
-      <section className="max-content-width relative z-10 flex justify-center -mt-6 md:-mt-8 mb-12 md:mb-16">
+      <section className="max-content-width relative z-10 flex justify-center -mt-8 md:-mt-10 mb-12 md:mb-16">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
