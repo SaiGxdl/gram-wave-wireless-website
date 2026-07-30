@@ -35,12 +35,12 @@ export default function Home() {
       <RFWaveBackground />
 
       {/* Hero Section */}
-      <section className="max-content-width pt-10 sm:pt-14 md:pt-20 lg:pt-24 min-h-[62vh] flex flex-col items-center justify-center text-center relative z-10 w-full pb-6 md:pb-8">
+      <section className="max-content-width pt-10 sm:pt-14 md:pt-20 lg:pt-24 min-h-[88vh] flex flex-col items-center text-center relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center space-x-2.5 rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-5 py-2 text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-accent-light mb-8"
+          className="inline-flex items-center space-x-2 rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-5 py-2 text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-accent-light"
         >
           <Signal className="h-3.5 w-3.5 animate-pulse" />
           <span>Deep-Tech Wireless Research Startup</span>
@@ -50,7 +50,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.08 }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] text-white max-w-5xl mb-8"
+          className="mt-8 text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-[6.8rem] font-extrabold tracking-tight leading-none text-white max-w-6xl"
         >
           Advancing Wireless Connectivity
           <br />
@@ -63,7 +63,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.16 }}
-          className="max-w-4xl text-lg md:text-xl leading-9 text-muted mb-10"
+          className="mt-8 max-w-4xl text-lg md:text-xl leading-9 text-muted"
         >
           Gramwave Wireless is a deep-tech communication research startup developing
           next-generation handset-side receiver matching designs to optimize
@@ -74,7 +74,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.24 }}
-          className="flex flex-col sm:flex-row gap-6"
+          className="flex flex-col sm:flex-row gap-6 mt-10"
         >
           <Link href="/adaptive-wave" className="btn-primary">
             Explore Technology
@@ -84,35 +84,34 @@ export default function Home() {
             Contact Research Team
           </Link>
         </motion.div>
-      </section>
 
-      {/* Current Status */}
-      <section className="max-content-width relative z-10 flex justify-center -mt-12 md:-mt-16 mb-8 md:mb-10">
+        {/* Current Status Card */}
         <motion.div
-          initial={{ opacity: 0, y: 6 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="glass backdrop-blur-xl border border-accent/15 rounded-2xl px-8 md:px-12 py-6 md:py-8 max-w-5xl w-full text-center shadow-xl"
+          transition={{ duration: 0.55, delay: 0.35 }}
+          className="glass backdrop-blur-xl border border-accent/20 rounded-2xl shadow-xl mt-14 w-full max-w-5xl px-10 md:px-12 py-7"
         >
-          <span className="block text-[11px] font-mono tracking-[0.32em] uppercase text-accent-light font-bold mb-3">
+          <span className="block text-[11px] uppercase tracking-[0.35em] font-mono font-bold text-accent-light mb-3">
             Current Status
           </span>
 
           <p className="max-w-3xl mx-auto text-base md:text-lg leading-8 text-muted">
             Gramwave Wireless is currently in the
-            <strong className="text-white font-semibold">
+            <strong className="text-white">
               {" "}research and technology validation phase
             </strong>.
-            Prototype fabrication and laboratory testing are planned as future milestones.
+            Prototype fabrication and laboratory testing are planned as future
+            milestones.
           </p>
         </motion.div>
       </section>
 
       {/* Why Gramwave Wireless Section */}
       <section
-        className="max-content-width flex flex-col justify-center items-center relative z-10 w-full pt-16 pb-24 md:pt-20 md:pb-32"
+        className="max-content-width flex flex-col justify-center items-center relative z-10 w-full pt-10 md:pt-14 pb-24 md:pb-32"
       >
-        <div className="max-w-5xl mx-auto text-center mb-16">
+        <div className="max-w-5xl mx-auto text-center mb-14">
           <span
             className="inline-flex items-center rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-7 py-3 text-sm font-mono font-bold uppercase tracking-[0.3em] text-accent-light"
           >
@@ -137,10 +136,10 @@ export default function Home() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-12 w-full"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full"
         >
           {/* Card 1: The Problem */}
-          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl">
             <div className="space-y-5">
               <div className="h-14 w-14 rounded-lg bg-red-500/8 border border-red-500/15 flex items-center justify-center text-red-400">
                 <Signal className="h-6 w-6" />
@@ -157,7 +156,7 @@ export default function Home() {
           </motion.div>
 
           {/* Card 2: Our Approach */}
-          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl">
             <div className="space-y-5">
               <div className="h-14 w-14 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light">
                 <Cpu className="h-6 w-6" />
@@ -174,7 +173,7 @@ export default function Home() {
           </motion.div>
 
           {/* Card 3: Our Technical Approach */}
-          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl">
             <div className="space-y-5">
               <div className="h-14 w-14 rounded-lg bg-blue-500/8 border border-blue-500/15 flex items-center justify-center text-blue-400">
                 <Compass className="h-6 w-6" />
@@ -191,7 +190,7 @@ export default function Home() {
           </motion.div>
 
           {/* Card 4: Current Research Status */}
-          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl">
             <div className="space-y-5">
               <div className="h-14 w-14 rounded-lg bg-purple-500/8 border border-purple-500/15 flex items-center justify-center text-purple-400">
                 <BookOpen className="h-6 w-6" />
@@ -208,7 +207,7 @@ export default function Home() {
           </motion.div>
 
           {/* Card 5: Intellectual Property */}
-          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl">
             <div className="space-y-5">
               <div className="h-14 w-14 rounded-lg bg-green-500/8 border border-green-500/15 flex items-center justify-center text-green-400">
                 <FileCheck className="h-6 w-6" />
@@ -225,7 +224,7 @@ export default function Home() {
           </motion.div>
 
           {/* Card 6: Long-term Vision */}
-          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl">
             <div className="space-y-5">
               <div className="h-14 w-14 rounded-lg bg-yellow-500/8 border border-yellow-500/15 flex items-center justify-center text-yellow-400">
                 <ShieldCheck className="h-6 w-6" />
