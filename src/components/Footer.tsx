@@ -2,18 +2,29 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Linkedin } from "lucide-react";
+import { useState } from "react";
+import { Mail, Linkedin, ShieldCheck, ArrowRight, Check } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setSubscribed(true);
+      setEmail("");
+    }
+  };
 
   return (
-    <footer className="w-full bg-[#030712] border-t border-card-border/40 py-16 md:py-24 mt-auto">
-      <div className="max-content-width grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 w-full">
-        {/* Branding & Info */}
-        <div className="md:col-span-4 space-y-5">
+    <footer className="w-full bg-[#030712] border-t border-card-border/40 py-16 md:py-24 mt-auto relative z-10">
+      <div className="max-content-width grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 w-full">
+        {/* Branding & Newsletter Info */}
+        <div className="md:col-span-5 space-y-6">
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative h-7 w-7 shrink-0 transition-transform group-hover:scale-105">
+            <div className="relative h-8 w-8 shrink-0 transition-transform group-hover:scale-105">
               <Image
                 src="/logo-emblem.png"
                 alt="Gramwave Wireless Emblem"
@@ -21,35 +32,61 @@ export default function Footer() {
                 className="object-contain"
               />
             </div>
-            <span className="text-xs font-bold tracking-[0.2em] text-white uppercase group-hover:text-accent-light transition-colors">
-              GRAMWAVE WIRELESS
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xs font-bold tracking-[0.2em] text-white uppercase group-hover:text-accent-light transition-colors">
+                GRAMWAVE WIRELESS
+              </span>
+              <span className="text-[9px] font-mono tracking-widest text-muted-dark uppercase">
+                Deep-Tech Communication R&D
+              </span>
+            </div>
           </Link>
-          <p className="text-xs text-muted leading-relaxed max-w-sm">
-            A deep-tech wireless communication research startup developing next-generation handset-side technologies for weak-signal environments.
+
+          <p className="text-xs text-muted leading-relaxed max-w-md">
+            A deep-tech wireless research startup developing next-generation handset-side receiver matching designs to optimize connectivity in weak-signal sectors.
           </p>
-          <div className="flex items-center space-x-3 pt-1">
-            <a
-              href="mailto:founder@gramwavewireless.in"
-              className="text-muted hover:text-white transition-colors p-2 glass rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              aria-label="Email Gramwave Wireless Founder"
-            >
-              <Mail className="h-4.5 w-4.5" />
-            </a>
-            <a
-              href="https://linkedin.com/company/gramwave-wireless"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted hover:text-white transition-colors p-2 glass rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              aria-label="Gramwave Wireless LinkedIn Profile"
-            >
-              <Linkedin className="h-4.5 w-4.5" />
-            </a>
+
+          {/* Patent Pending Status Badge */}
+          <div className="inline-flex items-center space-x-2 bg-accent/10 border border-accent/20 px-3 py-1.5 rounded-lg text-[11px] font-mono text-accent-light">
+            <ShieldCheck className="h-4 w-4 shrink-0 text-accent-light" />
+            <span>Patent Pending (India App Ref: 2026410...)</span>
+          </div>
+
+          {/* Newsletter Form */}
+          <div className="pt-2 max-w-md">
+            <span className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white mb-2">
+              Subscribe to Lab Notes & Research Papers
+            </span>
+
+            {subscribed ? (
+              <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-3 text-xs font-mono text-emerald-400 flex items-center space-x-2">
+                <Check className="h-4 w-4" />
+                <span>Subscribed! You will receive future technical updates.</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="flex gap-2">
+                <input
+                  type="email"
+                  required
+                  placeholder="Enter researcher email..."
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-[#080d1a] border border-card-border/60 rounded-xl px-4 py-2.5 text-xs text-white placeholder-muted-dark focus:outline-none focus:border-accent text-mono flex-1"
+                />
+                <button
+                  type="submit"
+                  className="btn-primary text-xs font-mono font-bold uppercase px-4 py-2.5 rounded-xl flex items-center space-x-1.5 shrink-0"
+                >
+                  <span>Subscribe</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </button>
+              </form>
+            )}
           </div>
         </div>
 
         {/* Column 2: Navigation */}
-        <div className="md:col-span-2 md:col-start-6 space-y-4">
+        <div className="md:col-span-2 md:col-start-7 space-y-4">
           <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">
             Navigation
           </h3>
@@ -77,7 +114,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Column 3: Contact */}
+        {/* Column 3: Join & Contact */}
         <div className="md:col-span-3 space-y-4">
           <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">
             Join & Contact
@@ -93,10 +130,30 @@ export default function Footer() {
                 Contact & FAQ
               </Link>
             </li>
-            <li className="text-muted/65 mt-4 font-mono text-[10px] tracking-wide">
-              Location: Guntur, AP, India
+            <li className="text-muted/70 pt-2 font-mono text-[10px] tracking-wide flex flex-col space-y-1">
+              <span>Location: Guntur, AP, India</span>
+              <span>Email: founder@gramwavewireless.in</span>
             </li>
           </ul>
+
+          <div className="flex items-center space-x-3 pt-2">
+            <a
+              href="mailto:founder@gramwavewireless.in"
+              className="text-muted hover:text-white transition-colors p-2 glass rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              aria-label="Email Gramwave Wireless Founder"
+            >
+              <Mail className="h-4 w-4" />
+            </a>
+            <a
+              href="https://linkedin.com/company/gramwave-wireless"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-white transition-colors p-2 glass rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              aria-label="Gramwave Wireless LinkedIn Profile"
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
+          </div>
         </div>
 
         {/* Column 4: Legal */}
@@ -130,6 +187,8 @@ export default function Footer() {
         </div>
         <div className="flex space-x-6">
           <span>Deep-Tech Research Portal</span>
+          <span>•</span>
+          <span>Active Matching Technologies</span>
         </div>
       </div>
     </footer>
