@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import RFWaveBackground from "@/components/RFWaveBackground";
 import { Signal, Cpu, Compass, ArrowRight } from "lucide-react";
 import { motion, Variants } from "framer-motion";
@@ -123,55 +124,76 @@ export default function Home() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 xl:gap-10 w-full max-w-6xl"
+          className="grid grid-cols-1 md:grid-cols-3 gap-10 xl:gap-12 w-full max-w-6xl"
         >
           {/* Card 1: The Problem */}
-          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-            <div className="space-y-5">
-              <div className="h-14 w-14 rounded-lg bg-red-500/8 border border-red-500/15 flex items-center justify-center text-red-400">
-                <Signal className="h-6 w-6" />
-              </div>
-              <h3 className="text-lg font-bold text-white tracking-wide uppercase font-mono">The Problem</h3>
-              <p className="text-base leading-8 text-muted">
-                Millions in rural and mountainous regions still face drop-outs,
-                even with tower infrastructure nearby.
-              </p>
+          <motion.div variants={itemVariants} className="flex flex-col">
+            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-white/5 border border-white/10">
+              <Image
+                src="/images/cards/the-problem.jpg"
+                alt="A person checking a weak phone signal on a mountain trail at dusk, with a village and cell tower visible in the distance"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover"
+              />
             </div>
+            <div className="pt-6 flex items-center gap-2.5">
+              <Signal className="h-5 w-5 text-red-400 shrink-0" />
+              <h3 className="text-xl font-bold text-white">The Problem</h3>
+            </div>
+            <p className="mt-3 text-base leading-7 text-muted">
+              Millions in rural and mountainous regions still face drop-outs,
+              even with tower infrastructure nearby.
+            </p>
           </motion.div>
 
           {/* Card 2: Our Approach */}
-          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-            <div className="space-y-5">
-              <div className="h-14 w-14 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light">
-                <Cpu className="h-6 w-6" />
-              </div>
-              <h3 className="text-lg font-bold text-white tracking-wide uppercase font-mono">Our Approach</h3>
-              <p className="text-base leading-8 text-muted">
-                Active impedance matching and receiver array design, built
-                directly into the handset to boost reception where it counts.
-              </p>
+          <motion.div variants={itemVariants} className="flex flex-col">
+            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-white/5 border border-white/10">
+              <Image
+                src="/images/cards/our-approach.jpg"
+                alt="Macro photograph of an RF antenna module and impedance-matching components on a circuit board"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover"
+              />
             </div>
-            <Link href="/adaptive-wave" className="text-[11px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
+            <div className="pt-6 flex items-center gap-2.5">
+              <Cpu className="h-5 w-5 text-accent-light shrink-0" />
+              <h3 className="text-xl font-bold text-white">Our Approach</h3>
+            </div>
+            <p className="mt-3 text-base leading-7 text-muted">
+              Active impedance matching and receiver array design, built
+              directly into the handset to boost reception where it counts.
+            </p>
+            <Link href="/adaptive-wave" className="mt-4 text-sm font-semibold text-accent-light flex items-center gap-1 hover:underline">
               <span>Explore Adaptive Wave</span>
-              <ArrowRight className="h-3 w-3" />
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
 
           {/* Card 3: What's Next */}
-          <motion.div variants={itemVariants} className="hover-card p-10 rounded-2xl flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-            <div className="space-y-5">
-              <div className="h-14 w-14 rounded-lg bg-blue-500/8 border border-blue-500/15 flex items-center justify-center text-blue-400">
-                <Compass className="h-6 w-6" />
-              </div>
-              <h3 className="text-lg font-bold text-white tracking-wide uppercase font-mono">What&apos;s Next</h3>
-              <p className="text-base leading-8 text-muted">
-                Simulation and validation today, prototype fabrication and lab
-                testing ahead — with an eye on 6G and satellite integration.
-              </p>
+          <motion.div variants={itemVariants} className="flex flex-col">
+            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-white/5 border border-white/10">
+              <Image
+                src="/images/cards/whats-next.jpg"
+                alt="Silhouette of an engineer at a workbench at night, testing equipment glowing blue with a city skyline visible through the window"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover"
+              />
             </div>
-            <Link href="/roadmap" className="text-[11px] uppercase font-bold text-accent-light tracking-wider flex items-center space-x-1.5 pt-6 hover:underline mt-auto">
+            <div className="pt-6 flex items-center gap-2.5">
+              <Compass className="h-5 w-5 text-blue-400 shrink-0" />
+              <h3 className="text-xl font-bold text-white">What&apos;s Next</h3>
+            </div>
+            <p className="mt-3 text-base leading-7 text-muted">
+              Simulation and validation today, prototype fabrication and lab
+              testing ahead — with an eye on 6G and satellite integration.
+            </p>
+            <Link href="/roadmap" className="mt-4 text-sm font-semibold text-accent-light flex items-center gap-1 hover:underline">
               <span>View Roadmap</span>
-              <ArrowRight className="h-3 w-3" />
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
         </motion.div>
