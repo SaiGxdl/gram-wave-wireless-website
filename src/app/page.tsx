@@ -178,7 +178,7 @@ export default function Home() {
       </section>
 
       {/* Team */}
-      <section className="max-content-width py-20 md:py-24 relative z-10 w-full border-t border-card-border/20 flex flex-col items-center">
+      <section className="max-content-width pt-28 pb-20 md:pt-36 md:pb-24 relative z-10 w-full border-t border-card-border/20 flex flex-col items-center">
         <div className="w-full max-w-4xl glass rounded-2xl border border-accent/20 p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
           <div className="h-24 w-24 rounded-2xl bg-gradient-to-tr from-accent/30 to-blue-500/20 border border-accent/40 flex items-center justify-center shrink-0">
             <Cpu className="h-10 w-10 text-accent-light" />
