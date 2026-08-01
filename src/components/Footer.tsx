@@ -2,21 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
-import { Mail, Linkedin, ShieldCheck, ArrowRight, Check } from "lucide-react";
+import { Mail, Linkedin, ShieldCheck } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail("");
-    }
-  };
 
   return (
     <footer className="w-full bg-[#030712] border-t border-card-border/40 py-16 md:py-24 mt-auto relative z-10">
@@ -51,42 +40,10 @@ export default function Footer() {
             <ShieldCheck className="h-4 w-4 shrink-0 text-accent-light" />
             <span>Patent Pending (India App Ref: 2026410...)</span>
           </div>
-
-          {/* Newsletter Form */}
-          <div className="pt-2 max-w-md">
-            <span className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white mb-2">
-              Subscribe to Lab Notes & Research Papers
-            </span>
-
-            {subscribed ? (
-              <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-3 text-xs font-mono text-emerald-400 flex items-center space-x-2">
-                <Check className="h-4 w-4" />
-                <span>Subscribed! You will receive future technical updates.</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="flex gap-2">
-                <input
-                  type="email"
-                  required
-                  placeholder="Enter researcher email..."
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-[#080d1a] border border-card-border/60 rounded-xl px-4 py-2.5 text-xs text-white placeholder-muted-dark focus:outline-none focus:border-accent text-mono flex-1"
-                />
-                <button
-                  type="submit"
-                  className="btn-primary text-xs font-mono font-bold uppercase px-4 py-2.5 rounded-xl flex items-center space-x-1.5 shrink-0"
-                >
-                  <span>Subscribe</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </button>
-              </form>
-            )}
-          </div>
         </div>
 
         {/* Column 2: Navigation */}
-        <div className="md:col-span-2 md:col-start-7 space-y-4">
+        <div className="md:col-span-2 space-y-4">
           <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">
             Navigation
           </h3>
