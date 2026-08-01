@@ -130,17 +130,14 @@ export default function Home() {
           <motion.div variants={itemVariants} className="flex flex-col">
             <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-white/5 border border-white/10">
               <Image
-                src="/images/cards/the-problem.jpg"
-                alt="A person checking a weak phone signal on a mountain trail at dusk, with a village and cell tower visible in the distance"
+                src="/images/cards/the-problem.png"
+                alt="The Problem - Weak signal drop-outs in remote regions"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
               />
             </div>
-            <div className="pt-6 flex items-center gap-2.5">
-              <Signal className="h-5 w-5 text-red-400 shrink-0" />
-              <h3 className="text-xl font-bold text-white">The Problem</h3>
-            </div>
+            <h3 className="pt-6 text-xl font-bold text-white">The Problem</h3>
             <p className="mt-3 text-base leading-7 text-muted">
               Millions in rural and mountainous regions still face drop-outs,
               even with tower infrastructure nearby.
@@ -151,17 +148,14 @@ export default function Home() {
           <motion.div variants={itemVariants} className="flex flex-col">
             <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-white/5 border border-white/10">
               <Image
-                src="/images/cards/our-approach.jpg"
-                alt="Macro photograph of an RF antenna module and impedance-matching components on a circuit board"
+                src="/images/cards/our-approach.png"
+                alt="Our Approach - Active impedance matching RF receiver design"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
               />
             </div>
-            <div className="pt-6 flex items-center gap-2.5">
-              <Cpu className="h-5 w-5 text-accent-light shrink-0" />
-              <h3 className="text-xl font-bold text-white">Our Approach</h3>
-            </div>
+            <h3 className="pt-6 text-xl font-bold text-white">Our Approach</h3>
             <p className="mt-3 text-base leading-7 text-muted">
               Active impedance matching and receiver array design, built
               directly into the handset to boost reception where it counts.
@@ -176,17 +170,14 @@ export default function Home() {
           <motion.div variants={itemVariants} className="flex flex-col">
             <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-white/5 border border-white/10">
               <Image
-                src="/images/cards/whats-next.jpg"
-                alt="Silhouette of an engineer at a workbench at night, testing equipment glowing blue with a city skyline visible through the window"
+                src="/images/cards/whats-next.png"
+                alt="What's Next - Simulation, prototype fabrication and lab testing"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
               />
             </div>
-            <div className="pt-6 flex items-center gap-2.5">
-              <Compass className="h-5 w-5 text-blue-400 shrink-0" />
-              <h3 className="text-xl font-bold text-white">What&apos;s Next</h3>
-            </div>
+            <h3 className="pt-6 text-xl font-bold text-white">What&apos;s Next</h3>
             <p className="mt-3 text-base leading-7 text-muted">
               Simulation and validation today, prototype fabrication and lab
               testing ahead — with an eye on 6G and satellite integration.
