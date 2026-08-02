@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Zap, Activity, Cpu, Sliders, CheckCircle2, AlertTriangle } from "lucide-react";
+import { motion } from "framer-motion";
+import { Activity, Sliders, CheckCircle2, AlertTriangle } from "lucide-react";
 
 export default function HeroSignalDiagram() {
   const [isActiveMatching, setIsActiveMatching] = useState(true);

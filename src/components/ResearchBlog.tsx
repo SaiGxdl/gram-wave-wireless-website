@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, X, ArrowRight, ShieldCheck, Cpu, Calendar, Clock, FileText } from "lucide-react";
+import { X, ArrowRight, Calendar, Clock } from "lucide-react";
 
 interface Article {
   id: string;

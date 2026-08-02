@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import RFWaveBackground from "@/components/RFWaveBackground";
-import { Signal, Cpu, Compass, ArrowRight } from "lucide-react";
+import { Signal, Cpu, ArrowRight } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 
 export default function Home() {

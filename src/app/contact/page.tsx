@@ -95,11 +95,12 @@ export default function ContactPage() {
       } else {
         throw new Error(data.error || "Failed to send inquiry.");
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Submission error:", err);
       setIsSubmitting(false);
       setSubmitStatus("error");
-      setSubmitErrorMessage(err.message || "Network error. Please try emailing directly.");
+      const errorMessage = err instanceof Error ? err.message : "Network error. Please try emailing directly.";
+      setSubmitErrorMessage(errorMessage);
     }
   };
 
