@@ -5,7 +5,6 @@ import { useState } from "react";
 import {
   Mail,
   Linkedin,
-  MapPin,
   Clock,
   ChevronDown,
   ChevronUp,
@@ -158,14 +157,6 @@ export default function ContactPage() {
                   >
                     linkedin.com/company/gramwave-wireless
                   </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3.5 text-xs text-muted">
-                <MapPin className="h-5 w-5 text-accent-light" />
-                <div>
-                  <span className="text-[10px] font-mono uppercase text-muted-dark block">Location</span>
-                  <span className="text-white font-semibold">Guntur, Andhra Pradesh, India</span>
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import RFWaveBackground from "@/components/RFWaveBackground";
-import { Signal, Cpu, ArrowRight } from "lucide-react";
+import { Signal, ArrowRight } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 
 export default function Home() {
@@ -92,7 +92,7 @@ export default function Home() {
           </div>
           <div className="sm:border-x sm:border-card-border/40">
             <span className="block text-2xl font-extrabold text-white font-mono">1</span>
-            <span className="block text-xs uppercase tracking-widest text-muted mt-1">Patent Filed (India)</span>
+            <span className="block text-xs uppercase tracking-widest text-muted mt-1">Active Research Initiative</span>
           </div>
           <div>
             <span className="block text-2xl font-extrabold text-white font-mono">2026</span>
@@ -190,42 +190,24 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Team */}
-      <section className="max-content-width pt-20 pb-20 md:pt-28 md:pb-24 relative z-10 w-full border-t border-card-border/20 flex flex-col items-center">
-        <div className="w-full max-w-4xl glass rounded-2xl border border-accent/20 p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
-          <div className="h-24 w-24 rounded-2xl bg-gradient-to-tr from-accent/30 to-blue-500/20 border border-accent/40 flex items-center justify-center shrink-0">
-            <Cpu className="h-10 w-10 text-accent-light" />
+      {/* Collaborate CTA */}
+      <div className="relative z-10 w-full">
+        <section className="max-content-width py-16 md:py-24 w-full flex flex-col items-center">
+          <div className="w-full max-w-4xl glass rounded-3xl border border-accent/20 overflow-hidden shadow-2xl p-8 sm:p-10 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 bg-accent/5 text-center md:text-left">
+            <div className="space-y-3 max-w-xl">
+              <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white uppercase font-mono">
+                Collaborate With Us
+              </h2>
+              <p className="text-sm md:text-base leading-relaxed text-muted">
+                Open to universities, RF engineers, and research labs who want to push wireless connectivity forward with us.
+              </p>
+            </div>
+            <Link href="/contact" className="btn-primary shrink-0">
+              Get in Touch
+            </Link>
           </div>
-
-          <div className="flex-1 text-center md:text-left">
-            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent-light">
-              Founder & RF Engineering Researcher
-            </span>
-            <p className="mt-3 text-base md:text-lg leading-8 text-muted">
-              Building Gramwave&apos;s handset-side receiver matching and
-              antenna research end to end, from simulation through patent
-              filing.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Collaborate With Us */}
-      <section className="max-content-width py-16 md:py-20 relative z-10 w-full border-t border-card-border/20 flex flex-col items-center">
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white uppercase font-mono mb-4">
-            Collaborate With Us
-          </h2>
-          <p className="text-base md:text-lg leading-8 text-muted">
-            Open to universities, RF engineers, and research labs who want to
-            push wireless connectivity forward with us.
-          </p>
-        </div>
-
-        <Link href="/contact" className="btn-primary">
-          Get in Touch
-        </Link>
-      </section>
+        </section>
+      </div>
 
       {/* News & Updates */}
       <section className="max-content-width py-20 md:py-24 relative z-10 w-full border-t border-card-border/20">
@@ -240,10 +222,10 @@ export default function Home() {
             <span className="text-[10px] font-mono tracking-widest text-accent-light uppercase font-bold block mb-3">
               Completed
             </span>
-            <span className="text-lg font-bold text-white block">Patent Filed</span>
+            <span className="text-lg font-bold text-white block">Problem Discovery</span>
             <span className="text-[10px] text-muted-dark font-mono block mb-2">2026</span>
             <p className="text-sm leading-7 text-muted">
-              Provisional patent filed in India for active handset matching.
+              Identified weak-signal drop-out patterns across rural and mountainous regions.
             </p>
           </div>
 

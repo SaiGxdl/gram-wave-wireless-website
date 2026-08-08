@@ -133,17 +133,25 @@ export function PatentArchitectureDiagram() {
   return (
     <div className="w-full h-36 bg-[#020510] border border-green-500/20 rounded-xl p-3 flex flex-col justify-between relative overflow-hidden group">
       <div className="flex items-center justify-between text-[10px] font-mono text-green-400">
-        <span>IP: PATENT APPLICATION FLOW</span>
-        <span className="text-muted-dark">Temp No. 20264...</span>
+        <span>IP: SYSTEM ARCHITECTURE FLOW</span>
+        <span className="text-muted-dark">Adaptive Sequence</span>
       </div>
       <svg viewBox="0 0 300 90" className="w-full h-20" fill="none">
+        <defs>
+          <marker id="greenArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 2 L 8 5 L 0 8 z" fill="#22c55e" />
+          </marker>
+          <marker id="blueArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 2 L 8 5 L 0 8 z" fill="#3b82f6" />
+          </marker>
+        </defs>
         {/* Step 1 */}
         <rect x="20" y="25" width="70" height="40" rx="6" fill="rgba(34, 197, 94, 0.1)" stroke="#22c55e" strokeWidth="1.5" />
         <text x="55" y="43" fill="#ffffff" fontSize="8" fontWeight="bold" fontFamily="monospace" textAnchor="middle">IMPEDANCE</text>
         <text x="55" y="54" fill="#86efac" fontSize="7" fontFamily="monospace" textAnchor="middle">Sensing</text>
 
         {/* Arrow 1 */}
-        <path d="M 90 45 H 115" stroke="#22c55e" strokeWidth="1.5" markerEnd="url(#arrow)" />
+        <path d="M 90 45 H 112" stroke="#22c55e" strokeWidth="1.5" markerEnd="url(#greenArrow)" />
 
         {/* Step 2 */}
         <rect x="115" y="25" width="70" height="40" rx="6" fill="rgba(59, 130, 246, 0.1)" stroke="#3b82f6" strokeWidth="1.5" />
@@ -151,7 +159,7 @@ export function PatentArchitectureDiagram() {
         <text x="150" y="54" fill="#93c5fd" fontSize="7" fontFamily="monospace" textAnchor="middle">Algorithm</text>
 
         {/* Arrow 2 */}
-        <path d="M 185 45 H 210" stroke="#3b82f6" strokeWidth="1.5" />
+        <path d="M 185 45 H 207" stroke="#3b82f6" strokeWidth="1.5" markerEnd="url(#blueArrow)" />
 
         {/* Step 3 */}
         <rect x="210" y="25" width="70" height="40" rx="6" fill="rgba(6, 182, 212, 0.1)" stroke="#06b6d4" strokeWidth="1.5" />

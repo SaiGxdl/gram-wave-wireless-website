@@ -157,7 +157,7 @@ export default function HeroSignalDiagram() {
 
             {/* Reflection Badge Overlay */}
             <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-[10px] font-mono">
-              <span className="text-muted-dark">Reflection Loss ($S_{11}$):</span>
+              <span className="text-muted-dark">Reflection Loss (S₁₁):</span>
               <span
                 className={`font-bold ${
                   isActiveMatching ? "text-accent-light" : "text-red-400"

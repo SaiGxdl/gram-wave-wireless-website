@@ -4,28 +4,27 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function SubtleLoader() {
-  const [loading, setLoading] = useState<boolean>(() => {
-    if (typeof window === "undefined") return false;
-    try {
-      return !sessionStorage.getItem("gramwave_loaded_session");
-    } catch {
-      return false;
-    }
-  });
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    if (loading) {
-      try {
+    try {
+      const alreadyLoaded = sessionStorage.getItem("gramwave_loaded_session");
+      if (!alreadyLoaded) {
         sessionStorage.setItem("gramwave_loaded_session", "true");
-      } catch {
-        // Fallback if sessionStorage is restricted
+        // Schedule state updates asynchronously to avoid synchronous cascading renders
+        const startTimer = setTimeout(() => {
+          setLoading(true);
+          const endTimer = setTimeout(() => {
+            setLoading(false);
+          }, 350);
+          return () => clearTimeout(endTimer);
+        }, 0);
+        return () => clearTimeout(startTimer);
       }
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, 300); // Quick 300ms transition max
-      return () => clearTimeout(timer);
+    } catch {
+      // Fallback if sessionStorage is restricted
     }
-  }, [loading]);
+  }, []);
 
   return (
     <AnimatePresence>

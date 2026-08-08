@@ -34,7 +34,7 @@ export default function CareersPage() {
   const openings = [
     {
       title: "Research Intern",
-      type: "Remote / Hybrid (Guntur, AP)",
+      type: "Remote / Hybrid",
       duration: "3–6 Months",
       desc: "For electronics, communication, or physics students interested in wireless research. Focuses on literature curation, baseline math review, and HFSS drafting assistance.",
     },

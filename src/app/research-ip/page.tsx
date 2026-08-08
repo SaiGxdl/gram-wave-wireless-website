@@ -204,28 +204,22 @@ export default function ResearchIPPage() {
           {/* Patent Registry */}
           <div className="flex flex-col space-y-4">
             <h2 className="text-sm font-semibold tracking-wider text-white uppercase font-mono text-center lg:text-left">
-              Intellectual Property Status
+              Intellectual Property Strategy
             </h2>
             <div className="glass p-8 rounded-xl border border-card-border/30 space-y-5 flex flex-col justify-between flex-1">
               <div className="space-y-4.5">
                 <div className="flex items-center space-x-2 text-accent-light">
                   <FileCheck className="h-5.5 w-5.5" />
                   <span className="text-xs font-bold uppercase tracking-wider font-mono">
-                    Provisional Patent Application
+                    Intellectual Property Strategy
                   </span>
                 </div>
-                <div className="text-[11px] text-muted space-y-1 font-mono">
-                  <p>Application Jurisdiction: India</p>
-                  <p>Patent Office: IN (Indian Patent Office)</p>
-                  <p>Application Status: Provisional Filed</p>
-                </div>
                 <p className="text-xs text-muted leading-relaxed">
-                  A provisional patent application has been filed to protect architectural aspects of the Adaptive Wave research concept. Research and technical validation are ongoing, and the technology is under active development.
+                  We are actively developing our intellectual property strategy to protect the
+                  architectural aspects of the Adaptive Wave research concept. Filing details will be
+                  shared here once finalized.
                 </p>
               </div>
-              <span className="text-[10px] text-muted-dark font-mono block pt-4">
-                *Further patent details are kept confidential during early R&D phases.
-              </span>
             </div>
           </div>
 

@@ -35,10 +35,14 @@ export default function DisclaimerPage() {
             2. Intellectual Property (IP) Representation
           </h2>
           <p>
-            A provisional patent application has been filed in India to protect specific architectural layouts and phase alignment systems relating to the Adaptive Wave concept. This website does not disclose detailed schematic indices or confidential engineering drawings, which remain protected proprietary material of Gramwave Wireless.
+            Gramwave Wireless is actively developing its intellectual property strategy to protect
+            architectural layouts and phase alignment systems relating to the Adaptive Wave concept.
+            This website does not disclose detailed schematic indices or confidential engineering
+            drawings, which remain protected proprietary material of Gramwave Wireless.
           </p>
           <p>
-            Research, validation, and expansion of our IP portfolio are ongoing. The filing of a provisional patent application does not guarantee the granting of a utility patent.
+            Research, validation, and expansion of our IP portfolio are ongoing. Any future patent
+            filings will be reflected on this website once finalized.
           </p>
         </section>
 

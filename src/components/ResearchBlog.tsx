@@ -33,18 +33,18 @@ const articles: Article[] = [
     ]
   },
   {
-    id: "patent-filing-india",
+    id: "ip-strategy-framework",
     category: "Patent & Milestones",
     date: "June 2026",
     readTime: "3 min read",
-    title: "Provisional Patent Filed for Handset Receiver Matching Architecture",
+    title: "Handset Receiver Matching Architecture & IP Framework",
     summary:
-      "Gramwave Wireless has secured key intellectual property protections covering active receiver array configurations and phase-coherent aggregation logic in India.",
-    tags: ["Intellectual Property", "Patent Pending", "R&D Milestone"],
+      "Gramwave Wireless is formulating proprietary intellectual property protections covering active receiver array configurations and phase-coherent aggregation logic.",
+    tags: ["Intellectual Property", "IP Strategy", "R&D Milestone"],
     fullContent: [
-      "Gramwave Wireless has officially submitted a provisional patent application in India, establishing early priority for our proprietary handset-side receiver matching algorithms and sub-wavelength antenna array layouts.",
-      "The patent covers key claims including: (1) Dynamic complex-conjugate matching algorithms optimized for mobile form factors, (2) Phase-coherent signal summation circuits for multi-element receiver arrays, and (3) Active reflection loss mitigation loops.",
-      "Securing this intellectual property provides a strong foundational barrier and validates our commitment to creating high-impact deep-tech innovations rooted in rigorous electromagnetic research."
+      "Gramwave Wireless is developing its foundational intellectual property portfolio in India, establishing novel architectural priority for our proprietary handset-side receiver matching algorithms and sub-wavelength antenna array layouts.",
+      "Our research encompasses key domains including: (1) Dynamic complex-conjugate matching algorithms optimized for mobile form factors, (2) Phase-coherent signal summation circuits for multi-element receiver arrays, and (3) Active reflection loss mitigation loops.",
+      "Developing this intellectual property framework validates our commitment to creating high-impact deep-tech innovations rooted in rigorous electromagnetic research."
     ]
   },
   {
