@@ -46,7 +46,7 @@ export default function Navbar() {
       className={
         isLight
           ? `fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white/95 backdrop-blur-md border-b ${
-              scrolled ? "border-[#E4E7EC] py-4 shadow-[0_1px_0_rgba(11,15,25,0.04)]" : "border-transparent py-6"
+              scrolled ? "border-[#E4E7EC] py-3 shadow-[0_1px_0_rgba(11,15,25,0.04)]" : "border-transparent py-4"
             }`
           : `fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
               scrolled
@@ -92,8 +92,8 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav Links & CTA */}
-        <div className="hidden lg:flex items-center justify-end ml-auto gap-6 lg:gap-8 xl:gap-10">
-          <nav className="flex items-center gap-6 lg:gap-8 xl:gap-10">
+        <div className="hidden lg:flex items-center justify-end ml-auto gap-5 lg:gap-7 xl:gap-8">
+          <nav className="flex items-center gap-5 lg:gap-7 xl:gap-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -122,10 +122,10 @@ export default function Navbar() {
           {isLight ? (
             <Link
               href="/contact"
-              className="inline-flex items-center space-x-1.5 bg-[#0B0F19] hover:bg-[#1A2033] text-white font-mono text-[11px] font-bold tracking-wider uppercase px-4 py-2.5 rounded-full transition-all duration-200 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]"
+              className="inline-flex min-h-[40px] min-w-[126px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#0B0F19] px-5 py-2.5 text-[11px] font-bold font-mono uppercase tracking-[0.08em] leading-none text-white transition-all duration-200 hover:bg-[#1A2033] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]"
             >
               <span>Talk to Us</span>
-              <ArrowUpRight className="h-3.5 w-3.5" />
+              <ArrowUpRight className="h-3.5 w-3.5 shrink-0" />
             </Link>
           ) : (
             <Link
