@@ -123,22 +123,62 @@ const milestones = [
 
 /* -------------------------------------------------------------------------- */
 /* Reusable interaction styles                                                */
+/* FIX: bumped horizontal padding on buttons slightly (px-5/px-6 ->           */
+/* px-6/px-7) so labels like "CONTACT RESEARCH TEAM" get more breathing       */
+/* room from the pill edges. Buttons stay auto-width + whitespace-nowrap.     */
 /* -------------------------------------------------------------------------- */
 
 const primaryButton =
-  "inline-flex min-h-[46px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#2563EB] px-5 sm:px-6 py-3 text-xs font-bold font-mono uppercase tracking-wider leading-none text-white shadow-md shadow-blue-500/15 transition-all duration-200 hover:bg-[#1D4ED8] hover:shadow-lg hover:shadow-blue-500/25 active:scale-[0.98]";
+  "inline-flex min-h-[46px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#2563EB] px-6 sm:px-7 py-3 text-xs font-bold font-mono uppercase tracking-wider leading-none text-white shadow-md shadow-blue-500/15 transition-all duration-200 hover:bg-[#1D4ED8] hover:shadow-lg hover:shadow-blue-500/25 active:scale-[0.98]";
 
 const secondaryButton =
-  "inline-flex min-h-[46px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-[#0B0F19] bg-[#0B0F19] px-5 sm:px-6 py-3 text-xs font-bold font-mono uppercase tracking-wider leading-none text-white shadow-sm transition-all duration-200 hover:bg-[#1A2033] active:scale-[0.98]";
+  "inline-flex min-h-[46px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-[#0B0F19] bg-[#0B0F19] px-6 sm:px-7 py-3 text-xs font-bold font-mono uppercase tracking-wider leading-none text-white shadow-sm transition-all duration-200 hover:bg-[#1A2033] active:scale-[0.98]";
 
 const inlineAction =
   "inline-flex min-h-[32px] w-fit max-w-full shrink-0 items-center justify-start gap-1.5 whitespace-nowrap text-xs font-mono font-bold uppercase tracking-wider leading-none text-[#2563EB] transition-all duration-200 hover:gap-2.5 hover:text-[#1D4ED8]";
 
 const outlineButton =
-  "inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-[#E4E7EC] bg-white px-5 sm:px-6 py-3 text-xs font-bold font-mono uppercase tracking-[0.16em] leading-none text-[#2563EB] shadow-sm transition-all duration-200 hover:border-[#2563EB] hover:text-[#0B0F19] hover:shadow-md";
+  "inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-[#E4E7EC] bg-white px-6 sm:px-7 py-3 text-xs font-bold font-mono uppercase tracking-[0.16em] leading-none text-[#2563EB] shadow-sm transition-all duration-200 hover:border-[#2563EB] hover:text-[#0B0F19] hover:shadow-md";
 
 const ctaButton =
-  "inline-flex min-h-[46px] shrink-0 items-center justify-center gap-2.5 whitespace-nowrap rounded-xl bg-white px-6 sm:px-8 py-3.5 text-xs font-bold font-mono uppercase tracking-wider leading-none text-[#0B0F19] shadow-lg transition-all duration-200 hover:bg-[#F6F7F9] hover:scale-[1.02] active:scale-[0.98]";
+  "inline-flex min-h-[46px] shrink-0 items-center justify-center gap-2.5 whitespace-nowrap rounded-xl bg-white px-7 sm:px-9 py-3.5 text-xs font-bold font-mono uppercase tracking-wider leading-none text-[#0B0F19] shadow-lg transition-all duration-200 hover:bg-[#F6F7F9] hover:scale-[1.02] active:scale-[0.98]";
+
+/* -------------------------------------------------------------------------- */
+/* Shared section heading                                                     */
+/* A single reusable heading block so every "eyebrow + title" pair (Why       */
+/* Gramwave, Research Focus, How We Work, Progress) renders with identical    */
+/* spacing and sizing instead of each section hand-rolling its own margins.   */
+/* -------------------------------------------------------------------------- */
+
+function SectionHeading({
+  eyebrow,
+  title,
+  description,
+  center = false,
+}: {
+  eyebrow: string;
+  title: string;
+  description?: string;
+  center?: boolean;
+}) {
+  return (
+    <div className={`mb-16 md:mb-20 max-w-2xl ${center ? "mx-auto text-center" : ""}`}>
+      <span className="inline-flex items-center rounded-full border border-[#BFD3FE] bg-[#EFF4FF] px-4 py-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB]">
+        {eyebrow}
+      </span>
+
+      <h2 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-[#0B0F19] md:text-4xl">
+        {title}
+      </h2>
+
+      {description && (
+        <p className="mt-5 text-base leading-8 text-[#5B6472] sm:text-lg">
+          {description}
+        </p>
+      )}
+    </div>
+  );
+}
 
 /* -------------------------------------------------------------------------- */
 /* Hero schematic                                                             */
@@ -150,8 +190,8 @@ function HeroSchematic() {
   return (
     <div className="w-full min-w-0 overflow-hidden rounded-2xl border border-[#E4E7EC] bg-white shadow-[0_1px_2px_rgba(11,15,25,0.04)] relative z-10">
       {/* Simulator Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E4E7EC] px-5 py-4 sm:px-6">
-        <div className="flex min-w-0 flex-col">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E4E7EC] px-6 py-5 sm:px-7">
+        <div className="flex min-w-0 flex-col gap-1">
           <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0B0F19]">
             RF Matching Simulator
           </span>
@@ -161,11 +201,14 @@ function HeroSchematic() {
           </span>
         </div>
 
+        {/* FIX: a touch more horizontal padding (px-3 -> px-3.5) so the
+            "Bypassed" label — the longer of the two states — never crowds
+            the pill's rounded edge. */}
         <button
           type="button"
           onClick={() => setActive((prev) => !prev)}
           aria-pressed={active}
-          className={`inline-flex min-h-[30px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wide leading-none transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] hover:scale-105 active:scale-95 ${
+          className={`inline-flex min-h-[30px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border px-3.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wide leading-none transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] hover:scale-105 active:scale-95 ${
             active
               ? "border-[#BFD3FE] bg-[#EFF4FF] text-[#2563EB]"
               : "border-[#F3C8C8] bg-[#FDF2F2] text-[#B42318]"
@@ -176,8 +219,12 @@ function HeroSchematic() {
         </button>
       </div>
 
-      {/* Simulator Body */}
-      <div className="p-5 sm:p-6">
+      {/* Simulator Body
+          FIX: increased padding (p-5/p-6 -> p-6/p-7) and the gap above the
+          reflection-loss row (mt-4/pt-4 -> mt-5/pt-5) so the schematic and
+          the result row have clear air around them instead of sitting
+          right against the card edges. */}
+      <div className="p-6 sm:p-7">
         <svg
           viewBox="0 0 500 190"
           className="h-auto w-full"
@@ -197,20 +244,9 @@ function HeroSchematic() {
               strokeLinecap="round"
             />
 
-            <circle
-              cx="25"
-              cy="30"
-              r="4"
-              fill="#2563EB"
-            />
+            <circle cx="25" cy="30" r="4" fill="#2563EB" />
 
-            <text
-              x="0"
-              y="88"
-              fill="#8A93A3"
-              fontSize="9"
-              fontFamily="monospace"
-            >
+            <text x="0" y="88" fill="#8A93A3" fontSize="9" fontFamily="monospace">
               ANTENNA
             </text>
           </g>
@@ -281,14 +317,7 @@ function HeroSchematic() {
 
           {/* RFIC */}
           <g transform="translate(420, 65)">
-            <rect
-              x="0"
-              y="0"
-              width="42"
-              height="58"
-              rx="4"
-              fill="#0B0F19"
-            />
+            <rect x="0" y="0" width="42" height="58" rx="4" fill="#0B0F19" />
 
             <text
               x="21"
@@ -305,19 +334,15 @@ function HeroSchematic() {
         </svg>
 
         {/* Reflection result */}
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-[#E4E7EC] pt-4 text-[11px] font-mono">
-          <span className="text-[#8A93A3]">
-            Reflection Loss (S11)
-          </span>
+        <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-[#E4E7EC] pt-5 text-[11px] font-mono">
+          <span className="text-[#8A93A3]">Reflection Loss (S11)</span>
 
           <span
             className={`shrink-0 font-bold ${
               active ? "text-[#2563EB]" : "text-[#B42318]"
             }`}
           >
-            {active
-              ? "−18.6 dB · Optimal"
-              : "−3.2 dB · High Reflection"}
+            {active ? "−18.6 dB · Optimal" : "−3.2 dB · High Reflection"}
           </span>
         </div>
       </div>
@@ -354,9 +379,7 @@ export default function HomeTest() {
             >
               <Signal className="h-3.5 w-3.5 shrink-0 text-[#2563EB]" />
 
-              <span className="truncate">
-                Deep-Tech Wireless Research
-              </span>
+              <span className="truncate">Deep-Tech Wireless Research</span>
             </motion.div>
 
             <motion.h1
@@ -379,25 +402,22 @@ export default function HomeTest() {
               environments — no new towers required.
             </motion.p>
 
-            {/* HERO ACTIONS */}
+            {/* HERO ACTIONS
+                FIX: increased gap between the two buttons (gap-3/gap-4 ->
+                gap-4/gap-5) so they read as two separate actions instead of
+                looking fused together. */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.18 }}
-              className="flex flex-wrap items-center gap-3 sm:gap-4"
+              className="flex flex-wrap items-center gap-4 sm:gap-5"
             >
-              <Link
-                href="/adaptive-wave"
-                className={primaryButton}
-              >
+              <Link href="/adaptive-wave" className={primaryButton}>
                 <span>Explore Adaptive Wave</span>
                 <ArrowRight className="h-3.5 w-3.5 shrink-0" />
               </Link>
 
-              <Link
-                href="/contact"
-                className={secondaryButton}
-              >
+              <Link href="/contact" className={secondaryButton}>
                 <span>Contact Research Team</span>
               </Link>
             </motion.div>
@@ -417,41 +437,46 @@ export default function HomeTest() {
 
       {/* ------------------------------------------------------------------ */}
       {/* STATS                                                              */}
+      {/* FIX: this section used a negative top margin (-mt-4 to -mt-8)      */}
+      {/* which pulled the stats card up so it visually touched the hero     */}
+      {/* buttons above it. Swapped for a positive top margin, plus more     */}
+      {/* bottom margin before "Why Gramwave" below, so the two read as      */}
+      {/* clearly separate blocks (your circles 1 & 2).                      */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="max-content-width relative z-10 flex justify-center -mt-4 mb-16 sm:-mt-6 md:-mt-8 md:mb-20">
+      <section className="max-content-width relative z-10 flex justify-center mt-10 mb-20 sm:mt-14 md:mt-16 md:mb-24">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="grid w-full max-w-4xl grid-cols-1 gap-6 rounded-2xl border border-[#1E293B] bg-[#0B0F19] px-8 py-7 text-center shadow-2xl shadow-black/20 sm:grid-cols-3 sm:gap-4 md:px-12 md:py-8"
         >
-          <div>
+          <div className="px-2">
             <span className="block text-2xl font-extrabold font-mono text-white sm:text-3xl">
               R&D
             </span>
 
-            <span className="mt-1.5 block text-[11px] font-mono uppercase tracking-widest text-[#8A93A3]">
+            <span className="mt-1.5 block text-[11px] font-mono uppercase tracking-wide text-[#8A93A3]">
               Current Phase
             </span>
           </div>
 
-          <div className="sm:border-x sm:border-white/10">
+          <div className="px-2 sm:border-x sm:border-white/10">
             <span className="block text-2xl font-extrabold font-mono text-white sm:text-3xl">
               1
             </span>
 
-            <span className="mt-1.5 block text-[11px] font-mono uppercase tracking-widest text-[#8A93A3]">
+            <span className="mt-1.5 block text-[11px] font-mono uppercase tracking-wide text-[#8A93A3]">
               Active Research Initiative
             </span>
           </div>
 
-          <div>
+          <div className="px-2">
             <span className="block text-2xl font-extrabold font-mono text-white sm:text-3xl">
               2026
             </span>
 
-            <span className="mt-1.5 block text-[11px] font-mono uppercase tracking-widest text-[#8A93A3]">
+            <span className="mt-1.5 block text-[11px] font-mono uppercase tracking-wide text-[#8A93A3]">
               Founded
             </span>
           </div>
@@ -460,32 +485,24 @@ export default function HomeTest() {
 
       {/* ------------------------------------------------------------------ */}
       {/* WHY GRAMWAVE                                                      */}
+      {/* FIX: heading now uses the shared SectionHeading component, and     */}
+      {/* the tagline is softened per your note. Card gap increased          */}
+      {/* (gap-8 -> gap-10) for more separation between the three cards.     */}
       {/* ------------------------------------------------------------------ */}
 
       <section className="max-content-width relative z-10 w-full py-20 md:py-28">
-        <div className="mb-16 max-w-2xl">
-          <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB]">
-            Why Gramwave
-          </span>
-
-          <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-[#0B0F19] md:text-4xl">
-            Signal shouldn&apos;t drop just because you&apos;re far from a
-            tower
-          </h2>
-
-          <p className="mt-5 text-base leading-8 text-[#5B6472] sm:text-lg">
-            We&apos;re rethinking the receiver, not the network — building
-            adaptive antenna and impedance-matching systems that live inside
-            the device itself.
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow="Why Gramwave"
+          title="Signal shouldn't drop just because you're a bit far from a tower"
+          description="We're rethinking the receiver, not the network — building adaptive antenna and impedance-matching systems that live inside the device itself."
+        />
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 gap-8 md:grid-cols-3"
+          className="grid grid-cols-1 gap-10 md:grid-cols-3"
         >
           {[
             {
@@ -539,10 +556,7 @@ export default function HomeTest() {
                 </div>
 
                 {card.link && (
-                  <Link
-                    href={card.link.href}
-                    className={inlineAction}
-                  >
+                  <Link href={card.link.href} className={inlineAction}>
                     <span>{card.link.label}</span>
                     <ArrowRight className="h-3.5 w-3.5 shrink-0" />
                   </Link>
@@ -559,22 +573,17 @@ export default function HomeTest() {
 
       <section className="relative z-10 w-full border-y border-[#E4E7EC] bg-[#F6F7F9] py-20 md:py-28">
         <div className="max-content-width">
-          <div className="mb-16 max-w-2xl">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB]">
-              Research Focus
-            </span>
-
-            <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-[#0B0F19] md:text-4xl">
-              Where we spend our engineering hours
-            </h2>
-          </div>
+          <SectionHeading
+            eyebrow="Research Focus"
+            title="Where we spend our engineering hours"
+          />
 
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3"
+            className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3"
           >
             {focusAreas.map((area, i) => {
               const Icon = area.icon;
@@ -607,20 +616,17 @@ export default function HomeTest() {
 
       {/* ------------------------------------------------------------------ */}
       {/* PROCESS                                                            */}
+      {/* FIX: card gap increased (gap-6/gap-8 -> gap-8/gap-10) and each     */}
+      {/* card's "tool" badge padding bumped slightly (px-2.5 -> px-3).      */}
       {/* ------------------------------------------------------------------ */}
 
       <section className="max-content-width relative z-10 w-full py-20 md:py-28">
-        <div className="mb-16 max-w-2xl">
-          <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB]">
-            How We Work
-          </span>
+        <SectionHeading
+          eyebrow="How We Work"
+          title="From simulation to validated hardware"
+        />
 
-          <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-[#0B0F19] md:text-4xl">
-            From simulation to validated hardware
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-4">
           {processSteps.map((item, idx) => (
             <div
               key={idx}
@@ -635,7 +641,7 @@ export default function HomeTest() {
                   {item.title}
                 </h3>
 
-                <span className="mt-2 mb-3 inline-flex max-w-full items-center rounded-md bg-[#EFF4FF] px-2.5 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider leading-none text-[#2563EB]">
+                <span className="mt-2 mb-3 inline-flex max-w-full items-center rounded-md bg-[#EFF4FF] px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider leading-none text-[#2563EB]">
                   {item.tool}
                 </span>
 
@@ -660,15 +666,7 @@ export default function HomeTest() {
 
       <section className="relative z-10 w-full border-y border-[#E4E7EC] bg-[#F6F7F9] py-24 md:py-32">
         <div className="max-content-width">
-          <div className="mx-auto mb-16 max-w-2xl text-center">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#2563EB]">
-              Progress
-            </span>
-
-            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#0B0F19] md:text-4xl">
-              Latest Milestones
-            </h2>
-          </div>
+          <SectionHeading eyebrow="Progress" title="Latest Milestones" center />
 
           <div className="mx-auto grid max-w-5xl grid-cols-1 items-stretch gap-8 md:grid-cols-3">
             {milestones.map((m, i) => (
@@ -684,7 +682,7 @@ export default function HomeTest() {
 
                 <div>
                   <span
-                    className="mb-4 inline-flex min-h-[26px] items-center rounded-md px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-widest leading-none"
+                    className="mb-4 inline-flex min-h-[26px] items-center rounded-md px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wide leading-none"
                     style={{
                       backgroundColor: `${m.color}15`,
                       color: m.color,
@@ -711,10 +709,7 @@ export default function HomeTest() {
 
           {/* Roadmap button */}
           <div className="mt-14 mb-4 flex justify-center">
-            <Link
-              href="/roadmap"
-              className={outlineButton}
-            >
+            <Link href="/roadmap" className={outlineButton}>
               <span>View Full Roadmap</span>
               <ArrowRight className="h-4 w-4 shrink-0" />
             </Link>
@@ -724,9 +719,11 @@ export default function HomeTest() {
 
       {/* ------------------------------------------------------------------ */}
       {/* CTA COLLABORATE BANNER                                             */}
+      {/* FIX: more top padding so this banner doesn't feel glued to         */}
+      {/* Milestones above it (pt-20/pt-28 -> pt-24/pt-32).                  */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="max-content-width relative z-10 w-full pt-20 pb-24 md:pt-28 md:pb-36">
+      <section className="max-content-width relative z-10 w-full pt-24 pb-24 md:pt-32 md:pb-36">
         <div className="flex flex-col items-center justify-between gap-8 rounded-3xl bg-[#0B0F19] p-8 shadow-2xl sm:p-12 md:gap-12 md:p-14 lg:flex-row lg:p-16">
           <div className="max-w-xl text-center lg:text-left">
             <h2 className="mb-4 text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl md:text-4xl">
@@ -739,10 +736,7 @@ export default function HomeTest() {
             </p>
           </div>
 
-          <Link
-            href="/contact"
-            className={ctaButton}
-          >
+          <Link href="/contact" className={ctaButton}>
             <span>Get in Touch</span>
             <ArrowUpRight className="h-4 w-4 shrink-0" />
           </Link>
