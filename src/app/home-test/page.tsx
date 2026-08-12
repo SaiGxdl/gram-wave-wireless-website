@@ -377,17 +377,11 @@ function HeroSchematic() {
 export default function HomeTest() {
   return (
     <div className="relative flex min-h-screen flex-col bg-white" style={{ paddingTop: "64px" }}>
-      {/* Draft/Test Page Banner */}
-      <div className="relative z-20 border-b border-[#FDE0AF] bg-[#FFF7ED] px-4 py-1.5 text-center text-xs font-mono text-[#8A5A00]">
-        <strong>LIGHT THEME PREVIEW (/home-test)</strong>{" "}
-        — isolated redesign, main site is unaffected.
-      </div>
-
       {/* ------------------------------------------------------------------ */}
       {/* HERO                                                               */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="max-content-width relative z-10 w-full pt-6 pb-16 sm:pt-8 md:pt-10 md:pb-24">
+      <section className="max-content-width relative z-10 w-full pt-8 pb-16 sm:pt-10 md:pt-12 md:pb-24">
         <div className="grid min-w-0 grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="min-w-0 lg:col-span-6">
             <motion.h1

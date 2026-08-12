@@ -45,20 +45,27 @@ export default function Navbar() {
     <header
       className={
         isLight
-          ? `fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white/95 backdrop-blur-md border-b ${scrolled ? "border-[#E4E7EC] py-1.5 shadow-[0_1px_0_rgba(11,15,25,0.04)]" : "border-transparent py-0.5"
-          }`
-          : `fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled
-            ? "glass border-b border-card-border/60 py-4"
-            : "bg-[#030712]/90 backdrop-blur-md border-b border-card-border/30 py-5"
-          }`
+          ? `fixed top-0 left-0 right-0 z-40 h-16 transition-all duration-300 bg-white/95 backdrop-blur-md border-b ${
+              scrolled
+                ? "border-[#E4E7EC] shadow-[0_1px_0_rgba(11,15,25,0.04)]"
+                : "border-transparent"
+            }`
+          : `fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+              scrolled
+                ? "glass border-b border-card-border/60 py-4"
+                : "bg-[#030712]/90 backdrop-blur-md border-b border-card-border/30 py-5"
+            }`
       }
     >
-      <div className="w-full px-6 sm:px-8 md:px-12 xl:px-16 flex items-center justify-between">
+      <div className="w-full h-full px-6 sm:px-8 md:px-12 xl:px-16 flex items-center justify-between">
         {/* Logo */}
         <Link
           href={isLight ? "/home-test" : "/"}
-          className={`flex items-center space-x-3 group focus:outline-none focus-visible:ring-2 rounded-md p-1 shrink-0 ${isLight ? "focus-visible:ring-[#2563EB]" : "focus-visible:ring-accent"
-            }`}
+          className={`flex items-center space-x-3 group focus:outline-none focus-visible:ring-2 rounded-md shrink-0 ${
+            isLight
+              ? "focus-visible:ring-[#2563EB]"
+              : "focus-visible:ring-accent"
+          }`}
         >
           <div className="relative h-9 w-9 shrink-0 transition-transform duration-300 group-hover:scale-105">
             <Image
@@ -87,8 +94,8 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav Links & CTA */}
-        <div className="hidden lg:flex items-center justify-end ml-auto gap-5 lg:gap-7 xl:gap-8">
-          <nav className="flex items-center gap-5 lg:gap-7 xl:gap-8">
+        <div className="hidden lg:flex items-center justify-end ml-auto gap-6 lg:gap-8">
+          <nav className="flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -116,7 +123,7 @@ export default function Navbar() {
           {isLight ? (
             <Link
               href="/contact"
-              className="inline-flex min-h-[40px] min-w-[126px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#0B0F19] px-5 py-2.5 text-[11px] font-bold font-mono uppercase tracking-[0.08em] leading-none text-white transition-all duration-200 hover:bg-[#1A2033] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]"
+              className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-[#0B0F19] px-4 text-[11px] font-bold font-mono uppercase tracking-wider text-white transition-all duration-200 shrink-0 hover:bg-[#1A2033] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]"
             >
               <span>Talk to Us</span>
               <ArrowUpRight className="h-3.5 w-3.5 shrink-0" />
