@@ -159,9 +159,8 @@ function SectionHeading({
 }) {
   return (
     <div
-      className={`mb-12 max-w-2xl md:mb-14 ${
-        center ? "mx-auto text-center" : ""
-      }`}
+      className={`mb-12 max-w-2xl md:mb-14 ${center ? "mx-auto text-center" : ""
+        }`}
     >
       <span className="inline-flex max-w-full items-center rounded-full border border-[#BFD3FE] bg-[#EFF4FF] px-4 py-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.18em] leading-none text-[#2563EB]">
         {eyebrow}
@@ -205,11 +204,10 @@ function HeroSchematic() {
           type="button"
           onClick={() => setActive((prev) => !prev)}
           aria-pressed={active}
-          className={`inline-flex min-h-[32px] min-w-[82px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wide leading-none transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] hover:scale-105 active:scale-95 ${
-            active
-              ? "border-[#BFD3FE] bg-[#EFF4FF] text-[#2563EB]"
-              : "min-w-[100px] border-[#F3C8C8] bg-[#FDF2F2] text-[#B42318]"
-          }`}
+          className={`inline-flex min-h-[32px] min-w-[82px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wide leading-none transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] hover:scale-105 active:scale-95 ${active
+            ? "border-[#BFD3FE] bg-[#EFF4FF] text-[#2563EB]"
+            : "min-w-[100px] border-[#F3C8C8] bg-[#FDF2F2] text-[#B42318]"
+            }`}
         >
           <Sliders className="h-3 w-3 shrink-0" />
 
@@ -357,11 +355,10 @@ function HeroSchematic() {
           </span>
 
           <span
-            className={`shrink-0 font-bold ${
-              active
-                ? "text-[#2563EB]"
-                : "text-[#B42318]"
-            }`}
+            className={`shrink-0 font-bold ${active
+              ? "text-[#2563EB]"
+              : "text-[#B42318]"
+              }`}
           >
             {active
               ? "−18.6 dB · Optimal"
@@ -381,7 +378,7 @@ export default function HomeTest() {
   return (
     <div className="relative flex min-h-screen flex-col bg-white" style={{ paddingTop: "64px" }}>
       {/* Draft/Test Page Banner */}
-      <div className="relative z-20 border-b border-[#FDE0AF] bg-[#FFF7ED] px-4 py-2.5 text-center text-xs font-mono text-[#8A5A00]">
+      <div className="relative z-20 border-b border-[#FDE0AF] bg-[#FFF7ED] px-4 py-1.5 text-center text-xs font-mono text-[#8A5A00]">
         <strong>LIGHT THEME PREVIEW (/home-test)</strong>{" "}
         — isolated redesign, main site is unaffected.
       </div>

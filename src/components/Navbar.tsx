@@ -45,23 +45,20 @@ export default function Navbar() {
     <header
       className={
         isLight
-          ? `fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white/95 backdrop-blur-md border-b ${
-              scrolled ? "border-[#E4E7EC] py-3 shadow-[0_1px_0_rgba(11,15,25,0.04)]" : "border-transparent py-4"
-            }`
-          : `fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-              scrolled
-                ? "glass border-b border-card-border/60 py-4"
-                : "bg-[#030712]/90 backdrop-blur-md border-b border-card-border/30 py-5"
-            }`
+          ? `fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white/95 backdrop-blur-md border-b ${scrolled ? "border-[#E4E7EC] py-1.5 shadow-[0_1px_0_rgba(11,15,25,0.04)]" : "border-transparent py-0.5"
+          }`
+          : `fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled
+            ? "glass border-b border-card-border/60 py-4"
+            : "bg-[#030712]/90 backdrop-blur-md border-b border-card-border/30 py-5"
+          }`
       }
     >
       <div className="w-full px-6 sm:px-8 md:px-12 xl:px-16 flex items-center justify-between">
         {/* Logo */}
         <Link
           href={isLight ? "/home-test" : "/"}
-          className={`flex items-center space-x-3 group focus:outline-none focus-visible:ring-2 rounded-md p-1 shrink-0 ${
-            isLight ? "focus-visible:ring-[#2563EB]" : "focus-visible:ring-accent"
-          }`}
+          className={`flex items-center space-x-3 group focus:outline-none focus-visible:ring-2 rounded-md p-1 shrink-0 ${isLight ? "focus-visible:ring-[#2563EB]" : "focus-visible:ring-accent"
+            }`}
         >
           <div className="relative h-9 w-9 shrink-0 transition-transform duration-300 group-hover:scale-105">
             <Image
@@ -75,16 +72,14 @@ export default function Navbar() {
           </div>
           <div className="flex flex-col">
             <span
-              className={`text-sm sm:text-base font-extrabold tracking-[0.22em] uppercase transition-colors whitespace-nowrap leading-none ${
-                isLight ? "text-[#0B0F19] group-hover:text-[#2563EB]" : "text-white group-hover:text-accent-light"
-              }`}
+              className={`text-sm sm:text-base font-extrabold tracking-[0.22em] uppercase transition-colors whitespace-nowrap leading-none ${isLight ? "text-[#0B0F19] group-hover:text-[#2563EB]" : "text-white group-hover:text-accent-light"
+                }`}
             >
               GRAMWAVE
             </span>
             <span
-              className={`text-[9px] font-mono tracking-[0.2em] uppercase mt-0.5 ${
-                isLight ? "text-[#8A93A3]" : "text-muted-dark"
-              }`}
+              className={`text-[9px] font-mono tracking-[0.2em] uppercase mt-0.5 ${isLight ? "text-[#8A93A3]" : "text-muted-dark"
+                }`}
             >
               WIRELESS R&D
             </span>
@@ -100,11 +95,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-xs font-semibold tracking-wider uppercase transition-all duration-200 relative py-1 shrink-0 whitespace-nowrap focus:outline-none focus-visible:ring-2 rounded-md ${
-                    isLight
-                      ? `hover:text-[#0B0F19] focus-visible:ring-[#2563EB] ${isActive ? "text-[#0B0F19]" : "text-[#5B6472]"}`
-                      : `hover:text-white focus-visible:ring-accent ${isActive ? "text-accent-light" : "text-muted hover:text-white"}`
-                  }`}
+                  className={`text-xs font-semibold tracking-wider uppercase transition-all duration-200 relative py-1 shrink-0 whitespace-nowrap focus:outline-none focus-visible:ring-2 rounded-md ${isLight
+                    ? `hover:text-[#0B0F19] focus-visible:ring-[#2563EB] ${isActive ? "text-[#0B0F19]" : "text-[#5B6472]"}`
+                    : `hover:text-white focus-visible:ring-accent ${isActive ? "text-accent-light" : "text-muted hover:text-white"}`
+                    }`}
                 >
                   {link.label}
                   {isActive && (
@@ -141,11 +135,10 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`lg:hidden p-1.5 rounded-md focus:outline-none focus-visible:ring-2 ${
-            isLight
-              ? "text-[#0B0F19] hover:text-[#2563EB] focus-visible:ring-[#2563EB]"
-              : "text-white hover:text-accent focus-visible:ring-accent"
-          }`}
+          className={`lg:hidden p-1.5 rounded-md focus:outline-none focus-visible:ring-2 ${isLight
+            ? "text-[#0B0F19] hover:text-[#2563EB] focus-visible:ring-[#2563EB]"
+            : "text-white hover:text-accent focus-visible:ring-accent"
+            }`}
           aria-label="Toggle Menu"
           aria-expanded={isOpen}
         >
@@ -173,11 +166,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-xs font-semibold tracking-wider uppercase py-2 border-b transition-colors focus:outline-none focus-visible:ring-2 rounded-sm ${
-                    isLight
-                      ? `border-[#E4E7EC] focus-visible:ring-[#2563EB] ${isActive ? "text-[#2563EB]" : "text-[#5B6472] hover:text-[#0B0F19]"}`
-                      : `border-card-border/20 focus-visible:ring-accent ${isActive ? "text-accent-light" : "text-muted hover:text-white"}`
-                  }`}
+                  className={`text-xs font-semibold tracking-wider uppercase py-2 border-b transition-colors focus:outline-none focus-visible:ring-2 rounded-sm ${isLight
+                    ? `border-[#E4E7EC] focus-visible:ring-[#2563EB] ${isActive ? "text-[#2563EB]" : "text-[#5B6472] hover:text-[#0B0F19]"}`
+                    : `border-card-border/20 focus-visible:ring-accent ${isActive ? "text-accent-light" : "text-muted hover:text-white"}`
+                    }`}
                 >
                   {link.label}
                 </Link>
