@@ -45,27 +45,24 @@ export default function Navbar() {
     <header
       className={
         isLight
-          ? `fixed top-0 left-0 right-0 z-40 h-16 transition-all duration-300 bg-white/95 backdrop-blur-md border-b ${
-              scrolled
-                ? "border-[#E4E7EC] shadow-[0_1px_0_rgba(11,15,25,0.04)]"
-                : "border-transparent"
-            }`
-          : `fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-              scrolled
-                ? "glass border-b border-card-border/60 py-4"
-                : "bg-[#030712]/90 backdrop-blur-md border-b border-card-border/30 py-5"
-            }`
+          ? `fixed top-0 left-0 right-0 z-40 h-16 transition-all duration-300 bg-white/95 backdrop-blur-md border-b ${scrolled
+            ? "border-[#E4E7EC] shadow-[0_1px_0_rgba(11,15,25,0.04)]"
+            : "border-transparent"
+          }`
+          : `fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled
+            ? "glass border-b border-card-border/60 py-4"
+            : "bg-[#030712]/90 backdrop-blur-md border-b border-card-border/30 py-5"
+          }`
       }
     >
       <div className="w-full h-full px-6 sm:px-8 md:px-12 xl:px-16 flex items-center justify-between">
         {/* Logo */}
         <Link
           href={isLight ? "/home-test" : "/"}
-          className={`flex items-center space-x-3 group focus:outline-none focus-visible:ring-2 rounded-md shrink-0 ${
-            isLight
-              ? "focus-visible:ring-[#2563EB]"
-              : "focus-visible:ring-accent"
-          }`}
+          className={`flex items-center space-x-3 group focus:outline-none focus-visible:ring-2 rounded-md shrink-0 ${isLight
+            ? "focus-visible:ring-[#2563EB]"
+            : "focus-visible:ring-accent"
+            }`}
         >
           <div className="relative h-9 w-9 shrink-0 transition-transform duration-300 group-hover:scale-105">
             <Image
@@ -120,23 +117,17 @@ export default function Navbar() {
             })}
           </nav>
 
-          {isLight ? (
-            <Link
-              href="/contact"
-              className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-[#0B0F19] px-4 text-[11px] font-bold font-mono uppercase tracking-wider text-white transition-all duration-200 shrink-0 hover:bg-[#1A2033] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]"
-            >
-              <span>Talk to Us</span>
-              <ArrowUpRight className="h-3.5 w-3.5 shrink-0" />
-            </Link>
-          ) : (
-            <Link
-              href="/contact"
-              className="inline-flex items-center space-x-1.5 bg-gradient-to-r from-accent/90 to-blue-600 hover:from-accent hover:to-blue-500 text-white font-mono text-[11px] font-bold tracking-wider uppercase px-4 py-2 rounded-full border border-accent/40 shadow-lg shadow-accent/20 hover:shadow-accent/40 hover:scale-105 transition-all duration-200 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              <span>Get in Touch</span>
-              <ArrowUpRight className="h-3.5 w-3.5 text-white/90" />
-            </Link>
-          )}
+          <Link
+            href="/contact"
+            className={
+              isLight
+                ? "group inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-full bg-[#0B0F19] px-6 text-[11px] font-bold font-mono uppercase tracking-[0.14em] text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2563EB] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] active:translate-y-0"
+                : "group inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-full bg-accent px-6 text-[11px] font-bold font-mono uppercase tracking-[0.14em] text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent active:translate-y-0"
+            }
+          >
+            <span>Talk to Us</span>
+            <ArrowUpRight className="h-3.5 w-3.5 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
