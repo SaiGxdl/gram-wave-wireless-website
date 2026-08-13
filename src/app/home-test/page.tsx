@@ -390,7 +390,7 @@ export default function HomeTest() {
               transition={{ duration: 0.5, delay: 0.06 }}
               className="mb-7 text-4xl font-extrabold leading-[1.05] tracking-tight text-[#0B0F19] sm:text-5xl md:text-[3.4rem] lg:text-[3.6rem]"
             >
-              Engineering signal where towers can&apos;t reach.
+              Advancing Wireless Reception Through Engineering.
             </motion.h1>
 
             <motion.p
