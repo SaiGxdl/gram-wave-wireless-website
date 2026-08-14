@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { Signal, ShieldAlert, Cpu, Award, Zap, ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { Signal, ShieldAlert, Cpu, Award, Zap, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 const flowSteps = [
@@ -166,7 +165,7 @@ export default function AdaptiveWavePage() {
       {/* ------------------------------------------------------------------ */}
       {/* 3. RESEARCH OBJECTIVE & METHODS UNDER STUDY SECTION                */}
       {/* ------------------------------------------------------------------ */}
-      <section className="max-content-width relative z-10 w-full py-16 md:py-24">
+      <section className="max-content-width relative z-10 w-full pt-16 pb-20 sm:pt-20 md:pt-24 md:pb-28">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
           {/* Card 1: Research Objective */}
           <motion.div
@@ -239,40 +238,6 @@ export default function AdaptiveWavePage() {
               </div>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* 4. BOTTOM CTA (REPLACING DISCLAIMER WITH ACTIVE ENGAGEMENT)        */}
-      {/* ------------------------------------------------------------------ */}
-      <section className="max-content-width relative z-10 w-full pb-20 md:pb-24">
-        <div className="flex flex-col items-center justify-between gap-8 rounded-3xl bg-[#0B0F19] px-8 py-10 text-center shadow-xl sm:px-12 sm:py-12 md:flex-row md:text-left">
-          <div className="max-w-2xl">
-            <h3 className="text-2xl font-extrabold text-white sm:text-3xl">
-              Interested in our research methodologies?
-            </h3>
-            <p className="mt-3 text-sm text-[#8A93A3] sm:text-base">
-              Explore our project roadmap or connect directly with our engineering team for academic partnerships.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/roadmap"
-              className="inline-flex min-h-[46px] min-w-[160px] shrink-0 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/10"
-            >
-              <span>View Roadmap</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-
-            <Link
-              href="/contact"
-              className="inline-flex min-h-[46px] min-w-[160px] shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-[#0B0F19] shadow-lg transition-all hover:bg-[#F6F7F9] hover:scale-105 active:scale-95"
-            >
-              <span>Talk to Us</span>
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
         </div>
       </section>
     </div>
