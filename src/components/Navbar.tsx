@@ -20,9 +20,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Scoped preview flag — forced to true for light navbar everywhere
-  const isLight = true;
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -51,7 +48,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-full w-full max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-10 xl:px-12">
         {/* Logo */}
         <Link
-          href={isLight ? "/home-test" : "/"}
+          href="/"
           className="group flex shrink-0 items-center space-x-3 rounded-md p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]"
         >
           <div className="relative h-9 w-9 shrink-0 transition-transform duration-300 group-hover:scale-105">
@@ -65,16 +62,10 @@ export default function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span
-              className={`text-sm sm:text-base font-extrabold tracking-[0.22em] uppercase transition-colors whitespace-nowrap leading-none ${isLight ? "text-[#0B0F19] group-hover:text-[#2563EB]" : "text-white group-hover:text-accent-light"
-                }`}
-            >
+            <span className="text-sm sm:text-base font-extrabold tracking-[0.22em] uppercase transition-colors whitespace-nowrap leading-none text-[#0B0F19] group-hover:text-[#2563EB]">
               GRAMWAVE
             </span>
-            <span
-              className={`text-[9px] font-mono tracking-[0.2em] uppercase mt-0.5 ${isLight ? "text-[#8A93A3]" : "text-muted-dark"
-                }`}
-            >
+            <span className="text-[9px] font-mono tracking-[0.2em] uppercase mt-0.5 text-[#8A93A3]">
               WIRELESS R&D
             </span>
           </div>
@@ -125,10 +116,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`lg:hidden p-1.5 rounded-md focus:outline-none focus-visible:ring-2 ${isLight
-            ? "text-[#0B0F19] hover:text-[#2563EB] focus-visible:ring-[#2563EB]"
-            : "text-white hover:text-accent focus-visible:ring-accent"
-            }`}
+          className="lg:hidden p-1.5 rounded-md focus:outline-none focus-visible:ring-2 text-[#0B0F19] hover:text-[#2563EB] focus-visible:ring-[#2563EB]"
           aria-label="Toggle Menu"
           aria-expanded={isOpen}
         >
@@ -144,11 +132,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className={
-              isLight
-                ? "absolute top-full left-0 right-0 bg-white border-b border-[#E4E7EC] px-8 py-8 lg:hidden flex flex-col space-y-5"
-                : "absolute top-full left-0 right-0 glass border-b border-card-border/80 px-8 py-8 lg:hidden flex flex-col space-y-5"
-            }
+            className="absolute top-full left-0 right-0 bg-white border-b border-[#E4E7EC] px-8 py-8 lg:hidden flex flex-col space-y-5 shadow-lg"
           >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -156,10 +140,9 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-xs font-semibold tracking-wider uppercase py-2 border-b transition-colors focus:outline-none focus-visible:ring-2 rounded-sm ${isLight
-                    ? `border-[#E4E7EC] focus-visible:ring-[#2563EB] ${isActive ? "text-[#2563EB]" : "text-[#5B6472] hover:text-[#0B0F19]"}`
-                    : `border-card-border/20 focus-visible:ring-accent ${isActive ? "text-accent-light" : "text-muted hover:text-white"}`
-                    }`}
+                  className={`text-xs font-semibold tracking-wider uppercase py-2 border-b transition-colors focus:outline-none focus-visible:ring-2 rounded-sm border-[#E4E7EC] focus-visible:ring-[#2563EB] ${
+                    isActive ? "text-[#2563EB]" : "text-[#5B6472] hover:text-[#0B0F19]"
+                  }`}
                 >
                   {link.label}
                 </Link>

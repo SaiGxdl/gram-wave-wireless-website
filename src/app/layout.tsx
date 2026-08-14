@@ -68,12 +68,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className="min-h-full flex flex-col bg-[#030712] text-slate-100 selection:bg-accent/30 selection:text-white"
+        className="min-h-full flex flex-col bg-white text-[#0B0F19] selection:bg-accent/30 selection:text-[#0B0F19]"
         suppressHydrationWarning
       >
         <SubtleLoader />
         <Navbar />
-        <main className="flex-grow flex flex-col">{children}</main>
+        <main className="flex-grow flex flex-col pt-16">{children}</main>
         <Footer />
       </body>
     </html>
