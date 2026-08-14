@@ -20,9 +20,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Scoped preview flag — remove this check once the light theme
-  // becomes the site-wide default and delete the dark-mode branches below.
-  const isLight = pathname?.startsWith("/home-test");
+  // Scoped preview flag — forced to true for light navbar everywhere
+  const isLight = true;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,26 +42,17 @@ export default function Navbar() {
 
   return (
     <header
-      className={
-        isLight
-          ? `fixed top-0 left-0 right-0 z-40 h-16 transition-all duration-300 bg-white/95 backdrop-blur-md border-b ${scrolled
-            ? "border-[#E4E7EC] shadow-[0_1px_0_rgba(11,15,25,0.04)]"
-            : "border-transparent"
-          }`
-          : `fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled
-            ? "glass border-b border-card-border/60 py-4"
-            : "bg-[#030712]/90 backdrop-blur-md border-b border-card-border/30 py-5"
-          }`
-      }
+      className={`fixed inset-x-0 top-0 z-40 h-16 bg-white/95 backdrop-blur-md border-b border-[#E4E7EC] transition-shadow duration-300 ${
+        scrolled
+          ? "shadow-[0_1px_0_rgba(11,15,25,0.04)]"
+          : "shadow-none"
+      }`}
     >
-      <div className="w-full h-full px-6 sm:px-8 md:px-12 xl:px-16 flex items-center justify-between">
+      <div className="mx-auto flex h-full w-full max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-10 xl:px-12">
         {/* Logo */}
         <Link
           href={isLight ? "/home-test" : "/"}
-          className={`flex items-center space-x-3 group focus:outline-none focus-visible:ring-2 rounded-md shrink-0 ${isLight
-            ? "focus-visible:ring-[#2563EB]"
-            : "focus-visible:ring-accent"
-            }`}
+          className="group flex shrink-0 items-center space-x-3 rounded-md p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]"
         >
           <div className="relative h-9 w-9 shrink-0 transition-transform duration-300 group-hover:scale-105">
             <Image
@@ -91,25 +81,31 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav Links & CTA */}
-        <div className="hidden lg:flex items-center justify-end ml-auto gap-6 lg:gap-8">
-          <nav className="flex items-center gap-6 lg:gap-8">
+        <div className="ml-auto hidden items-center gap-8 lg:flex">
+          <nav className="flex items-center gap-8 xl:gap-9">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-xs font-semibold tracking-wider uppercase transition-all duration-200 relative py-1 shrink-0 whitespace-nowrap focus:outline-none focus-visible:ring-2 rounded-md ${isLight
-                    ? `hover:text-[#0B0F19] focus-visible:ring-[#2563EB] ${isActive ? "text-[#0B0F19]" : "text-[#5B6472]"}`
-                    : `hover:text-white focus-visible:ring-accent ${isActive ? "text-accent-light" : "text-muted hover:text-white"}`
-                    }`}
+                  className={`relative shrink-0 whitespace-nowrap rounded-md px-1 py-2 text-[12px] font-semibold uppercase tracking-[0.08em] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] ${
+                    isActive
+                      ? "text-[#0B0F19]"
+                      : "text-[#5B6472] hover:text-[#0B0F19]"
+                  }`}
                 >
                   {link.label}
+
                   {isActive && (
                     <motion.div
                       layoutId="activeNavIndicator"
-                      className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isLight ? "bg-[#2563EB]" : "bg-accent"}`}
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      className="absolute -bottom-0.5 left-1 right-1 h-0.5 rounded-full bg-[#2563EB]"
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
                     />
                   )}
                 </Link>
@@ -119,11 +115,7 @@ export default function Navbar() {
 
           <Link
             href="/contact"
-            className={
-              isLight
-                ? "group inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-full bg-[#0B0F19] px-6 text-[11px] font-bold font-mono uppercase tracking-[0.14em] text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2563EB] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] active:translate-y-0"
-                : "group inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-full bg-accent px-6 text-[11px] font-bold font-mono uppercase tracking-[0.14em] text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent active:translate-y-0"
-            }
+            className="group inline-flex h-10 min-w-[132px] shrink-0 items-center justify-center gap-2 rounded-full bg-[#0B0F19] px-5 text-[11px] font-bold font-mono uppercase tracking-[0.12em] leading-none text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2563EB] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] active:translate-y-0"
           >
             <span>Talk to Us</span>
             <ArrowUpRight className="h-3.5 w-3.5 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -175,13 +167,10 @@ export default function Navbar() {
             })}
             <Link
               href="/contact"
-              className={
-                isLight
-                  ? "mt-2 text-center bg-[#0B0F19] text-white font-mono text-xs font-bold tracking-wider uppercase py-3 rounded-xl"
-                  : "mt-2 text-center bg-accent text-white font-mono text-xs font-bold tracking-wider uppercase py-3 rounded-xl border border-accent/40 shadow-lg"
-              }
+              className="mt-2 inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#0B0F19] px-5 text-center text-xs font-bold font-mono uppercase tracking-[0.1em] text-white transition-all duration-200 hover:bg-[#2563EB] active:scale-[0.98]"
             >
-              Get in Touch (Research Team)
+              <span>Talk to Us</span>
+              <ArrowUpRight className="h-4 w-4" />
             </Link>
           </motion.div>
         )}

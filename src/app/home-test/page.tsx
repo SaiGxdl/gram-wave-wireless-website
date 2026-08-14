@@ -376,12 +376,18 @@ function HeroSchematic() {
 
 export default function HomeTest() {
   return (
-    <div className="relative flex min-h-screen flex-col bg-white" style={{ paddingTop: "64px" }}>
+    <div className="relative flex min-h-screen flex-col bg-white">
+      {/*
+      <div className="relative z-20 border-b border-[#FDE0AF] bg-[#FFF7ED] px-4 py-1.5 text-center text-xs font-mono text-[#8A5A00]">
+        <strong>LIGHT THEME PREVIEW (/home-test)</strong>{" "}
+        — isolated redesign, main site is unaffected.
+      </div>
+      */}
       {/* ------------------------------------------------------------------ */}
       {/* HERO                                                               */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="max-content-width relative z-10 w-full pt-8 pb-16 sm:pt-10 md:pt-12 md:pb-24">
+      <section className="max-content-width relative z-10 w-full pt-10 pb-16 sm:pt-12 md:pt-14 md:pb-24">
         <div className="grid min-w-0 grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="min-w-0 lg:col-span-6">
             <motion.h1
@@ -390,7 +396,7 @@ export default function HomeTest() {
               transition={{ duration: 0.5, delay: 0.06 }}
               className="mb-7 text-4xl font-extrabold leading-[1.05] tracking-tight text-[#0B0F19] sm:text-5xl md:text-[3.4rem] lg:text-[3.6rem]"
             >
-              Advancing Wireless Reception Through Engineering.
+              Optimizing Wireless Connectivity at the Device Level.
             </motion.h1>
 
             <motion.p
@@ -399,9 +405,9 @@ export default function HomeTest() {
               transition={{ duration: 0.5, delay: 0.12 }}
               className="mb-9 max-w-xl text-base leading-8 text-[#5B6472] sm:text-lg"
             >
-              Gramwave Wireless builds next-generation, handset-side receiver
-              technology that keeps phones connected in weak-signal
-              environments — no new towers required.
+              Gramwave Wireless develops handset-side receiver technologies
+              designed to improve signal reception and connectivity in weak-signal
+              environments.
             </motion.p>
 
             {/* Hero Button */}
