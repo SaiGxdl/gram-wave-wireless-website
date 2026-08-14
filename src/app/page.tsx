@@ -205,8 +205,8 @@ function HeroSchematic() {
           onClick={() => setActive((prev) => !prev)}
           aria-pressed={active}
           className={`inline-flex min-h-[32px] min-w-[82px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wide leading-none transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] hover:scale-105 active:scale-95 ${active
-              ? "border-[#BFD3FE] bg-[#EFF4FF] text-[#2563EB]"
-              : "min-w-[100px] border-[#F3C8C8] bg-[#FDF2F2] text-[#B42318]"
+            ? "border-[#BFD3FE] bg-[#EFF4FF] text-[#2563EB]"
+            : "min-w-[100px] border-[#F3C8C8] bg-[#FDF2F2] text-[#B42318]"
             }`}
         >
           <Sliders className="h-3 w-3 shrink-0" />
@@ -356,8 +356,8 @@ function HeroSchematic() {
 
           <span
             className={`shrink-0 font-bold ${active
-                ? "text-[#2563EB]"
-                : "text-[#B42318]"
+              ? "text-[#2563EB]"
+              : "text-[#B42318]"
               }`}
           >
             {active
@@ -390,7 +390,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.06 }}
               className="mb-7 text-4xl font-extrabold leading-[1.05] tracking-tight text-[#0B0F19] sm:text-5xl md:text-[3.4rem] lg:text-[3.6rem]"
             >
-              Optimizing Wireless Connectivity at the Device Level.
+              Advancing Wireless Reception Through Engineering.
             </motion.h1>
 
             <motion.p
