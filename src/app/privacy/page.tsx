@@ -1,25 +1,24 @@
 "use client";
 
-import RFWaveBackground from "@/components/RFWaveBackground";
-
 export default function PrivacyPage() {
   return (
-    <div className="relative min-h-screen pb-24">
-      <RFWaveBackground />
-
-      <div className="max-w-3xl mx-auto px-6 relative z-10 space-y-8 text-xs text-muted leading-relaxed pt-4">
+    <div className="relative flex min-h-screen flex-col bg-white">
+      <div className="mx-auto max-w-3xl px-6 py-12 sm:py-16 md:py-20 relative z-10 space-y-8 text-sm text-[#5B6472] leading-relaxed">
         {/* Header */}
-        <div className="border-b border-card-border/30 pb-4 space-y-1">
-          <h1 className="text-2xl font-extrabold text-white tracking-wide">
-            Privacy Policy & Cookie Notice
+        <div className="border-b border-[#E4E7EC] pb-6 space-y-2">
+          <span className="inline-flex items-center rounded-full border border-[#BFD3FE] bg-[#EFF4FF] px-4 py-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+            Policy
+          </span>
+          <h1 className="text-3xl font-extrabold text-[#0B0F19] tracking-tight sm:text-4xl">
+            Privacy Policy &amp; Cookie Notice
           </h1>
-          <p className="font-mono text-[10px] text-muted-dark">
+          <p className="font-mono text-xs text-[#8A93A3]">
             Last Updated: July 2026
           </p>
         </div>
 
         <section className="space-y-3">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
+          <h2 className="text-base font-bold text-[#0B0F19]">
             1. Overview
           </h2>
           <p>
@@ -28,13 +27,13 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
-            2. Data Collection & Usage
+          <h2 className="text-base font-bold text-[#0B0F19]">
+            2. Data Collection &amp; Usage
           </h2>
           <p>
             As a research-centric website, we collect minimal data:
           </p>
-          <ul className="list-disc pl-5 space-y-1.5">
+          <ul className="list-disc pl-5 space-y-2">
             <li>
               <strong>Inquiry Form Information</strong>: If you contact us through our website contact form or send us an email, we collect your name, email address, inquiry type, and any contents of the messages you send. We only use this information to respond to your inquiry (e.g. evaluating internship matches or answering research collaboration requests).
             </li>
@@ -45,7 +44,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
+          <h2 className="text-base font-bold text-[#0B0F19]">
             3. Cookie Notice
           </h2>
           <p>
@@ -57,20 +56,17 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
-            4. Data Retention & Sharing
+          <h2 className="text-base font-bold text-[#0B0F19]">
+            4. Contact
           </h2>
           <p>
-            We retain message details for as long as necessary to address your requests. We do not sell, distribute, or license personal details or message contents to third parties unless required by legal authorities under Indian law.
-          </p>
-        </section>
-
-        <section className="space-y-3">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
-            5. Contact Information
-          </h2>
-          <p>
-            For any queries regarding this Privacy Policy, please write to: <a href="mailto:founder@gramwavewireless.in" className="text-accent hover:underline">founder@gramwavewireless.in</a>.
+            If you have questions regarding this Privacy Policy, please email us directly at{" "}
+            <a
+              href="mailto:founder@gramwavewireless.in"
+              className="text-[#2563EB] underline font-bold"
+            >
+              founder@gramwavewireless.in
+            </a>.
           </p>
         </section>
       </div>

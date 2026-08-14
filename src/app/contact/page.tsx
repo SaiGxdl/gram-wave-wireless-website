@@ -1,6 +1,5 @@
 "use client";
 
-import RFWaveBackground from "@/components/RFWaveBackground";
 import { useState } from "react";
 import {
   Mail,
@@ -20,35 +19,38 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: "What is Gramwave Wireless?",
-    answer: "Gramwave Wireless is a deep-tech wireless communication research startup. Our core research focus is developing next-generation handset-side physical layer technologies to improve signals in low-gain and weak coverage environments without needing tower expansion.",
+    answer:
+      "Gramwave Wireless is a deep-tech wireless communication research startup. Our core research focus is developing next-generation handset-side physical layer technologies to improve signals in low-gain and weak coverage environments without needing tower expansion.",
   },
   {
     question: "What is Adaptive Wave?",
-    answer: "Adaptive Wave is our flagship research initiative exploring active handset-side impedance matching, sub-wavelength array feeds, and coherent phase tuning frameworks to construct constructive signal amplification pathways.",
+    answer:
+      "Adaptive Wave is our flagship research initiative exploring active handset-side impedance matching, sub-wavelength array feeds, and coherent phase tuning frameworks to construct constructive signal amplification pathways.",
   },
   {
     question: "Is the technology commercially available?",
-    answer: "No. The project is currently in the early-stage research and simulation phase. We are validating core concepts mathematically and in software models. Product prototypes and commercialization paths are future milestones.",
+    answer:
+      "No. The project is currently in the early-stage research and simulation phase. We are validating core concepts mathematically and in software models. Product prototypes and commercialization paths are future milestones.",
   },
   {
     question: "Are you hiring?",
-    answer: "We are currently accepting applications for Research Internships and seeking Academic Collaborators and Advisors. We do not have full-time staff openings at this stage.",
+    answer:
+      "We are currently accepting applications for Research Internships and seeking Academic Collaborators and Advisors. We do not have full-time staff openings at this stage.",
   },
   {
     question: "Are you looking for investors?",
-    answer: "We are open to exploratory discussions with deep-tech angel investors and incubator platforms who understand early-stage research timescales. However, our primary short-term focus is establishing technical credibility through simulations and initial patent filings.",
+    answer:
+      "We are open to exploratory discussions with deep-tech angel investors and incubator platforms who understand early-stage research timescales. However, our primary short-term focus is establishing technical credibility through simulations and initial patent filings.",
   },
   {
     question: "Can universities collaborate?",
-    answer: "Yes, we highly welcome collaborations with academic professors, laboratory research leads, and postgraduate wireless communication departments. We look forward to validating our research hypotheses in partnership with academic institutions.",
+    answer:
+      "Yes, we highly welcome collaborations with academic professors, laboratory research leads, and postgraduate wireless communication departments. We look forward to validating our research hypotheses in partnership with academic institutions.",
   },
   {
-    question: "How can I become an advisor?",
-    answer: "If you have an extensive background in RF engineering, electromagnetic fields, or semiconductor chip layouts and want to guide our research methods, please reach out via our official email for an exploratory call.",
-  },
-  {
-    question: "How can I contribute to Gramwave Wireless?",
-    answer: "You can contribute by joining our internship program, engaging in technical research reviews, participating in academic collaborations, or serving as a technical advisor or mentor.",
+    question: "Where are you based?",
+    answer:
+      "Gramwave Wireless is founded and based in India, operating through a distributed remote-first research model across academic centers.",
   },
 ];
 
@@ -62,7 +64,6 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-
   const [submitErrorMessage, setSubmitErrorMessage] = useState("");
 
   const handleInputChange = (
@@ -98,287 +99,345 @@ export default function ContactPage() {
       console.error("Submission error:", err);
       setIsSubmitting(false);
       setSubmitStatus("error");
-      const errorMessage = err instanceof Error ? err.message : "Network error. Please try emailing directly.";
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "Network error. Please try emailing directly.";
       setSubmitErrorMessage(errorMessage);
     }
   };
 
   return (
-    <div className="relative min-h-screen pt-4 sm:pt-8 pb-24">
-      <RFWaveBackground />
-
-      <div className="max-content-width relative z-10 px-4 sm:px-6 lg:px-8 space-y-16 md:space-y-20">
-        {/* Header */}
-        <div className="max-w-4xl mx-auto text-center space-y-6 mb-16 md:mb-20">
-          <div className="flex justify-center">
-            <span className="inline-flex items-center rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-5 py-2 text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-accent-light">
+    <div className="relative flex min-h-screen flex-col bg-white">
+      {/* ------------------------------------------------------------------ */}
+      {/* 1. HERO SECTION                                                    */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="max-content-width relative z-10 w-full pt-10 pb-16 sm:pt-14 md:pt-16 md:pb-20">
+        <div className="mx-auto max-w-4xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="flex justify-center"
+          >
+            <span className="inline-flex items-center rounded-full border border-[#BFD3FE] bg-[#EFF4FF] px-4 py-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.18em] text-[#2563EB]">
               Get In Touch
             </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+            className="mt-6 text-4xl font-extrabold tracking-tight text-[#0B0F19] sm:text-5xl md:text-6xl lg:text-7xl"
+          >
+            Contact &amp; FAQ
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.16 }}
+            className="mt-6 text-base leading-8 text-[#5B6472] sm:text-lg md:text-xl md:leading-9"
+          >
+            Have questions about our research or want to explore collaboration
+            opportunities? Contact our engineering team or review the FAQ database below.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* 2. CONTACT INFO & INQUIRY FORM                                     */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="relative z-10 w-full border-t border-[#E4E7EC] bg-[#F6F7F9] py-16 md:py-24">
+        <div className="max-content-width">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+            {/* Info Panels */}
+            <div className="lg:col-span-5 space-y-6 flex flex-col justify-between">
+              <div className="rounded-3xl border border-[#E4E7EC] bg-white p-8 shadow-sm sm:p-10 space-y-6">
+                <div>
+                  <span className="inline-flex items-center rounded-full border border-[#BFD3FE] bg-[#EFF4FF] px-4 py-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+                    Channels
+                  </span>
+                  <h2 className="mt-4 text-2xl font-extrabold text-[#0B0F19]">
+                    Direct Inquiries
+                  </h2>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3.5 rounded-2xl border border-[#E4E7EC] bg-[#FAFBFC] p-4 text-xs text-[#5B6472]">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#BFD3FE] bg-[#EFF4FF] text-[#2563EB]">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <span className="block font-mono text-[10px] font-bold uppercase text-[#8A93A3]">
+                        Official Email
+                      </span>
+                      <a
+                        href="mailto:founder@gramwavewireless.in"
+                        className="font-bold text-[#0B0F19] hover:text-[#2563EB] transition-colors"
+                      >
+                        founder@gramwavewireless.in
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center space-x-3.5 rounded-2xl border border-[#E4E7EC] bg-[#FAFBFC] p-4 text-xs text-[#5B6472]">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#BFD3FE] bg-[#EFF4FF] text-[#2563EB]">
+                      <Linkedin className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <span className="block font-mono text-[10px] font-bold uppercase text-[#8A93A3]">
+                        LinkedIn Profile
+                      </span>
+                      <a
+                        href="https://linkedin.com/company/gramwave-wireless"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-[#0B0F19] hover:text-[#2563EB] transition-colors"
+                      >
+                        linkedin.com/company/gramwave-wireless
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3 rounded-2xl border border-[#BFD3FE] bg-[#EFF4FF] p-4 text-xs text-[#2563EB]">
+                  <Clock className="h-5 w-5 shrink-0" />
+                  <p className="leading-relaxed">
+                    <strong>Response SLA</strong>: We respond to academic collaboration and internship applications within <strong>3–5 business days</strong>.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-2xl border border-[#E4E7EC] bg-white p-5 space-y-1.5 shadow-sm">
+                  <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-[#0B0F19]">
+                    Research Labs
+                  </h4>
+                  <p className="text-xs text-[#5B6472] leading-relaxed">
+                    Universities, professors, RF labs, and student interns.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-[#E4E7EC] bg-white p-5 space-y-1.5 shadow-sm">
+                  <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-[#0B0F19]">
+                    Industry Links
+                  </h4>
+                  <p className="text-xs text-[#5B6472] leading-relaxed">
+                    Chipset designers, RF companies, and telecom hardware firms.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Form */}
+            <div className="lg:col-span-7">
+              <div className="rounded-3xl border border-[#E4E7EC] bg-white p-8 shadow-sm sm:p-10 space-y-6">
+                <div>
+                  <span className="inline-flex items-center rounded-full border border-[#BFD3FE] bg-[#EFF4FF] px-4 py-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+                    Send Message
+                  </span>
+                  <h2 className="mt-4 text-2xl font-extrabold text-[#0B0F19]">
+                    Submit an Inquiry
+                  </h2>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <label
+                        htmlFor="name"
+                        className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#5B6472]"
+                      >
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className="w-full rounded-xl border border-[#E4E7EC] bg-[#FAFBFC] px-4 py-3 text-xs text-[#0B0F19] placeholder-[#8A93A3] focus:border-[#2563EB] focus:bg-white focus:outline-none"
+                        placeholder="e.g. Dr. Sai Charan"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label
+                        htmlFor="email"
+                        className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#5B6472]"
+                      >
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full rounded-xl border border-[#E4E7EC] bg-[#FAFBFC] px-4 py-3 text-xs text-[#0B0F19] placeholder-[#8A93A3] focus:border-[#2563EB] focus:bg-white focus:outline-none"
+                        placeholder="e.g. researcher@university.edu"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="inquiryType"
+                      className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#5B6472]"
+                    >
+                      Inquiry Type
+                    </label>
+                    <select
+                      id="inquiryType"
+                      name="inquiryType"
+                      value={formData.inquiryType}
+                      onChange={handleInputChange}
+                      className="w-full rounded-xl border border-[#E4E7EC] bg-[#FAFBFC] px-4 py-3 text-xs text-[#0B0F19] focus:border-[#2563EB] focus:bg-white focus:outline-none"
+                    >
+                      <option value="Internship">Internship / Application</option>
+                      <option value="Research Collaboration">Research Collaboration</option>
+                      <option value="Industry Partnership">Industry Partnership</option>
+                      <option value="General Inquiry">General Q&amp;A</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="message"
+                      className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#5B6472]"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      className="w-full rounded-xl border border-[#E4E7EC] bg-[#FAFBFC] px-4 py-3 text-xs text-[#0B0F19] placeholder-[#8A93A3] focus:border-[#2563EB] focus:bg-white focus:outline-none resize-none"
+                      placeholder="Provide a brief context of your research match or inquiry details..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-[#0B0F19] px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all duration-200 hover:bg-[#2563EB] active:scale-[0.98] disabled:opacity-50"
+                  >
+                    <Send className="h-4 w-4 mr-1" />
+                    <span>{isSubmitting ? "Sending..." : "Submit Inquiry"}</span>
+                  </button>
+                </form>
+
+                {/* Status Box */}
+                <AnimatePresence>
+                  {submitStatus === "success" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="rounded-2xl border border-green-200 bg-green-50 p-5 text-center text-xs text-green-800 space-y-2"
+                    >
+                      <p className="font-bold">Thank you. Your inquiry has been submitted!</p>
+                      <p className="text-green-700 leading-relaxed">
+                        We aim to respond within 3–5 business days. You can also send a copy directly from your mail client below.
+                      </p>
+                      <div className="pt-2">
+                        <a
+                          href="mailto:founder@gramwavewireless.in?subject=GramWave%20Wireless%20Inquiry"
+                          className="inline-flex items-center space-x-2 rounded-xl border border-green-300 bg-white px-4 py-2 font-mono text-xs font-bold text-green-800 shadow-sm transition-colors hover:bg-green-100"
+                        >
+                          <Mail className="h-3.5 w-3.5" />
+                          <span>Send Backup Copy via Email Client</span>
+                        </a>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {submitStatus === "error" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="rounded-2xl border border-red-200 bg-red-50 p-5 text-center text-xs text-red-800 space-y-2"
+                    >
+                      <p className="font-bold">{submitErrorMessage}</p>
+                      <a
+                        href="mailto:founder@gramwavewireless.in?subject=GramWave%20Wireless%20Inquiry"
+                        className="inline-block mt-1 font-bold text-red-700 underline"
+                      >
+                        Click here to email founder@gramwavewireless.in directly
+                      </a>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white uppercase font-mono">
-            Contact & FAQ
-          </h1>
-
-          <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl leading-8 text-muted">
-            Have questions about our research or want to explore collaboration opportunities? Contact our founder or review the FAQ database below.
+      {/* ------------------------------------------------------------------ */}
+      {/* 3. FAQ ACCORDION SECTION                                           */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="max-content-width relative z-10 w-full pt-16 pb-20 sm:pt-20 md:pt-24 md:pb-28">
+        <div className="mx-auto mb-14 max-w-2xl text-center md:mb-16">
+          <span className="inline-flex items-center rounded-full border border-[#BFD3FE] bg-[#EFF4FF] px-4 py-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+            Knowledge Base
+          </span>
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#0B0F19] md:text-4xl">
+            Frequently Asked Questions
+          </h2>
+          <p className="mt-4 text-base leading-8 text-[#5B6472]">
+            Common questions regarding Gramwave Wireless&apos;s stage, scope, and objectives.
           </p>
         </div>
 
-        {/* Contact info, SLA, and Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto mt-12 md:mt-16 pt-4">
-          {/* Info Panels */}
-          <div className="lg:col-span-5 space-y-6">
-            <h2 className="text-sm font-semibold tracking-wider text-white uppercase font-mono text-center lg:text-left">
-              Contact & Inquiries
-            </h2>
-
-            {/* Main Info */}
-            <div className="glass p-6.5 rounded-xl border border-card-border/30 space-y-5">
-              <div className="flex items-center space-x-3.5 text-xs text-muted">
-                <Mail className="h-5 w-5 text-accent-light" />
-                <div>
-                  <span className="text-[10px] font-mono uppercase text-muted-dark block">Official Email</span>
-                  <a href="mailto:founder@gramwavewireless.in" className="text-white font-semibold hover:underline">
-                    founder@gramwavewireless.in
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3.5 text-xs text-muted">
-                <Linkedin className="h-5 w-5 text-accent-light" />
-                <div>
-                  <span className="text-[10px] font-mono uppercase text-muted-dark block">LinkedIn Profile</span>
-                  <a
-                    href="https://linkedin.com/company/gramwave-wireless"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white font-semibold hover:underline"
-                  >
-                    linkedin.com/company/gramwave-wireless
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* SLA Banner */}
-            <div className="glass p-5 rounded-xl border border-card-border/30 bg-accent/5 flex items-center space-x-3.5">
-              <Clock className="h-5.5 w-5.5 text-accent-light shrink-0" />
-              <p className="text-xs text-muted leading-relaxed">
-                <strong>Response SLA</strong>: We aim to respond to collaboration and internship inquiries within <strong>3–5 business days</strong>.
-              </p>
-            </div>
-
-            {/* Collaboration Columns */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="glass p-4 rounded-xl border border-card-border/30 space-y-2">
-                <h4 className="text-[10px] font-bold text-white uppercase tracking-wider font-mono">
-                  Research Partnerships
-                </h4>
-                <p className="text-[10px] text-muted leading-relaxed">
-                  Universities, professors, RF labs, and student interns.
-                </p>
-              </div>
-
-              <div className="glass p-4 rounded-xl border border-card-border/30 space-y-2">
-                <h4 className="text-[10px] font-bold text-white uppercase tracking-wider font-mono">
-                  Industry Links
-                </h4>
-                <p className="text-[10px] text-muted leading-relaxed">
-                  Chipset designers, RF companies, and telecom hardware firms.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Form */}
-          <div className="lg:col-span-7 space-y-6">
-            <h2 className="text-sm font-semibold tracking-wider text-white uppercase font-mono text-center lg:text-left">
-              Send Inquiry
-            </h2>
-
-            <div className="glass p-6.5 rounded-xl border border-card-border/30">
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label htmlFor="name" className="text-[10px] uppercase font-bold tracking-wider text-muted font-mono">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full bg-[#030712] border border-card-border/60 rounded px-3 py-2.5 text-xs text-white placeholder-muted-dark focus:outline-none focus:border-accent"
-                      placeholder="e.g. Dr. Sai Charan"
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <label htmlFor="email" className="text-[10px] uppercase font-bold tracking-wider text-muted font-mono">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full bg-[#030712] border border-card-border/60 rounded px-3 py-2.5 text-xs text-white placeholder-muted-dark focus:outline-none focus:border-accent"
-                      placeholder="e.g. researcher@university.edu"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label htmlFor="inquiryType" className="text-[10px] uppercase font-bold tracking-wider text-muted font-mono">
-                    Inquiry Type
-                  </label>
-                  <select
-                    id="inquiryType"
-                    name="inquiryType"
-                    value={formData.inquiryType}
-                    onChange={handleInputChange}
-                    className="w-full bg-[#030712] border border-card-border/60 rounded px-3 py-2.5 text-xs text-white focus:outline-none focus:border-accent"
-                  >
-                    <option value="Internship">Internship / Application</option>
-                    <option value="Research Collaboration">Research Collaboration</option>
-                    <option value="Industry Partnership">Industry Partnership</option>
-                    <option value="General Inquiry">General Q&A</option>
-                  </select>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label htmlFor="message" className="text-[10px] uppercase font-bold tracking-wider text-muted font-mono">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="w-full bg-[#030712] border border-card-border/60 rounded px-3 py-2.5 text-xs text-white placeholder-muted-dark focus:outline-none focus:border-accent resize-none"
-                    placeholder="Provide a brief context of your research match or inquiry details..."
-                  />
-                </div>
-
+        <div className="mx-auto max-w-4xl space-y-4">
+          {faqs.map((faq, idx) => {
+            const isOpen = activeFaq === idx;
+            return (
+              <div
+                key={idx}
+                className="overflow-hidden rounded-2xl border border-[#E4E7EC] bg-white shadow-sm transition-all"
+              >
                 <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="btn-primary w-full"
+                  onClick={() => setActiveFaq(isOpen ? null : idx)}
+                  className="flex w-full items-center justify-between px-6 py-5 text-left text-sm font-bold text-[#0B0F19] transition-colors hover:bg-[#FAFBFC] focus:outline-none"
+                  aria-expanded={isOpen}
                 >
-                  <Send className="h-3.5 w-3.5 mr-2" />
-                  <span>{isSubmitting ? "Sending..." : "Submit Inquiry"}</span>
+                  <span>{faq.question}</span>
+                  {isOpen ? (
+                    <ChevronUp className="h-5 w-5 text-[#2563EB] shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-[#8A93A3] shrink-0" />
+                  )}
                 </button>
-              </form>
-
-              {/* Status Box */}
-              <AnimatePresence>
-                {submitStatus === "success" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="mt-4 p-4 border border-green-500/20 bg-green-500/5 rounded text-xs text-center text-green-400 space-y-2"
-                  >
-                    <p className="font-semibold">Thank you. Your inquiry has been submitted!</p>
-                    <p className="text-[11px] text-muted leading-relaxed">
-                      We aim to respond within 3–5 business days. You can also send a copy directly from your mail client below.
-                    </p>
-                    <div className="pt-2">
-                      <a
-                        href="mailto:founder@gramwavewireless.in?subject=GramWave%20Wireless%20Inquiry"
-                        className="inline-flex items-center space-x-2 text-[11px] font-bold text-accent-light bg-accent/10 border border-accent/20 px-3 py-1.5 rounded hover:bg-accent/20 transition-colors"
-                      >
-                        <Mail className="h-3.5 w-3.5" />
-                        <span>Send Backup Copy via Email Client</span>
-                      </a>
-                    </div>
-                  </motion.div>
-                )}
-
-                {submitStatus === "error" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="mt-4 p-4 border border-red-500/20 bg-red-500/5 rounded text-xs text-center text-red-400 space-y-2"
-                  >
-                    <p className="font-semibold">{submitErrorMessage}</p>
-                    <a
-                      href="mailto:founder@gramwavewireless.in?subject=GramWave%20Wireless%20Inquiry"
-                      className="inline-block mt-1 text-accent-light underline font-bold"
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: "auto" }}
+                      exit={{ height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden"
                     >
-                      Click here to email founder@gramwavewireless.in directly
-                    </a>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              <div className="mt-6 pt-4 border-t border-card-border/20 text-center">
-                <span className="text-[11px] text-muted">
-                  Prefer direct email?{" "}
-                  <a
-                    href="mailto:founder@gramwavewireless.in"
-                    className="text-accent-light hover:underline font-semibold"
-                  >
-                    founder@gramwavewireless.in
-                  </a>
-                </span>
+                      <div className="border-t border-[#E4E7EC] px-6 pt-3 pb-6 text-sm leading-relaxed text-[#5B6472]">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
-
-        {/* FAQ Accordion Section */}
-        <div className="space-y-8 pt-6 border-t border-card-border/20 max-w-4xl mx-auto w-full">
-          <div className="text-center space-y-2">
-            <h2 className="text-lg font-semibold tracking-wide text-white uppercase font-mono">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xs text-muted">
-              Common questions and answers regarding Gramwave Wireless&apos;s stage, scope, and objectives.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => {
-              const isOpen = activeFaq === idx;
-              return (
-                <div key={idx} className="glass rounded-xl border border-card-border/30 overflow-hidden">
-                  <button
-                    onClick={() => setActiveFaq(isOpen ? null : idx)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between text-xs font-semibold tracking-wide text-white hover:bg-white/4 transition-colors focus:outline-none"
-                    aria-expanded={isOpen}
-                  >
-                    <span>{faq.question}</span>
-                    {isOpen ? <ChevronUp className="h-4.5 w-4.5 text-accent-light" /> : <ChevronDown className="h-4.5 w-4.5 text-muted" />}
-                  </button>
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0 }}
-                        animate={{ height: "auto" }}
-                        exit={{ height: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-6 pb-5 pt-1.5 text-xs text-muted leading-relaxed border-t border-card-border/10">
-                          {faq.answer}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }

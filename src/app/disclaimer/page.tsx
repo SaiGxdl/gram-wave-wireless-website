@@ -1,26 +1,25 @@
 "use client";
 
-import RFWaveBackground from "@/components/RFWaveBackground";
-
 export default function DisclaimerPage() {
   return (
-    <div className="relative min-h-screen pb-24">
-      <RFWaveBackground />
-
-      <div className="max-w-3xl mx-auto px-6 relative z-10 space-y-8 text-xs text-muted leading-relaxed pt-4">
+    <div className="relative flex min-h-screen flex-col bg-white">
+      <div className="mx-auto max-w-3xl px-6 py-12 sm:py-16 md:py-20 relative z-10 space-y-8 text-sm text-[#5B6472] leading-relaxed">
         {/* Header */}
-        <div className="border-b border-card-border/30 pb-4 space-y-1">
-          <h1 className="text-2xl font-extrabold text-white tracking-wide">
-            Research & Patent Disclaimer
+        <div className="border-b border-[#E4E7EC] pb-6 space-y-2">
+          <span className="inline-flex items-center rounded-full border border-[#BFD3FE] bg-[#EFF4FF] px-4 py-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.18em] text-[#2563EB]">
+            Legal
+          </span>
+          <h1 className="text-3xl font-extrabold text-[#0B0F19] tracking-tight sm:text-4xl">
+            Research &amp; Patent Disclaimer
           </h1>
-          <p className="font-mono text-[10px] text-muted-dark">
+          <p className="font-mono text-xs text-[#8A93A3]">
             Last Updated: July 2026
           </p>
         </div>
 
         <section className="space-y-3">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
-            1. Research & Technology Stage
+          <h2 className="text-base font-bold text-[#0B0F19]">
+            1. Research &amp; Technology Stage
           </h2>
           <p>
             Gramwave Wireless is a deep-tech wireless communication research startup currently operating in the <strong>research and technology validation phase</strong>. All descriptions of technical concepts, feed networks, impedance matching schemes, and signal behaviors represent research hypotheses, theoretical studies, and planned verification activities.
@@ -31,7 +30,7 @@ export default function DisclaimerPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
+          <h2 className="text-base font-bold text-[#0B0F19]">
             2. Intellectual Property (IP) Representation
           </h2>
           <p>
@@ -47,8 +46,8 @@ export default function DisclaimerPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
-            3. Collaborations & Advisory Relationships
+          <h2 className="text-base font-bold text-[#0B0F19]">
+            3. Collaborations &amp; Advisory Relationships
           </h2>
           <p>
             All listings of advisory positions, university collaborations, and mentor roles are subject to ongoing academic alignment, contractual discussions, and mutual agreement. We represent our relationships with strict honesty; no finalized backing, sponsorship, or institutional endorsement is implied unless explicitly stated as finalized.
@@ -56,11 +55,11 @@ export default function DisclaimerPage() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
+          <h2 className="text-base font-bold text-[#0B0F19]">
             4. Limitation of Liability
           </h2>
           <p>
-            The information on this website is provided &quot;as is&quot; without warranties of any kind. Gramwave Wireless, its founder Sai Charan, and its contributors shall not be held liable for any decisions, actions, or academic investigations undertaken based on the research text and roadmap structures provided on this site.
+            In no event shall Gramwave Wireless, its founder, or contributors be held liable for any direct, indirect, incidental, or consequential damages arising from the use or reliance upon information presented on this research portal.
           </p>
         </section>
       </div>
