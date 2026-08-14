@@ -159,9 +159,8 @@ function SectionHeading({
 }) {
   return (
     <div
-      className={`mb-12 max-w-2xl md:mb-14 ${
-        center ? "mx-auto text-center" : ""
-      }`}
+      className={`mb-12 max-w-2xl md:mb-14 ${center ? "mx-auto text-center" : ""
+        }`}
     >
       <span className="inline-flex max-w-full items-center rounded-full border border-[#BFD3FE] bg-[#EFF4FF] px-4 py-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.18em] leading-none text-[#2563EB]">
         {eyebrow}
@@ -205,11 +204,10 @@ function HeroSchematic() {
           type="button"
           onClick={() => setActive((prev) => !prev)}
           aria-pressed={active}
-          className={`inline-flex min-h-[32px] min-w-[82px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wide leading-none transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] hover:scale-105 active:scale-95 ${
-            active
+          className={`inline-flex min-h-[32px] min-w-[82px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wide leading-none transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] hover:scale-105 active:scale-95 ${active
               ? "border-[#BFD3FE] bg-[#EFF4FF] text-[#2563EB]"
               : "min-w-[100px] border-[#F3C8C8] bg-[#FDF2F2] text-[#B42318]"
-          }`}
+            }`}
         >
           <Sliders className="h-3 w-3 shrink-0" />
 
@@ -357,11 +355,10 @@ function HeroSchematic() {
           </span>
 
           <span
-            className={`shrink-0 font-bold ${
-              active
+            className={`shrink-0 font-bold ${active
                 ? "text-[#2563EB]"
                 : "text-[#B42318]"
-            }`}
+              }`}
           >
             {active
               ? "−18.6 dB · Optimal"
@@ -384,7 +381,7 @@ export default function Home() {
       {/* HERO                                                               */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="max-content-width relative z-10 w-full pt-8 pb-16 sm:pt-10 md:pt-14 md:pb-24">
+      <section className="max-content-width relative z-10 w-full pt-16 pb-16 sm:pt-20 md:pt-24 lg:pt-28 md:pb-24">
         <div className="grid min-w-0 grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="min-w-0 lg:col-span-6">
             <motion.h1
