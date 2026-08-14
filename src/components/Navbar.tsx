@@ -39,7 +39,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 h-16 bg-white/95 backdrop-blur-md border-b border-[#E4E7EC] transition-shadow duration-300 ${
+      className={`sticky top-0 z-50 w-full h-16 bg-white/95 backdrop-blur-md border-b border-[#E4E7EC] transition-shadow duration-300 ${
         scrolled
           ? "shadow-[0_1px_0_rgba(11,15,25,0.04)]"
           : "shadow-none"

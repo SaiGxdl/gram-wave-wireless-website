@@ -381,7 +381,7 @@ export default function Home() {
       {/* HERO                                                               */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="max-content-width relative z-10 w-full pt-16 pb-16 sm:pt-20 md:pt-24 lg:pt-28 md:pb-24">
+      <section className="max-content-width relative z-10 w-full pt-10 pb-16 sm:pt-12 md:pt-14 lg:pt-16 md:pb-24">
         <div className="grid min-w-0 grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="min-w-0 lg:col-span-6">
             <motion.h1

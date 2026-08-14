@@ -73,7 +73,7 @@ export default function RootLayout({
       >
         <SubtleLoader />
         <Navbar />
-        <main className="flex-grow flex flex-col pt-16">{children}</main>
+        <main className="flex-grow flex flex-col">{children}</main>
         <Footer />
       </body>
     </html>
