@@ -40,7 +40,7 @@ const faqs: FAQItem[] = [
   {
     question: "Are you looking for investors?",
     answer:
-      "We are open to exploratory discussions with deep-tech angel investors and incubator platforms who understand early-stage research timescales. However, our primary short-term focus is establishing technical credibility through simulations and initial patent filings.",
+      "We are open to exploratory discussions with deep-tech angel investors and incubator platforms who understand early-stage research timescales. However, our primary short-term focus is establishing technical credibility through simulations and empirical validation.",
   },
   {
     question: "Can universities collaborate?",

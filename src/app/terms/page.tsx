@@ -28,13 +28,13 @@ export default function TermsPage() {
 
         <section className="space-y-3">
           <h2 className="text-base font-bold text-[#0B0F19]">
-            2. Intellectual Property Rights
+            2. Proprietary Rights &amp; Content Ownership
           </h2>
           <p>
-            All content, designs, logos, text, wave graphics, and software code files are the exclusive property of Gramwave Wireless. You may not copy, reproduce, distribute, or modify any materials for commercial purposes without our prior written permission.
+            All content, designs, logos, text, wave graphics, schematic visuals, and software code files are the property of Gramwave Wireless. You may not copy, reproduce, distribute, or modify any materials for commercial purposes without our prior written permission.
           </p>
           <p>
-            Our provisional patent filing protects designated proprietary frameworks described under the Adaptive Wave section. Reference to this research does not license or assign any intellectual property rights to the viewer.
+            Reference to this research or theoretical models does not license or assign any proprietary rights or commercial authorization to the viewer.
           </p>
         </section>
 

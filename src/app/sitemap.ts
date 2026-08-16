@@ -5,8 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/adaptive-wave",
-    "/research-ip",
-    "/roadmap",
+    "/research",
     "/careers",
     "/contact",
     "/privacy",

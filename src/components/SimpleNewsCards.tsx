@@ -13,21 +13,21 @@ const milestones = [
     category: "Completed",
     title: "Problem Discovery",
     subtitle: "India · 2026",
-    href: "/research-ip",
+    href: "/research",
     accent: "text-accent-light",
   },
   {
     category: "In Progress",
     title: "Research Validation & Simulation",
     subtitle: "Active",
-    href: "/roadmap",
+    href: "/research",
     accent: "text-yellow-400",
   },
   {
     category: "Planned",
     title: "Prototype Fabrication",
     subtitle: "Next",
-    href: "/roadmap",
+    href: "/research",
     accent: "text-muted-dark",
   },
 ];
@@ -40,7 +40,7 @@ export default function SimpleNewsCards() {
           Building the future of connectivity.
         </h2>
         <p className="mt-3 text-muted text-base md:text-lg">
-          Research, validation, and IP — tracked openly.
+          Research and empirical validation — tracked openly.
         </p>
       </div>
 

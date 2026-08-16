@@ -128,12 +128,12 @@ export function SimulationHeatmap() {
   );
 }
 
-// 5. Patent Architecture Diagram
-export function PatentArchitectureDiagram() {
+// 5. System Architecture Diagram
+export function SystemArchitectureDiagram() {
   return (
     <div className="w-full h-36 bg-[#020510] border border-green-500/20 rounded-xl p-3 flex flex-col justify-between relative overflow-hidden group">
       <div className="flex items-center justify-between text-[10px] font-mono text-green-400">
-        <span>IP: SYSTEM ARCHITECTURE FLOW</span>
+        <span>SYSTEM: ARCHITECTURE FLOW</span>
         <span className="text-muted-dark">Adaptive Sequence</span>
       </div>
       <svg viewBox="0 0 300 90" className="w-full h-20" fill="none">

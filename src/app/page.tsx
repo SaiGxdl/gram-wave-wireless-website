@@ -187,9 +187,9 @@ function HeroSchematic() {
   const [active, setActive] = useState(true);
 
   return (
-    <div className="relative z-10 w-full min-w-0 overflow-hidden rounded-2xl border border-[#E4E7EC] bg-white shadow-[0_1px_2px_rgba(11,15,25,0.04)]">
+    <div className="relative z-10 w-full min-w-0 overflow-hidden rounded-md border border-[#E4E7EC] bg-white shadow-[0_1px_3px_rgba(11,15,25,0.05)]">
       {/* Simulator Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E4E7EC] px-5 py-4 sm:px-6">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E4E7EC] px-6 py-4.5 sm:px-7">
         <div className="flex min-w-0 flex-col gap-1">
           <span className="truncate text-[11px] font-mono font-bold uppercase tracking-wider text-[#0B0F19]">
             RF Matching Simulator
@@ -204,7 +204,7 @@ function HeroSchematic() {
           type="button"
           onClick={() => setActive((prev) => !prev)}
           aria-pressed={active}
-          className={`inline-flex min-h-[32px] min-w-[82px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wide leading-none transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] hover:scale-105 active:scale-95 ${active
+          className={`inline-flex min-h-[32px] min-w-[82px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border px-3.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wide leading-none transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] hover:scale-105 active:scale-95 ${active
             ? "border-[#BFD3FE] bg-[#EFF4FF] text-[#2563EB]"
             : "min-w-[100px] border-[#F3C8C8] bg-[#FDF2F2] text-[#B42318]"
             }`}
@@ -216,9 +216,9 @@ function HeroSchematic() {
       </div>
 
       {/* Simulator Body */}
-      <div className="p-5 sm:p-6">
+      <div className="p-6 sm:p-7">
         <svg
-          viewBox="0 0 500 190"
+          viewBox="0 0 500 200"
           className="h-auto w-full"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -227,13 +227,13 @@ function HeroSchematic() {
         >
           <rect
             width="500"
-            height="190"
+            height="200"
             fill="#FAFBFC"
-            rx="8"
+            rx="2"
           />
 
           {/* Antenna */}
-          <g transform="translate(28, 65)">
+          <g transform="translate(30, 70)">
             <path
               d="M 0 30 L 25 30 M 25 0 L 25 60 M 25 0 L 45 -15 M 25 30 L 45 30 M 25 60 L 45 75"
               stroke="#0B0F19"
@@ -250,7 +250,7 @@ function HeroSchematic() {
 
             <text
               x="0"
-              y="88"
+              y="92"
               fill="#8A93A3"
               fontSize="9"
               fontFamily="monospace"
@@ -261,7 +261,7 @@ function HeroSchematic() {
 
           {/* Input wave */}
           <path
-            d="M 78 95 Q 112 68, 140 95 T 200 95"
+            d="M 80 100 Q 114 73, 142 100 T 202 100"
             stroke={active ? "#2563EB" : "#B45309"}
             strokeWidth={active ? "2.5" : "1.5"}
             fill="none"
@@ -270,13 +270,13 @@ function HeroSchematic() {
           />
 
           {/* Matching block */}
-          <g transform="translate(200, 50)">
+          <g transform="translate(202, 48)">
             <rect
               x="0"
               y="0"
               width="105"
-              height="90"
-              rx="10"
+              height="104"
+              rx="2"
               fill={active ? "#EFF4FF" : "#FAFAFA"}
               stroke={active ? "#2563EB" : "#C6CCD6"}
               strokeWidth="1.75"
@@ -285,7 +285,7 @@ function HeroSchematic() {
 
             <text
               x="52"
-              y="34"
+              y="30"
               fill="#0B0F19"
               fontSize="10"
               fontWeight="700"
@@ -307,7 +307,7 @@ function HeroSchematic() {
             </text>
 
             <path
-              d="M 18 66 H 32 M 32 58 V 74 M 39 58 V 74 M 39 66 H 50 M 50 66 L 60 58 L 70 74 L 80 58 L 86 66"
+              d="M 18 76 H 32 M 32 68 V 84 M 39 68 V 84 M 39 76 H 50 M 50 76 L 60 68 L 70 84 L 80 68 L 86 76"
               stroke={active ? "#2563EB" : "#C6CCD6"}
               strokeWidth="1.5"
             />
@@ -315,7 +315,7 @@ function HeroSchematic() {
 
           {/* Output wave */}
           <path
-            d="M 305 95 Q 338 52, 370 95 T 435 95"
+            d="M 307 100 Q 340 57, 372 100 T 437 100"
             stroke={active ? "#06B6D4" : "#8A93A3"}
             strokeWidth={active ? "3" : "1.5"}
             fill="none"
@@ -324,13 +324,13 @@ function HeroSchematic() {
           />
 
           {/* RFIC */}
-          <g transform="translate(420, 65)">
+          <g transform="translate(420, 70)">
             <rect
               x="0"
               y="0"
               width="42"
               height="58"
-              rx="4"
+              rx="1"
               fill="#0B0F19"
             />
 
@@ -349,13 +349,13 @@ function HeroSchematic() {
         </svg>
 
         {/* Reflection result */}
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-[#E4E7EC] pt-4 text-[11px] font-mono">
+        <div className="mt-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 border-t border-[#E4E7EC] pt-4 text-[11px] font-mono">
           <span className="text-[#8A93A3]">
             Reflection Loss (S11)
           </span>
 
           <span
-            className={`shrink-0 font-bold ${active
+            className={`shrink-0 whitespace-nowrap font-bold ${active
               ? "text-[#2563EB]"
               : "text-[#B42318]"
               }`}
@@ -517,8 +517,8 @@ export default function Home() {
               title: "What's Next",
               desc: "Simulation and validation today, prototype fabrication and lab testing ahead — with an eye on 6G and satellite integration.",
               link: {
-                href: "/roadmap",
-                label: "View Roadmap",
+                href: "/research",
+                label: "Explore Research",
               },
             },
           ].map((card, i) => (
@@ -711,13 +711,13 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Roadmap */}
+          {/* Research CTA */}
           <div className="mt-10 flex justify-center">
             <Link
-              href="/roadmap"
+              href="/research"
               className={outlineButton}
             >
-              <span>View Full Roadmap</span>
+              <span>Explore Research &amp; Methodology</span>
 
               <ArrowRight className="h-4 w-4 shrink-0" />
             </Link>

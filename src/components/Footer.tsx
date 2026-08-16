@@ -46,8 +46,8 @@ export default function Footer() {
             {[
               { href: "/", label: "Home" },
               { href: "/adaptive-wave", label: "Adaptive Wave" },
-              { href: "/research-ip", label: "Research & IP" },
-              { href: "/roadmap", label: "Roadmap" },
+              { href: "/research", label: "Research" },
+              { href: "/careers", label: "Careers" },
             ].map((l) => (
               <li key={l.href}>
                 <Link

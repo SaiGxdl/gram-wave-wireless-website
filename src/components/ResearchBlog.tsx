@@ -6,7 +6,7 @@ import { X, ArrowRight, Calendar, Clock } from "lucide-react";
 
 interface Article {
   id: string;
-  category: "Research Article" | "Patent & Milestones" | "Simulation Notes";
+  category: "Research Article" | "Architecture & Design" | "Simulation Notes";
   date: string;
   readTime: string;
   title: string;
@@ -33,18 +33,18 @@ const articles: Article[] = [
     ]
   },
   {
-    id: "ip-strategy-framework",
-    category: "Patent & Milestones",
+    id: "architecture-framework",
+    category: "Architecture & Design",
     date: "June 2026",
     readTime: "3 min read",
-    title: "Handset Receiver Matching Architecture & IP Framework",
+    title: "Handset Receiver Matching Architecture & System Framework",
     summary:
-      "Gramwave Wireless is formulating proprietary intellectual property protections covering active receiver array configurations and phase-coherent aggregation logic.",
-    tags: ["Intellectual Property", "IP Strategy", "R&D Milestone"],
+      "Gramwave Wireless is formulating receiver architectures covering active antenna array configurations and phase-coherent aggregation logic.",
+    tags: ["System Architecture", "RF Matching", "R&D Framework"],
     fullContent: [
-      "Gramwave Wireless is developing its foundational intellectual property portfolio in India, establishing novel architectural priority for our proprietary handset-side receiver matching algorithms and sub-wavelength antenna array layouts.",
+      "Gramwave Wireless is developing its foundational receiver system architecture in India, establishing novel approaches for our proprietary handset-side receiver matching algorithms and sub-wavelength antenna array layouts.",
       "Our research encompasses key domains including: (1) Dynamic complex-conjugate matching algorithms optimized for mobile form factors, (2) Phase-coherent signal summation circuits for multi-element receiver arrays, and (3) Active reflection loss mitigation loops.",
-      "Developing this intellectual property framework validates our commitment to creating high-impact deep-tech innovations rooted in rigorous electromagnetic research."
+      "Developing this technical architecture validates our commitment to creating high-impact deep-tech innovations rooted in rigorous electromagnetic research."
     ]
   },
   {
@@ -68,7 +68,7 @@ export default function ResearchBlog() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeArticle, setActiveArticle] = useState<Article | null>(null);
 
-  const categories = ["All", "Research Article", "Patent & Milestones", "Simulation Notes"];
+  const categories = ["All", "Research Article", "Architecture & Design", "Simulation Notes"];
 
   const filteredArticles = selectedCategory === "All"
     ? articles

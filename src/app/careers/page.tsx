@@ -29,7 +29,7 @@ export default function CareersPage() {
   const workItems = [
     "Literature reviews and research logging",
     "RF path simulation and electromagnetic drafting",
-    "Drafting technical patent documents",
+    "Drafting technical research whitepapers & reports",
     "Participating in design brainstorming sessions",
   ];
 
@@ -56,7 +56,7 @@ export default function CareersPage() {
       title: "Academic / Industry Mentor",
       type: "Honorary Advisory Board",
       duration: "Long-Term",
-      desc: "Providing rigorous peer review on our technical directions, reviewing publication submissions, and checking patent claims. Open to university professors and lab leads.",
+      desc: "Providing rigorous peer review on our technical directions, reviewing publication submissions, and checking scientific models. Open to university professors and lab leads.",
     },
   ];
 

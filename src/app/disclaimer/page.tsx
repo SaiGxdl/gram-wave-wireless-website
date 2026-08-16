@@ -10,7 +10,7 @@ export default function DisclaimerPage() {
             Legal
           </span>
           <h1 className="text-3xl font-extrabold text-[#0B0F19] tracking-tight sm:text-4xl">
-            Research &amp; Patent Disclaimer
+            Research &amp; Engineering Disclaimer
           </h1>
           <p className="font-mono text-xs text-[#8A93A3]">
             Last Updated: July 2026
@@ -25,23 +25,22 @@ export default function DisclaimerPage() {
             Gramwave Wireless is a deep-tech wireless communication research startup currently operating in the <strong>research and technology validation phase</strong>. All descriptions of technical concepts, feed networks, impedance matching schemes, and signal behaviors represent research hypotheses, theoretical studies, and planned verification activities.
           </p>
           <p>
-            No claims of validated hardware performance, cellular field improvements, or commercial readiness are made or implied. Experimental validation and hardware prototyping are milestones on our roadmap to be pursued in future stages.
+            No claims of validated hardware performance, cellular field improvements, or commercial readiness are made or implied. Experimental validation and hardware prototyping are planned milestones to be pursued in future testing phases.
           </p>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-base font-bold text-[#0B0F19]">
-            2. Intellectual Property (IP) Representation
+            2. Proprietary Engineering Representations
           </h2>
           <p>
-            Gramwave Wireless is actively developing its intellectual property strategy to protect
-            architectural layouts and phase alignment systems relating to the Adaptive Wave concept.
-            This website does not disclose detailed schematic indices or confidential engineering
-            drawings, which remain protected proprietary material of Gramwave Wireless.
+            Gramwave Wireless is actively developing its core system architectures relating to the Adaptive Wave concept.
+            This website does not disclose confidential engineering layouts or internal circuit design files,
+            which remain protected proprietary material of Gramwave Wireless.
           </p>
           <p>
-            Research, validation, and expansion of our IP portfolio are ongoing. Any future patent
-            filings will be reflected on this website once finalized.
+            Research, simulation validation, and engineering verification are ongoing. Updates on technical progress
+            will be shared on this website as milestones are achieved.
           </p>
         </section>
 
