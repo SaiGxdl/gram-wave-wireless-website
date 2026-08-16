@@ -101,29 +101,6 @@ const processSteps = [
   },
 ];
 
-const milestones = [
-  {
-    status: "Completed",
-    color: "#2563EB",
-    title: "Problem Discovery",
-    date: "2026",
-    desc: "Identified weak-signal drop-out patterns across rural and mountainous regions.",
-  },
-  {
-    status: "In Progress",
-    color: "#B45309",
-    title: "Research Validation",
-    date: "Active",
-    desc: "Simulating propagation behavior across varying terrain.",
-  },
-  {
-    status: "Planned",
-    color: "#8A93A3",
-    title: "Prototype Fabrication",
-    date: "Next",
-    desc: "Initial PCB designs for anechoic chamber testing.",
-  },
-];
 
 /* -------------------------------------------------------------------------- */
 /* Button System                                                              */
@@ -135,9 +112,6 @@ const primaryButton =
 
 const inlineAction =
   "inline-flex min-h-[32px] w-fit max-w-full shrink-0 items-center justify-start gap-1.5 whitespace-nowrap text-xs font-mono font-bold uppercase tracking-wider leading-none text-[#2563EB] transition-all duration-200 hover:gap-2.5 hover:text-[#1D4ED8]";
-
-const outlineButton =
-  "inline-flex min-h-[44px] min-w-[190px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-[#E4E7EC] bg-white px-6 py-3 text-xs font-bold font-mono uppercase tracking-[0.14em] leading-none text-[#2563EB] shadow-sm transition-all duration-200 hover:border-[#2563EB] hover:text-[#0B0F19] hover:shadow-md";
 
 const ctaButton =
   "inline-flex min-h-[50px] min-w-[160px] shrink-0 items-center justify-center gap-2.5 whitespace-nowrap rounded-xl bg-white px-8 py-4 text-xs font-bold font-mono uppercase tracking-[0.08em] leading-none text-[#0B0F19] shadow-lg transition-all duration-200 hover:bg-[#F6F7F9] hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]";
@@ -659,103 +633,38 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* MILESTONES                                                          */}
-      {/* ------------------------------------------------------------------ */}
-
-      <section className="relative z-10 w-full border-y border-[#E4E7EC] bg-[#F6F7F9] py-16 md:py-20">
-        <div className="max-content-width">
-          <SectionHeading
-            eyebrow="Progress"
-            title="Latest Milestones"
-            center
-          />
-
-          <div className="mx-auto grid max-w-5xl grid-cols-1 items-stretch gap-6 md:grid-cols-3">
-            {milestones.map((m, i) => (
-              <div
-                key={i}
-                className="relative flex h-full min-h-[190px] min-w-0 flex-col overflow-hidden rounded-2xl border border-[#E4E7EC] bg-white p-7 shadow-sm transition-all hover:shadow-md sm:p-8"
-              >
-                {/* Accent bar */}
-                <div
-                  className="absolute top-0 left-0 right-0 h-1"
-                  style={{
-                    backgroundColor: m.color,
-                  }}
-                />
-
-                <div className="min-w-0">
-                  <span
-                    className="mb-4 inline-flex min-h-[26px] items-center rounded-md px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wide leading-none"
-                    style={{
-                      backgroundColor: `${m.color}15`,
-                      color: m.color,
-                    }}
-                  >
-                    {m.status}
-                  </span>
-
-                  <h3 className="mb-1.5 text-xl font-bold text-[#0B0F19]">
-                    {m.title}
-                  </h3>
-
-                  <span className="mb-3.5 block text-[11px] font-mono text-[#8A93A3]">
-                    {m.date}
-                  </span>
-
-                  <p className="text-sm leading-relaxed text-[#5B6472]">
-                    {m.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Research CTA */}
-          <div className="mt-10 flex justify-center">
-            <Link
-              href="/research"
-              className={outlineButton}
-            >
-              <span>Explore Research &amp; Methodology</span>
-
-              <ArrowRight className="h-4 w-4 shrink-0" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------------ */}
       {/* CTA COLLABORATE BANNER                                             */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="max-content-width relative z-10 w-full pt-16 pb-20 md:pt-20 md:pb-24">
-        <div
-          className="w-full rounded-3xl bg-[#0B0F19] shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16"
-          style={{
-            padding: "44px 56px",
-          }}
-        >
-          {/* CTA Content */}
-          <div className="min-w-0 max-w-2xl text-center lg:text-left">
-            <h2 className="mb-4 text-2xl sm:text-3xl md:text-4xl font-extrabold leading-[1.15] tracking-tight text-white">
-              Looking for a research partner or lab collaboration?
-            </h2>
-
-            <p className="max-w-xl text-sm sm:text-base leading-7 text-[#8A93A3]">
-              Open to universities, RF engineers, and research labs who want to
-              push wireless connectivity forward with us.
-            </p>
-          </div>
-
-          {/* CTA Button */}
-          <Link
-            href="/contact"
-            className={ctaButton}
+      <section className="relative z-10 w-full border-t border-[#E4E7EC] bg-[#F6F7F9] py-20 md:py-28">
+        <div className="max-content-width">
+          <div
+            className="flex w-full flex-col items-center justify-between gap-10 rounded-2xl bg-[#0B0F19] shadow-2xl lg:flex-row lg:gap-16"
+            style={{
+              padding: "50px 80px",
+            }}
           >
-            <span>Get in Touch</span>
-            <ArrowUpRight className="h-4 w-4 shrink-0" />
-          </Link>
+            {/* CTA Content */}
+            <div className="min-w-0 max-w-2xl text-center lg:text-left">
+              <h2 className="mb-3 text-xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-2xl md:text-3xl">
+                Looking for a research partner or lab collaboration?
+              </h2>
+
+              <p className="max-w-xl text-sm leading-7 text-[#8A93A3] sm:text-base">
+                Open to universities, RF engineers, and research labs who want to
+                push wireless connectivity forward with us.
+              </p>
+            </div>
+
+            {/* CTA Button */}
+            <Link
+              href="/contact"
+              className={ctaButton}
+            >
+              <span>Get in Touch</span>
+              <ArrowUpRight className="h-4 w-4 shrink-0" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>
