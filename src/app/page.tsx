@@ -3,18 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, Variants } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import {
-  Cpu,
   ArrowRight,
   ArrowUpRight,
-  Radio,
-  Layers,
-  Brain,
-  Globe,
-  Search,
   Sliders,
 } from "lucide-react";
+
+/* -------------------------------------------------------------------------- */
+/* Animation Variants                                                         */
+/* -------------------------------------------------------------------------- */
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -41,36 +39,96 @@ const itemVariants: Variants = {
   },
 };
 
-const focusAreas = [
+/* -------------------------------------------------------------------------- */
+/* Research Focus Data — Grouped For Interactive Toggle                       */
+/* -------------------------------------------------------------------------- */
+
+type FocusSlide = {
+  label: string;
+  title: string;
+  sub: string;
+  desc: string;
+  image: string;
+};
+
+type FocusGroup = {
+  key: string;
+  label: string;
+  color: string;
+  overview: FocusSlide;
+  items: FocusSlide[];
+};
+
+const focusGroups: FocusGroup[] = [
   {
-    title: "Wireless Communication",
-    desc: "RF path attenuation analysis, propagation dynamics, and system-level transceiver budgets.",
-    icon: Radio,
+    key: "core",
+    label: "Core Engineering",
+    color: "#EA580C",
+    overview: {
+      label: "Overview",
+      title: "Core Engineering",
+      sub: "The physical layer, built right.",
+      desc: "The physical RF systems — antennas, front-ends, and matching networks — that keep a signal alive before it ever reaches the chipset.",
+      image: "/images/research/core-overview.png",
+    },
+    items: [
+      {
+        label: "Wireless Communication",
+        title: "Wireless Communication",
+        sub: "RF path budgets, done right.",
+        desc: "System-level transceiver budgets and propagation analysis across every band we design for.",
+        image: "/images/research/core-wireless.png",
+      },
+      {
+        label: "Antenna Systems",
+        title: "Antenna Systems",
+        sub: "Small aperture, full performance.",
+        desc: "Multi-element arrays and software-defined impedance networks packed into handset-scale footprints.",
+        image: "/images/research/core-antenna.png",
+      },
+      {
+        label: "RF Engineering",
+        title: "RF Engineering",
+        sub: "Cleaner signal, less noise.",
+        desc: "Active feed structures and matching circuit layouts built for front-end noise reduction.",
+        image: "/images/research/core-rf.png",
+      },
+    ],
   },
   {
-    title: "Antenna Systems",
-    desc: "Small aperture design limits, multi-element arrays, and software-defined impedance networks.",
-    icon: Layers,
-  },
-  {
-    title: "RF Engineering",
-    desc: "Active feed structures, matching circuit layouts, and front-end noise reduction methodologies.",
-    icon: Cpu,
-  },
-  {
-    title: "Signal Processing",
-    desc: "Phase coherent aggregation, noise filtering, and software-defined matching logic.",
-    icon: Brain,
-  },
-  {
-    title: "Rural & Emergency Networks",
-    desc: "Targeted systems to restore link connectivity in disasters and fringe mountain and valley zones.",
-    icon: Globe,
-  },
-  {
-    title: "Future Technologies",
-    desc: "Early investigations into 6G topologies, non-terrestrial satellite-cellular integrations, and AI-assisted matching.",
-    icon: Search,
+    key: "systems",
+    label: "Systems & Vision",
+    color: "#0D9488",
+    overview: {
+      label: "Overview",
+      title: "Systems & Vision",
+      sub: "Where signal becomes intelligence.",
+      desc: "The processing, deployment, and forward-looking work that turns a clean signal into a connection that reaches further.",
+      image: "/images/research/systems-overview.png",
+    },
+    items: [
+      {
+        label: "Signal Processing",
+        title: "Signal Processing",
+        sub: "Coherence out of chaos.",
+        desc: "Phase coherent aggregation and software-defined matching logic tuned for weak-signal environments.",
+        image: "/images/research/systems-signal.png",
+      },
+      {
+        label: "Rural & Emergency Networks",
+        title: "Rural & Emergency Networks",
+        sub: "Signal where towers can't reach.",
+        desc: "Targeted systems built to restore link connectivity in disasters and fringe mountain and valley terrain.",
+        image: "/images/research/systems-rural.png",
+      },
+      {
+        label: "Future Technologies",
+        title: "Future Technologies",
+        sub: "Beyond today's bands.",
+        desc: "Early investigations into 6G topologies, non-terrestrial satellite-cellular integration, and AI-assisted matching.",
+        image: "/images/research/systems-future.png",
+      },
+    ],
   },
 ];
 
@@ -101,10 +159,8 @@ const processSteps = [
   },
 ];
 
-
 /* -------------------------------------------------------------------------- */
-/* Button System                                                              */
-/* Controlled minimum widths prevent text overflow across font renderers      */
+/* Button Styles                                                              */
 /* -------------------------------------------------------------------------- */
 
 const primaryButton =
@@ -117,7 +173,7 @@ const ctaButton =
   "inline-flex min-h-[50px] min-w-[160px] shrink-0 items-center justify-center gap-2.5 whitespace-nowrap rounded-xl bg-white px-8 py-4 text-xs font-bold font-mono uppercase tracking-[0.08em] leading-none text-[#0B0F19] shadow-lg transition-all duration-200 hover:bg-[#F6F7F9] hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]";
 
 /* -------------------------------------------------------------------------- */
-/* Section Heading                                                            */
+/* Section Heading Helper                                                     */
 /* -------------------------------------------------------------------------- */
 
 function SectionHeading({
@@ -125,27 +181,39 @@ function SectionHeading({
   title,
   description,
   center = false,
+  dark = false,
 }: {
   eyebrow: string;
   title: string;
   description?: string;
   center?: boolean;
+  dark?: boolean;
 }) {
   return (
     <div
-      className={`mb-12 max-w-2xl md:mb-14 ${center ? "mx-auto text-center" : ""
-        }`}
+      className={`mb-12 max-w-2xl md:mb-14 ${center ? "mx-auto text-center" : ""}`}
     >
-      <span className="inline-flex max-w-full items-center rounded-full border border-[#BFD3FE] bg-[#EFF4FF] px-4 py-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.18em] leading-none text-[#2563EB]">
+      <span
+        className={`inline-flex max-w-full items-center rounded-full px-4 py-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.18em] leading-none ${dark
+          ? "border border-blue-500/30 bg-blue-500/10 text-blue-400"
+          : "border border-[#BFD3FE] bg-[#EFF4FF] text-[#2563EB]"
+          }`}
+      >
         {eyebrow}
       </span>
 
-      <h2 className="mt-5 text-3xl font-extrabold leading-[1.12] tracking-tight text-[#0B0F19] md:text-4xl">
+      <h2
+        className={`mt-5 text-3xl font-extrabold leading-[1.12] tracking-tight md:text-4xl ${dark ? "text-white" : "text-[#0B0F19]"
+          }`}
+      >
         {title}
       </h2>
 
       {description && (
-        <p className="mt-5 text-base leading-8 text-[#5B6472] sm:text-lg">
+        <p
+          className={`mt-5 text-base leading-8 sm:text-lg ${dark ? "text-[#8A93A3]" : "text-[#5B6472]"
+            }`}
+        >
           {description}
         </p>
       )}
@@ -154,7 +222,7 @@ function SectionHeading({
 }
 
 /* -------------------------------------------------------------------------- */
-/* Hero Schematic                                                             */
+/* Hero Schematic Component                                                   */
 /* -------------------------------------------------------------------------- */
 
 function HeroSchematic() {
@@ -178,13 +246,12 @@ function HeroSchematic() {
           type="button"
           onClick={() => setActive((prev) => !prev)}
           aria-pressed={active}
-          className={`inline-flex min-h-[32px] min-w-[82px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border px-3.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wide leading-none transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] hover:scale-105 active:scale-95 ${active
+          className={`inline-flex min-h-[32px] min-w-[82px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border px-3.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wide leading-none transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] hover:scale-105 active:scale-95 cursor-pointer ${active
             ? "border-[#BFD3FE] bg-[#EFF4FF] text-[#2563EB]"
             : "min-w-[100px] border-[#F3C8C8] bg-[#FDF2F2] text-[#B42318]"
             }`}
         >
           <Sliders className="h-3 w-3 shrink-0" />
-
           <span>{active ? "Active" : "Bypassed"}</span>
         </button>
       </div>
@@ -199,12 +266,7 @@ function HeroSchematic() {
           role="img"
           aria-label="RF matching simulator schematic"
         >
-          <rect
-            width="500"
-            height="200"
-            fill="#FAFBFC"
-            rx="2"
-          />
+          <rect width="500" height="200" fill="#FAFBFC" rx="2" />
 
           {/* Antenna */}
           <g transform="translate(30, 70)">
@@ -215,12 +277,7 @@ function HeroSchematic() {
               strokeLinecap="round"
             />
 
-            <circle
-              cx="25"
-              cy="30"
-              r="4"
-              fill="#2563EB"
-            />
+            <circle cx="25" cy="30" r="4" fill="#2563EB" />
 
             <text
               x="0"
@@ -299,14 +356,7 @@ function HeroSchematic() {
 
           {/* RFIC */}
           <g transform="translate(420, 70)">
-            <rect
-              x="0"
-              y="0"
-              width="42"
-              height="58"
-              rx="1"
-              fill="#0B0F19"
-            />
+            <rect x="0" y="0" width="42" height="58" rx="1" fill="#0B0F19" />
 
             <text
               x="21"
@@ -324,19 +374,13 @@ function HeroSchematic() {
 
         {/* Reflection result */}
         <div className="mt-5 flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 border-t border-[#E4E7EC] pt-4 text-[11px] font-mono">
-          <span className="text-[#8A93A3]">
-            Reflection Loss (S11)
-          </span>
+          <span className="text-[#8A93A3]">Reflection Loss (S11)</span>
 
           <span
-            className={`shrink-0 whitespace-nowrap font-bold ${active
-              ? "text-[#2563EB]"
-              : "text-[#B42318]"
+            className={`shrink-0 whitespace-nowrap font-bold ${active ? "text-[#2563EB]" : "text-[#B42318]"
               }`}
           >
-            {active
-              ? "−18.6 dB · Optimal"
-              : "−3.2 dB · High Reflection"}
+            {active ? "−18.6 dB · Optimal" : "−3.2 dB · High Reflection"}
           </span>
         </div>
       </div>
@@ -345,14 +389,236 @@ function HeroSchematic() {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Main Page                                                                  */
+/* Research Focus Interactive Toggle                                         */
+/* MediaTek Products / Technology inspired layout                            */
+/* -------------------------------------------------------------------------- */
+
+function ResearchFocusToggle() {
+  const [activeGroup, setActiveGroup] = useState(0);
+  const [activeTab, setActiveTab] = useState(-1);
+
+  const group = focusGroups[activeGroup];
+
+  const current =
+    activeTab === -1 ? group.overview : group.items[activeTab];
+
+  const accent = group.color;
+
+  return (
+    <div className="mx-auto flex w-full max-w-[1504px] flex-col gap-4 sm:gap-5 md:gap-6">
+      {/* ============================================================ */}
+      {/* SECTION HEADER & GROUP SWITCHER                              */}
+      {/* ============================================================ */}
+
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center gap-3">
+          <span className="text-[12px] font-mono font-medium uppercase tracking-[0.18em] text-white">
+            RESEARCH FOCUS
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3 overflow-x-auto">
+          {focusGroups.map((g, i) => (
+            <div key={g.key} className="flex items-center gap-3">
+              {i > 0 && (
+                <span
+                  className="h-[24px] w-[2px] shrink-0"
+                  style={{
+                    backgroundColor: accent,
+                  }}
+                />
+              )}
+
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveGroup(i);
+                  setActiveTab(-1);
+                }}
+                aria-pressed={i === activeGroup}
+                className={`cursor-pointer whitespace-nowrap bg-transparent p-0 text-[17px] font-medium uppercase leading-none tracking-[-0.02em] transition-colors duration-200 ${
+                  i === activeGroup
+                    ? "text-white"
+                    : "text-[#8A8F96] hover:text-white"
+                }`}
+              >
+                {g.label}
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ============================================================ */}
+      {/* FEATURE CARD                                                 */}
+      {/* ============================================================ */}
+
+      <div className="relative h-auto lg:h-[360px] lg:min-h-[360px] lg:max-h-[360px] w-full overflow-hidden rounded-[24px] sm:rounded-[28px] bg-white shadow-2xl">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`${group.key}-${activeTab}`}
+            initial={{
+              opacity: 0,
+              y: 5,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: -5,
+            }}
+            transition={{
+              duration: 0.2,
+              ease: "easeOut",
+            }}
+            className="flex flex-col lg:grid lg:grid-cols-2 h-auto lg:h-[360px] min-h-0 w-full"
+          >
+            {/* ====================================================== */}
+            {/* TOP / LEFT PANEL (TEXT)                                */}
+            {/* ====================================================== */}
+
+            <div className="flex h-auto lg:h-[360px] min-h-0 min-w-0 flex-col justify-start pt-10 lg:justify-center lg:pt-0 bg-white py-10 px-10 sm:py-12 sm:px-14 lg:py-10 lg:pl-20 lg:pr-12 xl:pl-24 xl:pr-14">
+              <div className="w-full">
+                <div
+                  className="border-l-[4px] pl-6 sm:pl-7"
+                  style={{
+                    borderColor: accent,
+                  }}
+                >
+                  {/* ==================================================== */}
+                  {/* TITLE                                                */}
+                  {/* ==================================================== */}
+                  <h3
+                    className={`m-0 max-w-[620px] font-normal uppercase leading-[1.05] tracking-[-0.03em] text-[#0B0F19] ${
+                      activeTab === -1
+                        ? "text-[28px] sm:text-[34px] lg:text-[36px] xl:text-[38px]"
+                        : "text-[22px] sm:text-[26px] lg:text-[28px] xl:text-[30px]"
+                    }`}
+                  >
+                    {current.title}
+                  </h3>
+
+                  {/* ==================================================== */}
+                  {/* SUBTITLE                                             */}
+                  {/* ==================================================== */}
+                  {current.sub && (
+                    <p className="mt-3 mb-0 max-w-[570px] text-[14px] sm:text-[15px] font-medium leading-[1.4] text-[#5B6472]">
+                      {current.sub}
+                    </p>
+                  )}
+
+                  {/* ==================================================== */}
+                  {/* DESCRIPTION                                          */}
+                  {/* ==================================================== */}
+                  <p className="mt-2.5 mb-0 max-w-[610px] text-[13.5px] sm:text-[14.5px] lg:text-[15px] leading-[1.48] text-[#5B6472]">
+                    {current.desc}
+                  </p>
+
+                  {/* ==================================================== */}
+                  {/* LEARN MORE                                            */}
+                  {/* ==================================================== */}
+                  {activeTab !== -1 && (
+                    <Link
+                      href="/adaptive-wave"
+                      className="mt-5 inline-flex h-[38px] sm:h-[40px] items-center justify-center rounded-full px-5 sm:px-6 text-[10.5px] sm:text-[11px] font-bold uppercase tracking-[0.12em] text-white transition-opacity duration-200 hover:opacity-90 active:scale-[0.98]"
+                      style={{
+                        backgroundColor: accent,
+                      }}
+                    >
+                      Learn More
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* ====================================================== */}
+            {/* BOTTOM / RIGHT IMAGE                                    */}
+            {/* ====================================================== */}
+
+            <div className="relative h-[240px] sm:h-[290px] lg:h-[360px] min-h-0 w-full overflow-hidden bg-white">
+              <Image
+                src={current.image}
+                alt={current.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 752px"
+                className="object-contain object-center"
+                priority
+              />
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* ============================================================ */}
+      {/* CATEGORY NAVIGATION (SLIDES / TABS)                           */}
+      {/* ============================================================ */}
+
+      <div className="grid w-full grid-cols-2 gap-5 sm:grid-cols-4 lg:grid-cols-4 lg:gap-x-8">
+        {/* ============================================================ */}
+        {/* OVERVIEW                                                     */}
+        {/* ============================================================ */}
+        <button
+          type="button"
+          onClick={() => setActiveTab(-1)}
+          className="group flex min-h-[58px] w-full flex-col items-start border-t-[3px] pt-4 text-left transition-all duration-200 cursor-pointer"
+          style={{
+            borderColor:
+              activeTab === -1 ? accent : "rgba(255,255,255,0.2)",
+          }}
+        >
+          <span
+            className={`text-[14px] sm:text-[15px] font-semibold uppercase leading-[1.2] tracking-[-0.01em] transition-colors duration-200 ${
+              activeTab === -1
+                ? "text-white"
+                : "text-[#8A8F96] group-hover:text-white"
+            }`}
+          >
+            Overview
+          </span>
+        </button>
+
+        {/* ============================================================ */}
+        {/* CATEGORY ITEMS                                               */}
+        {/* ============================================================ */}
+        {group.items.map((item, i) => (
+          <button
+            key={item.label}
+            type="button"
+            onClick={() => setActiveTab(i)}
+            className="group flex min-h-[58px] w-full flex-col items-start border-t-[3px] pt-4 text-left transition-all duration-200 cursor-pointer"
+            style={{
+              borderColor:
+                activeTab === i ? accent : "rgba(255,255,255,0.2)",
+            }}
+          >
+            <span
+              className={`text-[14px] sm:text-[15px] font-semibold uppercase leading-[1.2] tracking-[-0.01em] transition-colors duration-200 ${
+                activeTab === i
+                  ? "text-white"
+                  : "text-[#8A8F96] group-hover:text-white"
+              }`}
+            >
+              {item.label}
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Main Home Page                                                             */
 /* -------------------------------------------------------------------------- */
 
 export default function Home() {
   return (
     <div className="relative flex min-h-screen flex-col bg-white">
       {/* ------------------------------------------------------------------ */}
-      {/* HERO                                                               */}
+      {/* HERO SECTION                                                       */}
       {/* ------------------------------------------------------------------ */}
 
       <section className="max-content-width relative z-10 w-full pt-10 pb-16 sm:pt-12 md:pt-14 lg:pt-16 md:pb-24">
@@ -385,10 +651,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.18 }}
               className="flex flex-wrap items-center gap-4"
             >
-              <Link
-                href="/adaptive-wave"
-                className={primaryButton}
-              >
+              <Link href="/adaptive-wave" className={primaryButton}>
                 <span>Explore Adaptive Wave</span>
                 <ArrowRight className="h-3.5 w-3.5 shrink-0" />
               </Link>
@@ -408,7 +671,7 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* STATS                                                               */}
+      {/* STATS SECTION                                                      */}
       {/* ------------------------------------------------------------------ */}
 
       <section className="max-content-width relative z-10 flex justify-center mt-4 mb-16 sm:mt-6 md:mt-8 md:mb-20">
@@ -451,7 +714,7 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* WHY GRAMWAVE                                                       */}
+      {/* WHY GRAMWAVE SECTION                                               */}
       {/* ------------------------------------------------------------------ */}
 
       <section className="max-content-width relative z-10 w-full py-16 md:py-20">
@@ -523,12 +786,8 @@ export default function Home() {
                 </div>
 
                 {card.link && (
-                  <Link
-                    href={card.link.href}
-                    className={inlineAction}
-                  >
+                  <Link href={card.link.href} className={inlineAction}>
                     <span>{card.link.label}</span>
-
                     <ArrowRight className="h-3.5 w-3.5 shrink-0" />
                   </Link>
                 )}
@@ -539,52 +798,12 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* RESEARCH FOCUS                                                      */}
+      {/* RESEARCH FOCUS (INTERACTIVE TOGGLE SECTION)                        */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="relative z-10 w-full border-y border-[#E4E7EC] bg-[#F6F7F9] py-16 md:py-20">
-        <div className="max-content-width">
-          <SectionHeading
-            eyebrow="Research Focus"
-            title="Where we spend our engineering hours"
-          />
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{
-              once: true,
-              margin: "-80px",
-            }}
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3"
-          >
-            {focusAreas.map((area, i) => {
-              const Icon = area.icon;
-
-              return (
-                <motion.div
-                  key={i}
-                  variants={itemVariants}
-                  className="flex h-full min-h-[170px] min-w-0 flex-col justify-between rounded-2xl border border-[#E4E7EC] bg-white p-6 sm:p-7 shadow-sm transition-all duration-300 hover:border-[#2563EB] hover:shadow-lg"
-                >
-                  <div className="min-w-0">
-                    <div className="mb-5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#BFD3FE] bg-[#EFF4FF]">
-                      <Icon className="h-5 w-5 text-[#2563EB]" />
-                    </div>
-
-                    <h3 className="mb-2.5 text-base font-bold tracking-tight text-[#0B0F19]">
-                      {area.title}
-                    </h3>
-
-                    <p className="text-sm leading-relaxed text-[#5B6472]">
-                      {area.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+      <section className="relative z-10 w-full border-y border-[#3a3a3a] bg-[#2D2D2D] py-10 sm:py-14 md:py-16">
+        <div className="max-content-width !px-12 sm:!px-16 md:!px-24">
+          <ResearchFocusToggle />
         </div>
       </section>
 
@@ -657,10 +876,7 @@ export default function Home() {
             </div>
 
             {/* CTA Button */}
-            <Link
-              href="/contact"
-              className={ctaButton}
-            >
+            <Link href="/contact" className={ctaButton}>
               <span>Get in Touch</span>
               <ArrowUpRight className="h-4 w-4 shrink-0" />
             </Link>
