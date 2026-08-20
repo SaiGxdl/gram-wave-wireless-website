@@ -177,12 +177,7 @@ function ProcessTimeline() {
   const progressPct = (activeStep / (processSteps.length - 1)) * 100;
 
   return (
-    <div
-      className="rounded-[10px] border border-[#E0E1FA] p-8 sm:p-10 md:p-12 pb-10 sm:pb-12 md:pb-14 shadow-[0_20px_40px_-18px_rgba(79,70,229,0.18)]"
-      style={{
-        background: "linear-gradient(160deg, #EEF2FF 0%, #F5F3FF 100%)",
-      }}
-    >
+    <div className="rounded-[10px] border border-[#E0E1FA] bg-white p-8 shadow-[0_20px_40px_-18px_rgba(15,23,42,0.15)] sm:p-10 sm:pb-12 md:p-12 md:pb-14">
       {/* Feature panel: image + copy */}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-[#E0E1FA] bg-white">
@@ -252,8 +247,8 @@ function ProcessTimeline() {
               >
                 <span
                   className={`mb-3.5 flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full border font-mono text-xs font-bold transition-all duration-300 ${isPassed
-                      ? "border-[#4F46E5] bg-[#4F46E5] text-white"
-                      : "border-[#C7C8ED] bg-white text-[#8A8DC7]"
+                    ? "border-[#4F46E5] bg-[#4F46E5] text-white"
+                    : "border-[#C7C8ED] bg-white text-[#8A8DC7]"
                     } ${isActive ? "scale-110" : "scale-100"}`}
                 >
                   {item.step}
@@ -568,7 +563,7 @@ function ResearchFocusToggle() {
       {/* FEATURE CARD                                                 */}
       {/* ============================================================ */}
 
-      <div className="relative h-auto lg:h-[360px] lg:min-h-[360px] lg:max-h-[360px] w-full overflow-hidden rounded-[24px] sm:rounded-[28px] bg-white shadow-2xl">
+      <div className="relative h-auto lg:h-[360px] lg:min-h-[360px] lg:max-h-[360px] w-full overflow-hidden rounded-[10px] sm:rounded-[10px] bg-white shadow-2xl">
         <AnimatePresence mode="wait">
           <motion.div
             key={`${group.key}-${activeTab}`}
@@ -635,10 +630,10 @@ function ResearchFocusToggle() {
                 {/* LEARN MORE                                            */}
                 {/* ==================================================== */}
                 {activeTab !== -1 && (
-                  <div className="mt-6 ml-44 sm:ml-32">
+                  <div className="mt-8 pl-52 sm:pl-40">
                     <Link
                       href="/adaptive-wave"
-                      className="inline-flex h-[38px] sm:h-[40px] items-center justify-center rounded-full px-6 text-[11px] font-bold uppercase tracking-[0.12em] text-white shadow-md transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+                      className="inline-flex h-[38px] sm:h-[42px] items-center justify-center rounded-[38px] px-8 text-[11px] font-bold uppercase tracking-[0.12em] text-white shadow-md transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
                       style={{
                         backgroundColor: accent,
                       }}
@@ -883,6 +878,7 @@ export default function Home() {
                   src={card.img}
                   alt={card.title}
                   fill
+                  priority
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-500 hover:scale-105"
                 />
@@ -931,7 +927,9 @@ export default function Home() {
           title="From simulation to validated hardware"
         />
 
-        <ProcessTimeline />
+        <div className="rounded-[32px] border border-[#E4E7EC] bg-[#EEF0F4] p-6 shadow-inner sm:p-10 md:p-14 lg:p-16">
+          <ProcessTimeline />
+        </div>
       </section>
 
       {/* ------------------------------------------------------------------ */}
