@@ -178,7 +178,7 @@ function ProcessTimeline() {
 
   return (
     <div
-      className="rounded-[20px] border border-[#E0E1FA] p-8 sm:p-10 md:p-12 pb-10 sm:pb-12 md:pb-14 shadow-[0_20px_40px_-18px_rgba(79,70,229,0.18)]"
+      className="rounded-[10px] border border-[#E0E1FA] p-8 sm:p-10 md:p-12 pb-10 sm:pb-12 md:pb-14 shadow-[0_20px_40px_-18px_rgba(79,70,229,0.18)]"
       style={{
         background: "linear-gradient(160deg, #EEF2FF 0%, #F5F3FF 100%)",
       }}
@@ -251,19 +251,17 @@ function ProcessTimeline() {
                 className="flex cursor-pointer flex-col items-start text-left"
               >
                 <span
-                  className={`mb-3.5 flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full border font-mono text-xs font-bold transition-all duration-300 ${
-                    isPassed
+                  className={`mb-3.5 flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full border font-mono text-xs font-bold transition-all duration-300 ${isPassed
                       ? "border-[#4F46E5] bg-[#4F46E5] text-white"
                       : "border-[#C7C8ED] bg-white text-[#8A8DC7]"
-                  } ${isActive ? "scale-110" : "scale-100"}`}
+                    } ${isActive ? "scale-110" : "scale-100"}`}
                 >
                   {item.step}
                 </span>
 
                 <span
-                  className={`text-[13px] font-bold ${
-                    isActive ? "text-[#0B0F19]" : "text-[#8A8DC7]"
-                  }`}
+                  className={`text-[13px] font-bold ${isActive ? "text-[#0B0F19]" : "text-[#8A8DC7]"
+                    }`}
                 >
                   {item.title}
                 </span>
