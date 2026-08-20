@@ -132,32 +132,150 @@ const focusGroups: FocusGroup[] = [
   },
 ];
 
+/* -------------------------------------------------------------------------- */
+/* Process Steps Data                                                         */
+/* -------------------------------------------------------------------------- */
+
 const processSteps = [
   {
     step: "01",
     title: "Simulate",
-    tool: "HFSS & CST Studio",
-    desc: "Full-wave electromagnetic simulation modeling scattering parameters across 700MHz–6GHz bands.",
+    desc: "We model how a signal behaves before a single component is built, testing performance across every scenario we design for.",
+    image: "/images/process/simulate.png",
+    imageLabel: "Simulation view",
   },
   {
     step: "02",
     title: "Validate",
-    tool: "Analytical & MATLAB",
-    desc: "Mathematical synthesis of complex-conjugate impedance matching bounds using Smith chart trajectories.",
+    desc: "Every design is checked against rigorous analytical models to confirm it holds up before it reaches hardware.",
+    image: "/images/process/validate.png",
+    imageLabel: "Validation model",
   },
   {
     step: "03",
     title: "Prototype",
-    tool: "RF PCB & Microstrip",
-    desc: "Handset-scale PCB layouts integrating tuning networks, compact patch feeds, and low-loss substrates.",
+    desc: "Validated designs become working hardware, built to the same tight tolerances found in production devices.",
+    image: "/images/process/prototype.png",
+    imageLabel: "Prototype hardware",
   },
   {
     step: "04",
     title: "Test",
-    tool: "Anechoic Chamber",
-    desc: "Calibrated gain pattern measurements, radiation efficiency, and noise figure verification.",
+    desc: "Finished prototypes are measured under controlled conditions to confirm real-world performance.",
+    image: "/images/process/test.png",
+    imageLabel: "Test environment",
   },
 ];
+
+/* -------------------------------------------------------------------------- */
+/* Process Timeline (Interactive)                                             */
+/* -------------------------------------------------------------------------- */
+
+function ProcessTimeline() {
+  const [activeStep, setActiveStep] = useState(0);
+  const current = processSteps[activeStep];
+  const progressPct = (activeStep / (processSteps.length - 1)) * 100;
+
+  return (
+    <div
+      className="rounded-[20px] border border-[#E0E1FA] p-8 sm:p-10 md:p-12 pb-10 sm:pb-12 md:pb-14 shadow-[0_20px_40px_-18px_rgba(79,70,229,0.18)]"
+      style={{
+        background: "linear-gradient(160deg, #EEF2FF 0%, #F5F3FF 100%)",
+      }}
+    >
+      {/* Feature panel: image + copy */}
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-[#E0E1FA] bg-white">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.step}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={current.image}
+                alt={current.imageLabel}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="flex flex-col justify-center py-2 md:py-6">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.step}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.25 }}
+            >
+              <h3 className="mb-3 text-3xl font-extrabold text-[#0B0F19] sm:text-4xl">
+                {current.title}
+              </h3>
+
+              <p className="max-w-[460px] text-base leading-relaxed text-[#5B6472] sm:text-lg">
+                {current.desc}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Timeline nav */}
+      <div className="relative mt-12 sm:mt-14 md:mt-16">
+        <div className="absolute left-0 right-0 top-[15px] h-px bg-[#D9DAF2]" />
+
+        <div
+          className="absolute left-0 top-[15px] h-px bg-[#4F46E5] transition-all duration-400"
+          style={{ width: `${progressPct}%` }}
+        />
+
+        <div className="relative grid grid-cols-2 gap-6 sm:grid-cols-4">
+          {processSteps.map((item, idx) => {
+            const isActive = idx === activeStep;
+            const isPassed = idx <= activeStep;
+
+            return (
+              <button
+                key={item.step}
+                type="button"
+                onClick={() => setActiveStep(idx)}
+                onMouseEnter={() => setActiveStep(idx)}
+                className="flex cursor-pointer flex-col items-start text-left"
+              >
+                <span
+                  className={`mb-3.5 flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full border font-mono text-xs font-bold transition-all duration-300 ${
+                    isPassed
+                      ? "border-[#4F46E5] bg-[#4F46E5] text-white"
+                      : "border-[#C7C8ED] bg-white text-[#8A8DC7]"
+                  } ${isActive ? "scale-110" : "scale-100"}`}
+                >
+                  {item.step}
+                </span>
+
+                <span
+                  className={`text-[13px] font-bold ${
+                    isActive ? "text-[#0B0F19]" : "text-[#8A8DC7]"
+                  }`}
+                >
+                  {item.title}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 /* -------------------------------------------------------------------------- */
 /* Button Styles                                                              */
@@ -436,11 +554,10 @@ function ResearchFocusToggle() {
                   setActiveTab(-1);
                 }}
                 aria-pressed={i === activeGroup}
-                className={`cursor-pointer whitespace-nowrap bg-transparent p-0 text-[17px] font-medium uppercase leading-none tracking-[-0.02em] transition-colors duration-200 ${
-                  i === activeGroup
-                    ? "text-white"
-                    : "text-[#8A8F96] hover:text-white"
-                }`}
+                className={`cursor-pointer whitespace-nowrap bg-transparent p-0 text-[17px] font-medium uppercase leading-none tracking-[-0.02em] transition-colors duration-200 ${i === activeGroup
+                  ? "text-white"
+                  : "text-[#8A8F96] hover:text-white"
+                  }`}
               >
                 {g.label}
               </button>
@@ -491,11 +608,10 @@ function ResearchFocusToggle() {
                   {/* TITLE                                                */}
                   {/* ==================================================== */}
                   <h3
-                    className={`m-0 max-w-[620px] font-normal uppercase leading-[1.05] tracking-[-0.03em] text-[#0B0F19] ${
-                      activeTab === -1
-                        ? "text-[28px] sm:text-[34px] lg:text-[36px] xl:text-[38px]"
-                        : "text-[22px] sm:text-[26px] lg:text-[28px] xl:text-[30px]"
-                    }`}
+                    className={`m-0 max-w-[620px] font-normal uppercase leading-[1.05] tracking-[-0.03em] text-[#0B0F19] ${activeTab === -1
+                      ? "text-[28px] sm:text-[34px] lg:text-[36px] xl:text-[38px]"
+                      : "text-[22px] sm:text-[26px] lg:text-[28px] xl:text-[30px]"
+                      }`}
                   >
                     {current.title}
                   </h3>
@@ -515,22 +631,24 @@ function ResearchFocusToggle() {
                   <p className="mt-2.5 mb-0 max-w-[610px] text-[13.5px] sm:text-[14.5px] lg:text-[15px] leading-[1.48] text-[#5B6472]">
                     {current.desc}
                   </p>
+                </div>
 
-                  {/* ==================================================== */}
-                  {/* LEARN MORE                                            */}
-                  {/* ==================================================== */}
-                  {activeTab !== -1 && (
+                {/* ==================================================== */}
+                {/* LEARN MORE                                            */}
+                {/* ==================================================== */}
+                {activeTab !== -1 && (
+                  <div className="mt-6 ml-44 sm:ml-32">
                     <Link
                       href="/adaptive-wave"
-                      className="mt-5 inline-flex h-[38px] sm:h-[40px] items-center justify-center rounded-full px-5 sm:px-6 text-[10.5px] sm:text-[11px] font-bold uppercase tracking-[0.12em] text-white transition-opacity duration-200 hover:opacity-90 active:scale-[0.98]"
+                      className="inline-flex h-[38px] sm:h-[40px] items-center justify-center rounded-full px-6 text-[11px] font-bold uppercase tracking-[0.12em] text-white shadow-md transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
                       style={{
                         backgroundColor: accent,
                       }}
                     >
                       Learn More
                     </Link>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -570,11 +688,10 @@ function ResearchFocusToggle() {
           }}
         >
           <span
-            className={`text-[14px] sm:text-[15px] font-semibold uppercase leading-[1.2] tracking-[-0.01em] transition-colors duration-200 ${
-              activeTab === -1
-                ? "text-white"
-                : "text-[#8A8F96] group-hover:text-white"
-            }`}
+            className={`text-[14px] sm:text-[15px] font-semibold uppercase leading-[1.2] tracking-[-0.01em] transition-colors duration-200 ${activeTab === -1
+              ? "text-white"
+              : "text-[#8A8F96] group-hover:text-white"
+              }`}
           >
             Overview
           </span>
@@ -595,11 +712,10 @@ function ResearchFocusToggle() {
             }}
           >
             <span
-              className={`text-[14px] sm:text-[15px] font-semibold uppercase leading-[1.2] tracking-[-0.01em] transition-colors duration-200 ${
-                activeTab === i
-                  ? "text-white"
-                  : "text-[#8A8F96] group-hover:text-white"
-              }`}
+              className={`text-[14px] sm:text-[15px] font-semibold uppercase leading-[1.2] tracking-[-0.01em] transition-colors duration-200 ${activeTab === i
+                ? "text-white"
+                : "text-[#8A8F96] group-hover:text-white"
+                }`}
             >
               {item.label}
             </span>
@@ -621,7 +737,7 @@ export default function Home() {
       {/* HERO SECTION                                                       */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="max-content-width relative z-10 w-full pt-10 pb-16 sm:pt-12 md:pt-14 lg:pt-16 md:pb-24">
+      <section className="max-content-width relative z-10 w-full pt-12 pb-20 sm:pt-16 md:pt-20 lg:pt-24 md:pb-28 lg:pb-32">
         <div className="grid min-w-0 grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="min-w-0 lg:col-span-6">
             <motion.h1
@@ -674,7 +790,7 @@ export default function Home() {
       {/* STATS SECTION                                                      */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="max-content-width relative z-10 flex justify-center mt-4 mb-16 sm:mt-6 md:mt-8 md:mb-20">
+      <section className="max-content-width relative z-10 flex justify-center my-12 sm:my-16 md:my-24">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -717,7 +833,7 @@ export default function Home() {
       {/* WHY GRAMWAVE SECTION                                               */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="max-content-width relative z-10 w-full py-16 md:py-20">
+      <section className="max-content-width relative z-10 w-full py-20 md:py-28 lg:py-32">
         <SectionHeading
           eyebrow="Why Gramwave"
           title="Signal shouldn't drop just because you're far from a tower"
@@ -801,7 +917,7 @@ export default function Home() {
       {/* RESEARCH FOCUS (INTERACTIVE TOGGLE SECTION)                        */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="relative z-10 w-full border-y border-[#3a3a3a] bg-[#2D2D2D] py-10 sm:py-14 md:py-16">
+      <section className="relative z-10 w-full border-y border-[#3a3a3a] bg-[#2D2D2D] py-16 sm:py-20 md:py-24 lg:py-28">
         <div className="max-content-width !px-12 sm:!px-16 md:!px-24">
           <ResearchFocusToggle />
         </div>
@@ -811,51 +927,20 @@ export default function Home() {
       {/* PROCESS (HOW WE WORK)                                              */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="max-content-width relative z-10 w-full py-16 md:py-20">
+      <section className="max-content-width relative z-10 w-full py-20 md:py-28 lg:py-32">
         <SectionHeading
           eyebrow="How We Work"
           title="From simulation to validated hardware"
         />
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {processSteps.map((item, idx) => (
-            <div
-              key={idx}
-              className="flex h-full min-h-[235px] min-w-0 flex-col justify-between rounded-2xl border border-[#E4E7EC] bg-white p-6 sm:p-7 shadow-sm transition-all hover:shadow-md"
-            >
-              <div className="min-w-0">
-                <span className="mb-4 block text-3xl font-extrabold font-mono text-[#D8DCE3]">
-                  {item.step}
-                </span>
-
-                <h3 className="text-base font-bold text-[#0B0F19]">
-                  {item.title}
-                </h3>
-
-                <span className="mt-2 mb-3 inline-flex max-w-full items-center rounded-md bg-[#EFF4FF] px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-[0.08em] leading-none text-[#2563EB]">
-                  {item.tool}
-                </span>
-
-                <p className="text-sm leading-relaxed text-[#5B6472]">
-                  {item.desc}
-                </p>
-              </div>
-
-              {idx < processSteps.length - 1 && (
-                <div className="mt-6 hidden justify-end text-[#D8DCE3] lg:flex">
-                  <ArrowRight className="h-4 w-4" />
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+        <ProcessTimeline />
       </section>
 
       {/* ------------------------------------------------------------------ */}
       {/* CTA COLLABORATE BANNER                                             */}
       {/* ------------------------------------------------------------------ */}
 
-      <section className="relative z-10 w-full border-t border-[#E4E7EC] bg-[#F6F7F9] py-20 md:py-28">
+      <section className="relative z-10 w-full border-t border-[#E4E7EC] bg-[#F6F7F9] py-24 md:py-32 lg:py-36">
         <div className="max-content-width">
           <div
             className="flex w-full flex-col items-center justify-between gap-10 rounded-2xl bg-[#0B0F19] shadow-2xl lg:flex-row lg:gap-16"
